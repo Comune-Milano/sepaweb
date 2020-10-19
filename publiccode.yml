@@ -1,0 +1,48 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.2'
+categories:
+  - erp
+  - it-asset-management
+description:
+  it:
+    features:
+      - Elenco dei moduli di SepaWeb
+    genericName: Sepa@Web
+    longDescription: Applicativo modulare per la gestione completa degli immobili di edilizia residenziale pubblica, comprendente le macro-funzionalità di
+        gestione anagrafica del patrimonio, gestione anagrafica dei soggetti locatari, gestione anagrafica degli impianti tecnici (centrali termiche, antincendio, sollevamento acque, ecc.), gestione bandi (ex R.R. Lombardia 1/2004 e s.m.i.), gestione contratti di locazione per diverse tipologie contrattuali (L. 392/78, L. 431/98, L.R. Lombardia 16/2016, L.R. Lombardia 27/2009, Usi Diversi da Abitativo e loro s.m.i.), gestione partite contabili per ciascuna tipologia contrattuale, gestione dei consuntivi e conguagli annuali per voci di servizi e spesa, gestione di budget per capitoli di spesa, gestione contratti di ciclo passivo, gestione segnalazioni utente, gestione agenda appuntamenti utente a sportello, gestione del ciclo manutentivo ordinario e straordinario sugli immobili e gli impianti tecnici, emissione bollettazione, gestione incassi e incassi manuali, gestione del processo di censimento anagrafico dei locatari E.R.P., gestione archivio documentale cartaceo, gestione condomini misti e loro processi, esportazione dati a beneficio della Banca Dati regionale Lombardia in formato XML
+    shortDescription: Applicativo per la gestione completa degli immobili di Edilizia Residenziale Pubblica, in Equo Canone o Usi Diversi da Abitativo
+developmentStatus: stable
+it:
+  conforme:
+    gdpr: false
+    lineeGuidaDesign: false
+    misureMinimeSicurezza: false
+    modelloInteroperabilita: false
+  countryExtensionVersion: '0.2'
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+legal:
+  license: EUPL-1.2
+  repoOwner: Comune di Milano
+localisation:
+  availableLanguages:
+    - it
+  localisationReady: false
+maintenance:
+  contacts:
+    - email: andrea.danese@comune.milano.it
+      name: Andrea Danese
+      phone: '+393479774029'
+  type: internal
+name: Sepa@Web
+platforms:
+  - web
+releaseDate: '2020-10-15'
+softwareType: standalone/backend
+url: 'https://github.com/Comune-Milano/sepaweb'
