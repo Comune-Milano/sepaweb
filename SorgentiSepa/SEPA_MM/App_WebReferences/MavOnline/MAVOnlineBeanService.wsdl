@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservice.pagamenti.infogroup.it/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="MAVOnlineBeanService" targetNamespace="http://webservice.pagamenti.infogroup.it/">
+    <types>
+        <xs:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://webservice.pagamenti.infogroup.it/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://webservice.pagamenti.infogroup.it/" version="1.0">
+            <xs:complexType name="richiestaMAVOnlineWS">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="capDebitore" type="xs:string"/>
+                    <xs:element minOccurs="0" name="causalePagamento" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cellulareDebitore" type="xs:string"/>
+                    <xs:element minOccurs="0" name="codiceDebitore" type="xs:string"/>
+                    <xs:element minOccurs="0" name="codiceEnte" type="xs:string"/>
+                    <xs:element minOccurs="0" name="codiceFiscaleDebitore" type="xs:string"/>
+                    <xs:element minOccurs="0" name="cognomeORagioneSocialeDebitore" type="xs:string"/>
+                    <xs:element minOccurs="0" name="emailDebitore" type="xs:string"/>
+                    <xs:element minOccurs="0" name="frazioneDebitore" type="xs:string"/>
+                    <xs:element minOccurs="0" name="idOperazione" type="xs:string"/>
+                    <xs:element minOccurs="0" name="importoPagamentoInCentesimi" type="xs:string"/>
+                    <xs:element minOccurs="0" name="indirizzoDebitore" type="xs:string"/>
+                    <xs:element minOccurs="0" name="informazioniAggiuntiveRichiesta" type="xs:string"/>
+                    <xs:element minOccurs="0" name="localitaDebitore" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nazioneDebitore" type="xs:string"/>
+                    <xs:element minOccurs="0" name="nomeDebitore" type="xs:string"/>
+                    <xs:element minOccurs="0" name="provinciaDebitore" type="xs:string"/>
+                    <xs:element minOccurs="0" name="scadenzaPagamento" type="xs:string"/>
+                    <xs:element minOccurs="0" name="tipoPagamento" type="xs:string"/>
+                    <xs:element minOccurs="0" name="userName" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="rispostaMAVOnlineWS">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="codiceRisultato" type="xs:string"/>
+                    <xs:element minOccurs="0" name="descrizioneRisultato" type="xs:string"/>
+                    <xs:element minOccurs="0" name="descrizioneTecnicaRisultato" type="xs:string"/>
+                    <xs:element minOccurs="0" name="informazioniAggiuntiveRisposta" type="xs:string"/>
+                    <xs:element minOccurs="0" name="numeroMAV" type="xs:string"/>
+                    <xs:element minOccurs="0" name="pdfDocumento" type="xs:string"/>
+                    <xs:element minOccurs="0" name="richiesta" type="tns:richiestaMAVOnlineWS"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ricercaMAVOnlineByMAVWS">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="codiceEnte" type="xs:string"/>
+                    <xs:element minOccurs="0" name="informazioniAggiuntiveRichiesta" type="xs:string"/>
+                    <xs:element minOccurs="0" name="numeroMAV" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="ricercaMAVOnlineByOpWS">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="codiceEnte" type="xs:string"/>
+                    <xs:element minOccurs="0" name="idOperazione" type="xs:string"/>
+                    <xs:element minOccurs="0" name="informazioniAggiuntiveRichiesta" type="xs:string"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </types>
+    <message name="MAVOnline_CreaMAVOnlineNoDocResponse">
+        <part name="return" type="tns:rispostaMAVOnlineWS">
+        </part>
+    </message>
+    <message name="MAVOnline_CreaMAVOnline">
+        <part name="RichiestaEmissioneMAV" type="tns:richiestaMAVOnlineWS">
+        </part>
+    </message>
+    <message name="MAVOnline_FindMAVOnlineByIdOperazione">
+        <part name="RicercaMAVOnlineByOp" type="tns:ricercaMAVOnlineByOpWS">
+        </part>
+    </message>
+    <message name="MAVOnline_CreaMAVOnlineNoDoc">
+        <part name="RichiestaEmissioneMAV" type="tns:richiestaMAVOnlineWS">
+        </part>
+    </message>
+    <message name="MAVOnline_FindMAVOnlineByNumeroMAV">
+        <part name="RicercaMAVOnlineByMAV" type="tns:ricercaMAVOnlineByMAVWS">
+        </part>
+    </message>
+    <message name="MAVOnline_CreaMAVOnlineResponse">
+        <part name="return" type="tns:rispostaMAVOnlineWS">
+        </part>
+    </message>
+    <message name="MAVOnline_FindMAVOnlineByNumeroMAVResponse">
+        <part name="return" type="tns:rispostaMAVOnlineWS">
+        </part>
+    </message>
+    <message name="MAVOnline_FindMAVOnlineByIdOperazioneResponse">
+        <part name="return" type="tns:rispostaMAVOnlineWS">
+        </part>
+    </message>
+    <portType name="MAVOnline">
+        <operation name="CreaMAVOnline" parameterOrder="RichiestaEmissioneMAV">
+            <input message="tns:MAVOnline_CreaMAVOnline">
+            </input>
+            <output message="tns:MAVOnline_CreaMAVOnlineResponse">
+            </output>
+        </operation>
+        <operation name="CreaMAVOnlineNoDoc" parameterOrder="RichiestaEmissioneMAV">
+            <input message="tns:MAVOnline_CreaMAVOnlineNoDoc">
+            </input>
+            <output message="tns:MAVOnline_CreaMAVOnlineNoDocResponse">
+            </output>
+        </operation>
+        <operation name="FindMAVOnlineByIdOperazione" parameterOrder="RicercaMAVOnlineByOp">
+            <input message="tns:MAVOnline_FindMAVOnlineByIdOperazione">
+            </input>
+            <output message="tns:MAVOnline_FindMAVOnlineByIdOperazioneResponse">
+            </output>
+        </operation>
+        <operation name="FindMAVOnlineByNumeroMAV" parameterOrder="RicercaMAVOnlineByMAV">
+            <input message="tns:MAVOnline_FindMAVOnlineByNumeroMAV">
+            </input>
+            <output message="tns:MAVOnline_FindMAVOnlineByNumeroMAVResponse">
+            </output>
+        </operation>
+    </portType>
+    <binding name="MAVOnlineBinding" type="tns:MAVOnline">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="CreaMAVOnline">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body namespace="http://webservice.pagamenti.infogroup.it/" use="literal"/>
+            </input>
+            <output>
+                <soap:body namespace="http://webservice.pagamenti.infogroup.it/" use="literal"/>
+            </output>
+        </operation>
+        <operation name="CreaMAVOnlineNoDoc">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body namespace="http://webservice.pagamenti.infogroup.it/" use="literal"/>
+            </input>
+            <output>
+                <soap:body namespace="http://webservice.pagamenti.infogroup.it/" use="literal"/>
+            </output>
+        </operation>
+        <operation name="FindMAVOnlineByIdOperazione">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body namespace="http://webservice.pagamenti.infogroup.it/" use="literal"/>
+            </input>
+            <output>
+                <soap:body namespace="http://webservice.pagamenti.infogroup.it/" use="literal"/>
+            </output>
+        </operation>
+        <operation name="FindMAVOnlineByNumeroMAV">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body namespace="http://webservice.pagamenti.infogroup.it/" use="literal"/>
+            </input>
+            <output>
+                <soap:body namespace="http://webservice.pagamenti.infogroup.it/" use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="MAVOnlineBeanService">
+        <port binding="tns:MAVOnlineBinding" name="MAVOnlineBeanPort">
+            <soap:address location="http://csnincp01.to.servizi.infogroup.it:8080/IncassonlineWS/MAVOnlineBeanService/MavOnLineService"/>
+        </port>
+    </service>
+</definitions>

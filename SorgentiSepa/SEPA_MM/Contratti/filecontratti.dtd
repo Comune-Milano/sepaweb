@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by sogeispa (sogeispa) -->
+<!--  ============================================================ -->
+<!--  MODULO: FileContratti.DTD - modello unico DTD previsto per
+      la trasmissione telematica dei contratti di locazione
+      VERSIONE:  3.1
+      DATA:      8 agosto 2008                                  -->
+<!-- ============================================================= -->
+<!--                       FILE CONTRATTI
+    L'unita' minima oggetto della trasmissione telematica e' 	
+    costituita dall'intero contratto e dai seguenti elementi
+    generali relativi all'intero file:
+      CodiceFiscaleFornitore: Codice fiscale del soggetto obbligato
+					alla registrazione(alfanumerico max 16 caratteri)
+      CodiceFiscaleConto: Codice fiscale del soggetto intestatario
+                              del conto corrente
+                              (alfanumerico max 16 caratteri)
+
+      CodiceUfficio: Codice dell'Ufficio delle Entrate o del
+                     Registro presso cui i soggetti obbligati
+                     richiedono la registrazione del contratto
+                     (alfanumerico 3 caratteri)
+      ValutaPrelievo: Valuta nella quale effettuare il prelievo
+                      (E = Euro)                         -->
+<!-- ============================================================= -->
+<!ELEMENT FileContratti (Contratto+)>
+<!ATTLIST FileContratti
+	CodiceFiscaleFornitore CDATA #REQUIRED
+	CodiceFiscaleConto CDATA #REQUIRED
+	CodiceUfficio CDATA #REQUIRED
+	ValutaPrelievo (E) #REQUIRED
+>
+<!--                                                               -->
+<!-- ============================================================= -->
+<!--                         CONTRATTO
+     Tutte le date (data di inizio e fine contratto, data di
+     stipula e date di nascita) debbono essere fornite in uno dei
+     seguenti formati:
+	  GG/MM/AAAA  oppure  GG-MM-AAAA  oppure  GGMMAAAA
+     valorizzando interamente il giorno ed il mese (2 caratteri
+     ciascuno) e l'anno (4 caratteri).
+     Es. per il 3 aprile 2001 fornire 03/04/2001 oppure 03-04-2001
+         oppure 03042001
+                                                                   -->
+<!-- ============================================================= -->
+<!-- TipoContratto: S = Scritto
+                    V = Verbale
+			  D = Contratto registrato ai sensi dell'art. 35, comma 10 - quinquies, del decreto
+                        legge n. 223 del 2006 senza allegazione del testo dello stesso oppure registrato ai sensi dell'art. 82, commi 14,
+                        15 del decreto 112/2008 senza allegazione del testo dello stesso
+                    B = Contratto registrato ai sensi dell'art. 82, commi 14 e 15 del decreto legge 25 giugno 2008, n.112, convertito 
+                        nella legge 6 agosto 2008, n. 133, senza allegazione del testo dello stesso 
+     IdContratto: Identificativo del contratto, attribuito
+                  dall'utente (14 caratteri alfanumerici)
+     SoggettoIVA: N = Contratto non soggetto ad I.V.A.
+                  S = Contratto soggetto ad I.V.A.
+     RegistrazioneEsente: N = Contratto soggetto alle imposte
+                              previste
+                          S = Contratto esente da imposte
+     ContrattoAgevolato: N = Contratto non agevolato
+                         S = Contratto con imponibile ridotto
+                             del 30% (L.431/98)
+     OggettoLocazione: 01 = Fondi rustici
+                       02 = Immobili urbani
+                       03 = Altri immobili
+	                 04 = Leasing di immobili abitativi
+                       05 = Leasing di immobili strumentali
+                       06 = Leasing di immobili strumentali con esercizio dellopzione per
+				    lassoggettamento all'IVA                                                                         
+	                 07 = Leasing di altro tipo
+                       08 = Locazione di fabbricati abitativi effettuata da costruttori
+                       09 = Locazione di immobili strumentali
+	                 10 = Locazione di immobili strumentali con esercizio dellopzione per
+				    lassoggettamento all'IVA
+                       11 = Locazione di immobili abitativi ex art 6 L 133/99 
+			     12 = Locazione di immobili strumentali ex art 6 L 133/99
+			     13 = Locazione di altri immobili ex art 6 L 133/99
+			     14 = Locazione di immobili abitativi ex art 10, c. 2, DPR 633/72
+			     15 = Locazione di immobili strumentali ex art 10, c. 2, DPR 633/72
+			     16 = Locazione di altri immobili ex art 10, c. 2, DPR 633/72
+			     		           
+
+ 
+
+
+ 
+     TipoPagamento:  P = Pagamento per la sola prima annualita'
+                     T = Pagamento per l'intera durata
+     ImportoRegistrazione: Imposta dovuta per la registrazione
+                           del contratto
+     ImportoBollo: Imposta di bollo dovuta per il contratto
+     ImportoSanzioniRegistrazione: Importo di eventuali sanzioni
+                                   riguardanti l'imposta di
+                                   registro
+     ImportoSanzioniBollo: Importo di eventuali sanzioni
+                           riguardanti l'imposta di bollo
+     ImportoInteressi: Importo di eventuali interessi
+     NumeroPagine: numero di pagine che costituiscono il contratto
+                   (3 caratteri numerici)                          -->
+<!-- ============================================================= -->
+<!--                    CONTRATTO                                  -->
+<!ELEMENT Contratto (TitoloContratto, ((Paragrafo+, Sezione*) | Sezione+))>
+<!ATTLIST Contratto
+	TipoContratto (S | V | D) #REQUIRED
+	IdContratto CDATA #REQUIRED
+	SoggettoIVA (S | N) #REQUIRED
+	RegistrazioneEsente (S | N) #REQUIRED
+	ContrattoAgevolato (S | N) #REQUIRED
+	OggettoLocazione (01 | 02 | 03 | 04 | 05 | 06 | 07 | 08 | 09 | 10 | 11| 12 | 13 | 14 | 15 | 16 ) #REQUIRED
+	TipoPagamento (P | T) #REQUIRED
+	ImportoRegistrazione CDATA #REQUIRED
+	ImportoBollo CDATA #IMPLIED
+	ImportoSanzioniRegistrazione CDATA #IMPLIED
+	ImportoSanzioniBollo CDATA #IMPLIED
+	ImportoInteressi CDATA #IMPLIED
+	NumeroPagine CDATA #IMPLIED
+>
+<!--                                                               -->
+<!--                    TITOLO CONTRATTO                           -->
+<!ELEMENT TitoloContratto (#PCDATA)>
+<!--                                                               -->
+<!--                    SEZIONE                                    -->
+<!ELEMENT Sezione (TitoloSezione, (Paragrafo+))>
+<!--                                                               -->
+<!--                   TITOLO PARAGRAFO                            -->
+<!ELEMENT TitoloSezione (#PCDATA)>
+<!--                                                               -->
+<!--                    PARAGRAFO                                  -->
+<!ELEMENT Paragrafo (#PCDATA | Canone | DataInizioContratto | DataFineContratto | DataStipula | Immobile | Locatore | Conduttore)*>
+<!--                                                               -->
+<!-- ============================================================= -->
+<!--                          CANONE                               -->
+<!-- ============================================================= -->
+<!--                    ELEMENTI DEL CANONE                        -->
+<!ELEMENT Canone (CanoneFisso | CanoneVariabile)>
+<!--                                                               -->
+<!-- ============================================================= -->
+<!--                          CANONE FISSO
+     TipoCanone: M = Indicazione del canone mensile
+                 A = Indicazione del canone annuale
+                 I = Indicazione del canone relativo all'intera
+                     durata del contratto 
+                 L = Indicazione del canone mensile - corrispettivo non interamente determinato
+                 K = Indicazione del canone annuale - corrispettivo non interamente determinato
+                 J = Indicazione del canone relativo all'intera 
+                     durata del contratto - corrispettivo non interamente determinato                                                   -->
+<!-- ============================================================= -->
+<!--                  ELEMENTI DEL CANONE FISSO                    -->
+<!ELEMENT CanoneFisso (#PCDATA | ImportoCanoneFisso)*>
+<!--                                                               -->
+<!--                   IMPORTO CANONE                              -->
+<!ELEMENT ImportoCanoneFisso (#PCDATA)>
+<!--                                                               -->
+<!ATTLIST ImportoCanoneFisso
+	ValutaCanoneFisso (L | E) #REQUIRED
+	TipoCanone (M | A | I | L | K | J) #REQUIRED
+>
+<!--                                                               -->
+<!-- ============================================================= -->
+<!--                          CANONE VARIABILE                     -->
+<!-- ============================================================= -->
+<!--                    CANONE VARIABILE                           -->
+<!ELEMENT CanoneVariabile (#PCDATA | ImportoCanoneVariabile)*>
+<!--                                                               -->
+<!--                   IMPORTO CANONE VARIABILE                    -->
+<!ELEMENT ImportoCanoneVariabile (#PCDATA)>
+<!--                                                               -->
+<!ATTLIST ImportoCanoneVariabile
+	ValutaCanoneVariabile (L | E) #REQUIRED
+	AnnualitaCanoneVariabile (1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10) #REQUIRED
+>
+<!--                                                               -->
+<!-- ============================================================= -->
+<!--                          DATI GENERALI                        -->
+<!-- ============================================================= -->
+<!--                   DATA INIZIO CONTRATTO                       -->
+<!ELEMENT DataInizioContratto (#PCDATA)>
+<!--                                                               -->
+<!--                   DATA FINE CONTRATTO                         -->
+<!ELEMENT DataFineContratto (#PCDATA)>
+<!--					                           -->
+<!--                   DATA STIPULA CONTRATTO                      -->
+<!ELEMENT DataStipula (#PCDATA)>
+<!--                                                               -->
+<!-- ============================================================= -->
+<!--                           IMMOBILE                            -->
+<!--  Vanno indicati i dati relativi all'ubicazione dell'immobile:
+      comune, provincia, indirizzo e dati catastali:
+      categoria e rendita catastale.
+      Qualora il fabbricato non sia ancora censito, indicare la
+      rendita proposta ovvero quella attribuita a fabbricati
+      simili gia' censiti (presunta)
+      la lunghezza massima dei dati richiesti e' la seguente:
+      comune:            40 caratteri alfanumerici
+      provincia:          2 caratteri alfanumerici
+      indirizzo:         40 caratteri alfanumerici
+      categoria:          3 caratteri alfanumerici
+      rendita catastale: 15 caratteri numerici                     -->
+<!-- ============================================================= -->
+<!--                    ELEMENTI DELL'IMMOBILE                     -->
+<!ELEMENT Immobile (#PCDATA | IndirizzoImmobile | CivicoImmobile | ComuneImmobile | ProvinciaImmobile | CategoriaCatastale | ImportoRenditaCatastale)*>
+<!--                                                               -->
+<!--                   INDIRIZZO IMMOBILE                          -->
+<!ELEMENT IndirizzoImmobile (#PCDATA)>
+<!--                                                               -->
+<!--                   CIVICO IMMOBILE                             -->
+<!ELEMENT CivicoImmobile (#PCDATA)>
+<!--                                                               -->
+<!--                   COMUNE IMMOBILE                             -->
+<!ELEMENT ComuneImmobile (#PCDATA)>
+<!--                                                               -->
+<!--                   PROVINCIA IMMOBILE                          -->
+<!ELEMENT ProvinciaImmobile (#PCDATA)>
+<!--                                                               -->
+<!--                  CATEGORIA CATASTALE IMMOBILE                 -->
+<!ELEMENT CategoriaCatastale (#PCDATA)>
+<!--                                                               -->
+<!--                   IMPORTO RENDITA IMMOBILE                    -->
+<!ELEMENT ImportoRenditaCatastale (#PCDATA)>
+<!--                                                               -->
+<!ATTLIST ImportoRenditaCatastale
+	ValutaRenditaCatastale (L | E) #REQUIRED
+>
+<!--                                                               -->
+<!-- ============================================================= -->
+<!--                         LOCATORE
+      la lunghezza massima dei dati richiesti  e' la seguente:
+      codice fiscale       16 caratteri alfanumerici
+      denominazione        60 caratteri alfanumerici
+      cognome              30 caratteri alfanumerici
+      nome                 30 caratteri alfanumerici
+      comune di nascita    25 caratteri alfanumerici
+      provincia di nascita  2 caratteri alfanumerici
+      domicilio fiscale:
+      comune               25 caratteri alfanumerici
+      provincia             2 caratteri alfanumerici
+      indirizzo            35 caratteri alfanumerici
+      numero civico         6 caratteri alfanumerici               -->
+<!-- ============================================================= -->
+<!ELEMENT Locatore (#PCDATA | CodiceFiscaleLocatore | DenominazioneLocatore | CognomeLocatore | NomeLocatore | DataNascitaLocatore | ComuneNascitaLocatore | ProvinciaNascitaLocatore | ComuneLocatore | ProvinciaLocatore | IndirizzoLocatore | CivicoLocatore)*>
+<!--                                                               -->
+<!ATTLIST Locatore
+	SessoLocatore (M | F | S) #REQUIRED
+>
+<!--                                                               -->
+<!--                   CODICE FISCALE LOCATORE                     -->
+<!ELEMENT CodiceFiscaleLocatore (#PCDATA)>
+<!--                                                               -->
+<!--                  DENOMINAZIONE LOCATORE                       -->
+<!ELEMENT DenominazioneLocatore (#PCDATA)>
+<!--                                                               -->
+<!--                     COGNOME LOCATORE                          -->
+<!ELEMENT CognomeLocatore (#PCDATA)>
+<!--                                                               -->
+<!--                       NOME LOCATORE                           -->
+<!ELEMENT NomeLocatore (#PCDATA)>
+<!--                                                               -->
+<!--                      DATA NASCITA LOCATORE                    -->
+<!ELEMENT DataNascitaLocatore (#PCDATA)>
+<!--                                                               -->
+<!--                  COMUNE NASCITA LOCATORE                      -->
+<!ELEMENT ComuneNascitaLocatore (#PCDATA)>
+<!--                                                               -->
+<!--                  PROVINCIA NASCITA LOCATORE                   -->
+<!ELEMENT ProvinciaNascitaLocatore (#PCDATA)>
+<!--                                                               -->
+<!--                    COMUNE LOCATORE                            -->
+<!ELEMENT ComuneLocatore (#PCDATA)>
+<!--                                                               -->
+<!--                  PROVINCIA LOCATORE                           -->
+<!ELEMENT ProvinciaLocatore (#PCDATA)>
+<!--                                                               -->
+<!--                   INDIRIZZO LOCATORE                          -->
+<!ELEMENT IndirizzoLocatore (#PCDATA)>
+<!--                                                               -->
+<!--                   CIVICO LOCATORE                             -->
+<!ELEMENT CivicoLocatore (#PCDATA)>
+<!--                                                               -->
+<!-- ============================================================= -->
+<!--                         CONDUTTORE                            -->
+<!-- ============================================================= -->
+<!ELEMENT Conduttore (#PCDATA | CodiceFiscaleConduttore | DenominazioneConduttore | CognomeConduttore | NomeConduttore | DataNascitaConduttore | ComuneNascitaConduttore | ProvinciaNascitaConduttore | ComuneConduttore | ProvinciaConduttore | IndirizzoConduttore | CivicoConduttore)*>
+<!--                                                               -->
+<!ATTLIST Conduttore
+	SessoConduttore (M | F | S) #REQUIRED
+>
+<!--                                                               -->
+<!--                   CODICE FISCALE CONDUTTORE                   -->
+<!ELEMENT CodiceFiscaleConduttore (#PCDATA)>
+<!--                                                               -->
+<!--                  DENOMINAZIONE CONDUTTORE                     -->
+<!ELEMENT DenominazioneConduttore (#PCDATA)>
+<!--                                                               -->
+<!--                     COGNOME CONDUTTORE                        -->
+<!ELEMENT CognomeConduttore (#PCDATA)>
+<!--                                                               -->
+<!--                       NOME CONDUTTORE                         -->
+<!ELEMENT NomeConduttore (#PCDATA)>
+<!--                                                               -->
+<!--                      DATA NASCITA CONDUTTORE                  -->
+<!ELEMENT DataNascitaConduttore (#PCDATA)>
+<!--                                                               -->
+<!--                  COMUNE NASCITA CONDUTTORE                    -->
+<!ELEMENT ComuneNascitaConduttore (#PCDATA)>
+<!--                                                               -->
+<!--                  PROVINCIA NASCITA CONDUTTORE                 -->
+<!ELEMENT ProvinciaNascitaConduttore (#PCDATA)>
+<!--                                                               -->
+<!--                    COMUNE CONDUTTORE                          -->
+<!ELEMENT ComuneConduttore (#PCDATA)>
+<!--                                                               -->
+<!--                  PROVINCIA CONDUTTORE                         -->
+<!ELEMENT ProvinciaConduttore (#PCDATA)>
+<!--                                                               -->
+<!--                   INDIRIZZO CONDUTTORE                        -->
+<!ELEMENT IndirizzoConduttore (#PCDATA)>
+<!--                                                               -->
+<!--                 CIVICO CONDUTTORE                             -->
+<!ELEMENT CivicoConduttore (#PCDATA)>
+<!--                                                               -->
+<!-- ==================== Fine CONTRATTO DTD ===================== -->
+<!--                                                               -->
+<!-- ================= Fine FILE CONTRATTI DTD ==================  -->

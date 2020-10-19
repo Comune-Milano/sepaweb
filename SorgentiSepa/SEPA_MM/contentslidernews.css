@@ -1,0 +1,51 @@
+.sliderwrapper{
+	position: relative; /*leave as is*/
+	overflow: hidden; /*leave as is*/
+	width: 910px; /*width of featured content slider*/
+	height: 215px;
+	background: #ffffff;
+}
+
+.contentdiv{
+	visibility: hidden;
+	position: absolute; 
+	left: 0;
+	top: 0;
+	background: #ffffff;
+	width: 910px;
+	height: 100%;
+
+}
+
+.contentdiv img{
+	margin: 0px;
+	padding: 0px;
+}
+
+.pagination{
+	width: 910px; /*Width of pagination DIV. Total width should equal slider's outer width (400+10+10=420)*/
+	height: 20px;
+	text-align: right;
+	background:#ffffff;
+	padding-top: 5px;
+	padding-right: 10px;
+}
+
+.pagination a{
+	float: right;
+	display: block;
+	height: 10px;
+	width: 10px;
+	padding: 0px;
+	margin-left: 5px;
+	background: url(images/sepa_paging_icon.png) no-repeat;
+	text-decoration: none; 
+}
+
+.pagination a img{
+	border: none;
+}
+
+.pagination a:hover, .pagination a.selected{
+	background: url(images/sepa_paging_current_icon.png) no-repeat;	
+}

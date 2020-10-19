@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- edited with XMLSpy v2007 (http://www.altova.com) by Administrator (EMBRACE) -->
+<!-- edited with SEPA@Web (http://www.sistemiesoluzionisrl.it) by MAX -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="SpeseInvalido">
+		<xs:complexType>
+			<xs:attribute name="SpeseInvalidoDescrizione" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Importo" type="xs:double" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RichiestaTrasmissione_DichiarazioniERP">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="ListaDichiarazioni" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="OraCreazione" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="IdentificatoreRichiesta" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="17"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="DescrizioneEnte" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="PIRELLI"/>
+						<xs:enumeration value="ROMEO"/>
+						<xs:enumeration value="GEFI"/>
+						<xs:enumeration value="COMUNE DI MILANO"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="DataCreazione" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="8"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="CodiceEnte" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="12"/>
+						<xs:enumeration value="11"/>
+						<xs:enumeration value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Reddito">
+		<xs:complexType>
+			<xs:attribute name="RedditoIRPEF" type="xs:double" use="required"/>
+			<xs:attribute name="ProventiAgrari" type="xs:double" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Persona">
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="Reddito"/>
+				<xs:element ref="AltriRedditi"/>
+				<xs:element ref="Detrazioni"/>
+				<xs:element ref="Mobiliare"/>
+				<xs:element ref="Immobiliare"/>
+				<xs:element ref="SpeseInvalido"/>
+				<xs:element ref="Convenzionale"/>
+			</xs:choice>
+			<xs:attribute name="IndennitaAcc" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="PercentualeInv" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Sesso" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="F"/>
+						<xs:enumeration value="M"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="TipoComponente" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="32"/>
+						<xs:enumeration value="30"/>
+						<xs:enumeration value="28"/>
+						<xs:enumeration value="26"/>
+						<xs:enumeration value="24"/>
+						<xs:enumeration value="22"/>
+						<xs:enumeration value="20"/>
+						<xs:enumeration value="18"/>
+						<xs:enumeration value="17"/>
+						<xs:enumeration value="16"/>
+						<xs:enumeration value="15"/>
+						<xs:enumeration value="14"/>
+						<xs:enumeration value="13"/>
+						<xs:enumeration value="12"/>
+						<xs:enumeration value="11"/>
+						<xs:enumeration value="10"/>
+						<xs:enumeration value="9"/>
+						<xs:enumeration value="8"/>
+						<xs:enumeration value="7"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Nome" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="DataNascita" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="8"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Cognome" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="CodiceFiscale" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="16"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="CodiceASL" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Mobiliare">
+		<xs:complexType>
+			<xs:attribute name="ImportoInvestimento" type="xs:double" use="required"/>
+			<xs:attribute name="DescrizioneIntermediario" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="CodiceIntermediario" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ListaDichiarazioni">
+		<xs:complexType>
+			<xs:sequence maxOccurs="unbounded">
+				<xs:element ref="Dichiarazione"/>
+			</xs:sequence>
+			<xs:attribute name="NumeroDichiarazioni" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Immobiliare">
+		<xs:complexType>
+			<xs:attribute name="ValoreIci" type="xs:double" use="required"/>
+			<xs:attribute name="TipoImmobile" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="PercentualeProprieta" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:double">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="MutuoResiduo" type="xs:double" use="required"/>
+			<xs:attribute name="FlagResidenza" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Dichiarazione">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Persona" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="TipoIndirizzoResidenzaDichiarante" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="12"/>
+						<xs:enumeration value="11"/>
+						<xs:enumeration value="10"/>
+						<xs:enumeration value="9"/>
+						<xs:enumeration value="8"/>
+						<xs:enumeration value="7"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="ISEE" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Uv" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="TotalePatrimonioMobiliare" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="TipoCanone" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="TelefonoDichiarante" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="15"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="StatoDichiarazione" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Rapporto" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="250"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="ProvinciaResidenzaDichiarante" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="ProvinciaNascitaDichiarante" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="ProtocolloMittente" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string"/>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Posizione" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="250"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Oa" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="NumeroComponenti" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="99"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="NumInvalidiSenzaIndennita" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="99"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="NumInvalidiConIndennita" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="99"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="NumInvalidi10066" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="99"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Note" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="200"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="LuogoPresentazione" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="30"/>
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="IndirizzoResidenzaDichiarante" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Ic" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="DataPresentazione" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="8"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="CodiceUtente" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="20"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="CodiceFiscaleDichiarante" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="16"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="CodiceComuneResidenzaDichiarante" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="CodiceComuneNascitaDichiarante" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="CivicoResidenzaDichiarante" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="ChiaveEnteEsterno" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="CategoriaCatastale" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="-1"/>
+						<xs:enumeration value="16"/>
+						<xs:enumeration value="15"/>
+						<xs:enumeration value="14"/>
+						<xs:enumeration value="13"/>
+						<xs:enumeration value="12"/>
+						<xs:enumeration value="11"/>
+						<xs:enumeration value="10"/>
+						<xs:enumeration value="9"/>
+						<xs:enumeration value="8"/>
+						<xs:enumeration value="7"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="CapResidenzaDichiarante" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="5"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="AnnoRiferimento" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Am" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="AlloggioSub" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="AlloggioScala" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="AlloggioPiano" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="AlloggioNumero" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="AlloggioMappale" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="AlloggioFoglio" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="MinoriCarico" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Data_Cessazione" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="8"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="ISE" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="ISP" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="ISR" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="PSE" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="VSE" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="LimitePatrimonioSuperato" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="2"/>
+						<xs:enumeration value="0"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="-1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Data_Decorrenza" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="8"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Detrazioni">
+		<xs:complexType>
+			<xs:attribute name="TipoDetrazione" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Detrazione" type="xs:double" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="Convenzionale">
+		<xs:complexType>
+			<xs:attribute name="Professione" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="15"/>
+						<xs:enumeration value="14"/>
+						<xs:enumeration value="13"/>
+						<xs:enumeration value="12"/>
+						<xs:enumeration value="11"/>
+						<xs:enumeration value="10"/>
+						<xs:enumeration value="9"/>
+						<xs:enumeration value="8"/>
+						<xs:enumeration value="7"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Pensione" type="xs:double" use="required"/>
+			<xs:attribute name="Oneri" type="xs:double" use="required"/>
+			<xs:attribute name="Occasionali" type="xs:double" use="required"/>
+			<xs:attribute name="Non_Imponibili" type="xs:double" use="required"/>
+			<xs:attribute name="Dom_Agr_Fab" type="xs:double" use="required"/>
+			<xs:attribute name="Dipendente" type="xs:double" use="required"/>
+			<xs:attribute name="Condizione" use="required">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:enumeration value="11"/>
+						<xs:enumeration value="10"/>
+						<xs:enumeration value="9"/>
+						<xs:enumeration value="8"/>
+						<xs:enumeration value="7"/>
+						<xs:enumeration value="6"/>
+						<xs:enumeration value="5"/>
+						<xs:enumeration value="4"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="Autonomo" type="xs:double" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AltriRedditi">
+		<xs:complexType>
+			<xs:attribute name="AltroReddito" type="xs:double" use="required"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

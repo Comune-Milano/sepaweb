@@ -1,0 +1,826 @@
+﻿body {
+    font-size: 9pt;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: Black;
+}
+
+input {
+    font-size: 9pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+textarea {
+    font-size: 9pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+input [type="text"] {
+    font-size: 9pt;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+input[type="image"] {
+    width: 20px;
+    height: 20px;
+}
+
+select {
+    font-size: 9pt;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a:link, a:visited {
+    color: #034af3;
+}
+
+a:hover {
+    /*color: #1d60ff;*/
+      color:#FBE3E4;
+    text-decoration: none;
+}
+
+a:active {
+    color: #034af3;
+}
+
+p {
+    margin-bottom: 10px;
+    line-height: 1.6em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.5em;
+    color: #666666;
+    font-variant: small-caps;
+    text-transform: none;
+    font-weight: 200;
+    margin-bottom: 0px;
+}
+
+h1 {
+    font-size: 1.6em;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h5, h6 {
+    font-size: 1em;
+}
+
+.rightColumn > h1, .rightColumn > h2, .leftColumn > h1, .leftColumn > h2 {
+    margin-top: 0px;
+}
+
+.page {
+    width: 960px;
+    background-color: #fff;
+    margin: 20px auto 0px auto;
+    border: 1px solid #496077;
+}
+
+.header {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    background: #4b6c9e;
+    width: 100%;
+}
+
+    .header h1 {
+        font-weight: 700;
+        margin: 0px;
+        padding: 0px 0px 0px 20px;
+        color: #f9f9f9;
+        border: none;
+        line-height: 2em;
+        font-size: 2em;
+    }
+
+.main {
+    padding: 0px 12px;
+    margin: 12px 8px 8px 8px;
+    min-height: 420px;
+}
+
+.leftCol {
+    padding: 6px 0px;
+    margin: 12px 8px 8px 8px;
+    width: 200px;
+    min-height: 200px;
+}
+
+.footer {
+    color: #4e5766;
+    padding: 8px 0px 0px 0px;
+    margin: 0px auto;
+    text-align: center;
+    line-height: normal;
+}
+/* FINESTRE DI DIALOGO */
+.dialA {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    position: fixed;
+    background-color: #868686;
+    z-index: 5;
+    filter: alpha(opacity='70');
+    opacity: 0.70;
+}
+
+.dialB {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    right: 0px;
+    position: fixed;
+    background-color: transparent;
+    z-index: 6;
+}
+
+.dialC {
+    width: 600px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    background-color: #ffffff;
+    z-index: 7;
+    margin-left: -300px;
+    margin-top: -300px;
+}
+
+.dialCMini {
+    width: 600px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    background-color: #ffffff;
+    z-index: 7;
+    margin-left: -300px;
+    margin-top: -150px;
+}
+
+.dialLargo {
+    width: 850px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    background-color: #ffffff;
+    z-index: 7;
+    margin-left: -425px;
+    margin-top: -300px;
+}
+
+.dialLargoTrasparent {
+    width: 850px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    background-color: transparent;
+    z-index: 7;
+    margin-left: -425px;
+    margin-top: -300px;
+}
+
+.dialCTransparent {
+    width: 600px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    background-color: transparent;
+    z-index: 7;
+    margin-left: -300px;
+    margin-top: -150px;
+}
+
+.dialCTransparentRisultati {
+    width: 600px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    background-color: transparent;
+    z-index: 7;
+    margin-left: -300px;
+    margin-top: -150px;
+}
+
+.tblDiv {
+    width: 100%;
+    background-color: #ffffff;
+}
+/* FINESTRE DI DIALOGO */
+fieldset {
+    margin: 0.4em 0px;
+    padding: 0.4em;
+    border: 1px solid #ccc;
+}
+
+    fieldset p {
+        margin: 2px 8px 6px 6px;
+    }
+
+    fieldset.login label, fieldset.register label, fieldset.changePassword label {
+        display: block;
+    }
+
+    fieldset label.inline {
+        display: inline;
+    }
+
+legend {
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 2px 4px 4px 4px;
+}
+
+input.textEntry {
+    width: 320px;
+    border: 1px solid #ccc;
+}
+
+input.passwordEntry {
+    width: 320px;
+    border: 1px solid #ccc;
+}
+
+div.accountInfo {
+    width: 42%;
+}
+
+.clear {
+    clear: both;
+}
+
+.title {
+    display: block;
+    float: left;
+    text-align: left;
+    width: auto;
+}
+
+.loginDisplay {
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    padding: 10px;
+    color: White;
+}
+
+    .loginDisplay a:link {
+        color: white;
+    }
+
+    .loginDisplay a:visited {
+        color: white;
+    }
+
+    .loginDisplay a:hover {
+        color: white;
+    }
+
+.failureNotification {
+    font-size: 1.2em;
+    color: Red;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.submitButton {
+    text-align: right;
+    padding-right: 10px;
+}
+
+.stLbDescrizione {
+    font-size: 9pt;
+    font-family: Arial;
+    margin: 0px;
+    padding: 0px;
+    color: Black;
+}
+
+.stNascondi {
+    display: none;
+}
+
+.CssMaiuscolo {
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.CssMinuscolo {
+    text-transform: lowercase;
+    text-align: left;
+}
+
+.CssNormal {
+    text-transform: none;
+    text-align: left;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+/* ***** MENU ***** */
+div.menu {
+    z-index: 1000;
+    position: relative;
+}
+
+div.hideSkiplink {
+    background-color: #EBE9ED;
+    width: 100%;
+}
+
+div.menu {
+    padding: 4px 0px 5px 10px;
+    font-size: 9pt;
+    font-weight: bold;
+}
+
+    div.menu ul {
+        text-align: left;
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        width: auto;
+    }
+
+        div.menu ul li a, div.menu ul li a:visited {
+            background-color: #507CD1;
+            border: 2px #EBE9ED solid;
+            color: White;
+            display: block;
+            line-height: 1.35em;
+            padding: 4px 16px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+            div.menu ul li a:hover {
+                background-color: #FFF5D3;
+                color: Black;
+                text-decoration: none;
+            }
+
+            div.menu ul li a:active {
+                background-color: #465c71;
+                color: #cfdbe6;
+                text-decoration: none;
+            }
+/* ***** MENU ***** */
+#divGenerale {
+    width: 100%;
+}
+
+#divGeneraleModal {
+    width: 100%;
+    /*background-image: url('../Immagini/Sfondo.png');
+    background-repeat: repeat-x;*/
+}
+
+#divHeader {
+    width: 100%;
+}
+
+.classebody {
+    font-size: 9pt;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: Black;
+    background-image: url('../Immagini/Sfondo.png');
+    background-repeat: repeat-x;
+}
+
+.classedivbody {
+    width: 100%;
+}
+
+#divBody {
+    width: 100%;
+    background-image: url('../Immagini/Sfondo.png');
+    background-repeat: repeat-x;
+}
+
+#divBodyModal {
+    width: 100%;
+}
+
+#divTitolo {
+    width: 100%;
+}
+
+#tbTitolo {
+    width: 100%;
+    height: 35px;
+    font-size: 15pt;
+    color: #1c2466;
+    font-family: Arial;
+    vertical-align: middle;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    top: 5px;
+}
+
+.TitoloModulo {
+    font-size: 15pt;
+    color: #1c2466;
+    font-family: Arial;
+    vertical-align: middle;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    top: 5px;
+    white-space: nowrap;
+    z-index: 500;
+}
+
+.TitoloModuloAlbero {
+    font-size: 8pt;
+    color: #1c2466;
+    font-family: Arial;
+    vertical-align: middle;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.MenuModulo {
+    z-index: 999;
+    position: relative;
+    top: 5px;
+}
+
+.TitoloH1 {
+    font-size: 10pt;
+    color: #1c2466;
+    font-family: Segoe UI;
+    vertical-align: middle;
+    font-weight: bold;
+    text-align: center;
+}
+
+.TitoloModuloMaster {
+    font-size: 25pt;
+    color: #1c2466;
+    font-family: Arial;
+    vertical-align: middle;
+    font-weight: bold;
+    text-align: center;
+}
+
+.TitoloOperatore {
+    font-size: 9pt;
+    color: #1c2466;
+    font-family: Arial;
+    vertical-align: middle;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.TitoloNomeOperatore {
+    font-size: 9pt;
+    color: #1c2466;
+    font-family: Arial;
+    vertical-align: middle;
+    text-decoration: underline;
+}
+
+.divTitoloText {
+    width: 100%;
+    height: 35px;
+    font-size: 12pt;
+    color: #1c2466;
+    font-family: Arial;
+    vertical-align: middle;
+    font-weight: bold;
+    text-align: center;
+    background-color: #cccccc;
+}
+
+#tbTitolo2 {
+    width: 100%;
+    height: 18px;
+    font-size: 12pt;
+    color: #1c2466;
+    font-family: Arial;
+    vertical-align: middle;
+    font-weight: bold;
+}
+
+#divFooter {
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.tableTabStrip {
+    margin: 10px;
+}
+
+.tableDivMenu {
+    margin-left: 10px;
+}
+/* ***** DATAGRID OPTIONS ***** */
+.itemDataGrid {
+    background-color: #D6D6D6;
+    color: Black;
+}
+
+.pagerDataGrid {
+    background-color: White;
+    color: #507CD1;
+    text-align: left;
+}
+
+.styleDataGrid {
+    border-color: #507CD1;
+    border-width: 1px;
+    font-size: 9pt;
+    font-family: Arial, Helvetica, sans-serif;
+    color: Black;
+    padding: 1px;
+}
+
+.alternateDataGrid {
+    background-color: #F7F7F7;
+}
+
+.headerDataGrid {
+    background-color: #507CD1;
+    font-weight: bold;
+    color: White;
+    text-align: center;
+}
+
+.footerDatagrid {
+    background-color: #507CD1;
+    font-weight: bold;
+    color: White;
+    text-align: center;
+}
+
+.styleDataGrid td {
+    padding: 2px;
+    border: solid 2px #FFF;
+}
+/* ***** DATAGRID OPTIONS ***** */
+.testoGrassettoMaiuscoloBlu {
+    font-size: 10pt;
+    font-family: Arial;
+    color: #416094;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+/* ***** TELERIK ***** */
+.rgAltRow, .rgRow {
+    cursor: pointer !important;
+}
+
+div.RadGrid_Web20 .rgSelectedRow {
+    background-color: Orange;
+    background-image: none;
+}
+
+div.RadGrid_Web20 .rgHoveredRow {
+    background-color: #FFFF99;
+    cursor: pointer;
+}
+
+#example .tabContainer {
+    width: 720px;
+}
+
+/* Photos */
+.tabContainer .photo-container {
+    float: left;
+}
+
+.tabContainer .details:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+@media screen\9
+{
+    html .tabContainer .details {
+        zoom: 1;
+    }
+}
+
+/* Data info */
+.tabContainer .details {
+}
+
+    .tabContainer .details .data-container ul label {
+        margin-right: 5px;
+        color: #888;
+        font-weight: 600;
+    }
+
+/*** First tab - doctors ***/
+.tabContainer .pageView1 .details {
+    padding: 30px;
+}
+
+/*Doctor's info*/
+.tabContainer .pageView1 .data-container {
+    width: 380px;
+    float: right;
+    line-height: 24px;
+    padding-top: 60px;
+}
+
+.tabContainer .data-container ul {
+    float: left;
+    margin: 0;
+    padding: 10px 0;
+    list-style-image: none;
+    list-style-type: none;
+}
+
+.tabContainer .data-container .data-label {
+    text-align: right;
+    border-right: 1px solid #ccc;
+    padding-right: 7px;
+}
+
+.tabContainer .data-container .data-info {
+    padding-left: 10px;
+}
+
+/*** Second tab - patiens ***/
+
+.tabContainer .pageView2:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+@media screen\9
+{
+    .tabContainer .pageView2 {
+        zoom: 1;
+    }
+}
+
+/* details */
+.tabContainer .pageView2 .details {
+    width: 315px;
+    height: 115px;
+    float: left;
+    margin: 20px 10px 0;
+    padding: 10px 10px 5px;
+}
+
+    .tabContainer .pageView2 .details li {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    .tabContainer .pageView2 .details label {
+        font-size: 12px;
+    }
+
+/* Patient's Photo */
+.tabContainer .pageView2 .photo-container {
+    margin-right: 20px;
+}
+
+.RadMultiPage {
+    background: #fff;
+    border-width: 0 1px 1px;
+    border-style: solid;
+    border-color: #828282;
+}
+
+.background-metro .RadMultiPage, .background-office2007 .RadMultiPage, .background-silk .RadMultiPage, .background-windows7 .RadMultiPage {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border: 0;
+}
+
+.background-black .RadMultiPage, .background-blackmetrotouch .RadMultiPage, .background-office2010black .RadMultiPage, .background-glow .RadMultiPage {
+    background: transparent;
+}
+
+.background-black .RadMultiPage {
+    border-color: #000;
+}
+
+.background-blackmetrotouch .RadMultiPage {
+    border-color: #4e4e4e;
+}
+
+.background-glow .RadMultiPage {
+    border-color: #111;
+}
+
+.background-metrotouch .RadMultiPage {
+    border-color: #cdcdcd;
+}
+
+.background-office2010black .RadMultiPage {
+    border-color: #5e5e5e;
+}
+
+.background-office2010blue .RadMultiPage {
+    border-color: #8ba0bc;
+}
+
+.background-office2010silver .RadMultiPage {
+    border-color: #a5abb2;
+}
+
+.background-outlook .RadMultiPage {
+    border-color: #003c74;
+}
+
+.background-web20 .RadMultiPage {
+    border-color: #416094;
+}
+
+.background-webblue .RadMultiPage {
+    border-color: #3d556c;
+}
+
+.numerico {
+    text-align: right;
+}
+/* ***** TELERIK ***** */
+/* ***** NEWS ***** */
+.wrapperNews {
+    margin: 10px auto;
+    width: 95%;
+}
+
+#ticker_container {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    background: #FFFFFF;
+    padding: 10px;
+    border: 1px solid #343434;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    overflow: auto;
+    position: relative;
+    left: -10px;
+}
+/* ***** NEWS ***** */
+.RadForm.rfdButton input.rfdDecorated[type="submit"] {
+    cursor: pointer;
+}
+
+.RadForm.rfdButton input.rfdDecorated[type="button"] {
+    cursor: pointer;
+}
+
+.tableTabFiltri {
+    margin: 5px;
+}
+
+.panelGrigliaTab {
+    width: 97%;
+    height: 97%;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    overflow: auto;
+}
+
+.tdNoWrapWidthBlock {
+    white-space: nowrap;
+    display: inline-block;
+    position: relative;
+    top: 3px;
+}
+
+.nascondi {
+    display: none;
+}

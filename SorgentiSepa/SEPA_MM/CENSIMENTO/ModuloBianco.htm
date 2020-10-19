@@ -1,0 +1,845 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+Modulo Stato Manutentivo
+</title>
+    
+    <style type="text/css">
+        .style1
+        {
+            width: 16px;
+        }
+        .style2
+        {
+            width: 19px;
+        }
+        .style3
+        {
+            height: 128px;
+        }
+        .style4
+        {
+            width: 21px;
+        }
+        .style5
+        {
+            width: 17px;
+        }
+        .style6
+        {
+            width: 22px;
+        }
+        .style8
+        {
+            width: 50px;
+        }
+        .style9
+        {
+            width: 23px;
+        }
+        .style10
+        {
+            width: 18px;
+        }
+        </style>
+    
+</head>
+<body>
+    <form name="form1" method="post" action="ModuloBianco.aspx" id="form1">
+    <div style="text-align: center">
+    <table style="width: 100%; height: 100%;">
+                    <tr>
+                        <td style="width : 40%; text-align :center;">
+                            <img alt="" src="MM_113_84.png" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width : 35%; font-family : Arial; font-size :8pt" >
+                            <br />
+                            <br />
+                            </td>
+                    </tr>
+                    <tr>
+                        <td style="width : 35%; font-family : Arial; font-size :8pt" >
+                            <br />
+        <span style="font-family: arial; font-size: 14pt; font-weight: bold" >VERIFICA STATO MANUTENTIVO</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width : 35%; font-family : Arial; font-size :12pt; font-weight: bold;" 
+                            align="left" >
+                            <br />
+                            $indirizzo$</td>
+                    </tr>
+                    </table>
+        <br />
+        <br />
+        <br />
+        <table style="width:100%;">
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;">
+                    Quartiere</td>
+                <td style="text-align: left" height="30" valign="bottom">
+                    &nbsp;$quartiere$<br />
+                    ________________________________</td>
+                <td style="text-align: left; font-family: arial; font-size: 12pt;" height="30">
+                    Condominio di proprietà interamente comunale</td>
+                <td style="text-align: left" height="30" valign="bottom">
+                    <span id="Label3" style="font-family:arial;font-size:10pt;">$condominio$<br />
+                    </span>________________________________</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    >
+                    Gestione diretta del riscaldamento</td>
+                <td style="text-align: left" height="30" valign="bottom">
+                    $diretta$
+                    <br />
+                    ________________________________</td>
+                <td style="text-align: left; font-family: arial; font-size: 12pt;"  height="30" 
+                    valign="bottom">
+                    Zona Decentramento:</td>
+                <td style="text-align: left; font-family: arial; font-size: 12pt;"  height="30" 
+                    valign="bottom">
+                    _________ (valore tra 1 e 9)</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="middle" >
+                    Unità Occupata Abusivamente</td>
+                <td align="left" >
+                                        <table style="width:24%;">
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style9">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;" 
+                                class="style8">
+                                SI</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style9">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;" 
+                                class="style8">
+                                NO</td>
+                        </tr>
+                        </table>
+                </td>
+                <td align="left" 
+                    style="text-align: left; font-family: arial; font-size: 12pt;" >
+                    Tipologia</td>
+                <td align="left" >
+                    <table style="width:95%;">
+                        <tr>
+                            <td  style="border: 1px solid #000000">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                Mono</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                Bi Piccolo</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                Bi Grande</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                Trilocale</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                Quattro o + Locali</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                Non Definito</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30" 
+                    valign="bottom">
+                    Numero di vani</td>
+                <td style="text-align: left" valign="bottom" >
+                    __________</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    Numero Servizi</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    _________</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30">
+                    Data sopralluogo di pre-sloggio</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    _________</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    Data sopralluogo di SLOGGIO</td>
+                <td style="text-align: left" valign="bottom" >
+                    __________</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30" 
+                    valign="middle">
+                    Data di SLOGGIO</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="middle" >
+                    __________</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Recuperata da 
+                    SEC<br />
+                    (eventuali note)</td>
+                <td style="text-align: left" >
+                                        <table style="width:33%;">
+                        <tr>
+                            <td  style="border: 1px solid #000000">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                SI</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                NO</td>
+                        </tr>
+                        </table>
+                    <br />
+                    __________________________________<br />
+                    <br />
+                    __________________________________</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30" 
+                    valign="middle">
+                    Struttura Dep. delle chiavi</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="middle" >
+                                        <table style="width:100%;">
+                        <tr>
+                            <td class="style10" >
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;" 
+                                class=>
+                                _________________________________________</td>
+                        </tr>
+                        </table>
+                </td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                                        <table style="width:100%;">
+                        <tr>
+                            <td class="style10" >
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;" >
+                                &nbsp;</td>
+                                </tr>
+                        </table>
+                </td>
+                <td style="text-align: left" >
+                                        &nbsp;</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30" 
+                    valign="middle">
+                    Strut. Competente in caso di lavori</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="middle" >
+                                        <table style="width:100%;">
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style10" >
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;" 
+                                class=>
+                                Comune di Milano</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style10" >
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;" >
+                                Direzione e Manutenzione Progr. Interventi
+                                </td>
+                                </tr>
+                        </table>
+                </td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                                        Data Consegna__________________</td>
+                <td style="text-align: left" >
+                                        Data Ripresa__________________</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    class="style3" >
+                    Stato dell&#39;Unità</td>
+                <td style="text-align: left" class="style3" >
+                    <table style="width:100%;">
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style1">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                AGIBILE</td>
+                        </tr>
+                        <tr>
+                            <td class="style1">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                        <table style="width:100%;">
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                (ri) ASSEGNABILE SENZA LAVORI</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                (ri) ASSEGNABILI CON LAVORI</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                NON RIASSEGNABILE</td>
+                        </tr>
+                        </table></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style1">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                NON AGIBILE</td>
+                        </tr>
+                        </table></td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    class="style3" >
+                    Data Disponibilità</td>
+                <td style="text-align: left" class="style3" >
+                    ______________ 
+                    <i style="text-align: left; font-family: ARIAL; font-size: 9pt;">
+                    <br />
+                    (presunta in caso di Stato Riassegnabile con lavori)</i></td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Data Quantificazione Addebiti</td>
+                <td style="text-align: left" >
+                    ______________</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Importo Trasporto Masserizie</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    ____________ (valori in Euro)</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Importo Danni</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    ____________ (valori in Euro)</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Note Addebiti</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    ____________________________________<br />
+                    <br />
+                    ____________________________________</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Tipo
+                    Porta</td>
+                <td style="text-align: left" >
+                    <table style="width:61%;">
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style4">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                PORTA BLINDATA</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style4">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                PORTA RINFORZATA</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style4">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                PORTA NORMALE</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style4">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                ALTRO TIPO</td>
+                        </tr>
+                        </table>
+                    <br />
+                    Note ____________________<br />
+                    <br />
+                </td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Indicare quali soluzioni per la messa in 
+                    <br />
+                    sicurezza si intendono realizzare</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    <br />
+                    <table style="width:100%;">
+                        <tr>
+                            <td>
+                                        <table style="width:97%;">
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 9pt;">
+                                GRATA PORTA</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 9pt;">
+                                GRATA FINESTRE</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 9pt;">
+                                PORTA BLINDATA</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 9pt;">
+                                PORTA RINFORZATA</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 9pt;">
+                                PORTA NORMALE</td>
+                        </tr>
+                        </table>
+                            </td>
+                            <td>
+                        <table style="width:97%;">
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 9pt;">
+                                PORTA DI ALTRO TIPO</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 9pt;">
+                                ALLARME</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 9pt;">
+                                LASTRATURA PORTE</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 9pt;">
+                                LASTRATUTA FINESTRE</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 9pt;">
+                                ALTRO</td>
+                        </tr>
+                        </table>
+                            </td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Destinato a portatori di handicap</td>
+                <td style="text-align: left" >
+                    <table style="width:34%;">
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style6">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                SI</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style6">
+                                &nbsp;</td>
+                            <td style="text-align: left; font-family: arial; font-size: 10pt;">
+                                NO</td>
+                        </tr>
+                        </table></td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Motivazioni obbligatorie, se non destinato 
+                    <br />
+                    a
+                    portatori di handicap</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    <br />
+                    ______________________________<br />
+                    <br />
+                    ______________________________</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30">
+                    Data Consegna chiavi</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    __________</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Consegnate a</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    <br />
+                    ______________________________<br />
+                    <br />
+                    ______________________________</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Data Ripresa chiavi</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30">
+                    __________</td>
+                <td style="text-align: left"  height="30">
+                    &nbsp;</td>
+                <td style="text-align: left"  height="30">
+                    &nbsp;</td>
+            </tr>
+         
+            
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    &nbsp;&nbsp;</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30">
+                    &nbsp;&nbsp;</td>
+                <td style="text-align: left"  height="30">
+                    &nbsp;</td>
+                <td style="text-align: left"  height="30">
+                    &nbsp;</td>
+            </tr>
+         
+            
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    &nbsp;&nbsp;</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30">
+                    &nbsp;&nbsp;</td>
+                <td style="text-align: left"  height="30">
+                    &nbsp;</td>
+                <td style="text-align: left"  height="30">
+                    &nbsp;</td>
+            </tr>
+         
+            
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    &nbsp;&nbsp;</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30">
+                    &nbsp;&nbsp;</td>
+                <td style="text-align: left"  height="30">
+                    &nbsp;</td>
+                <td style="text-align: left"  height="30">
+                    &nbsp;</td>
+            </tr>
+         
+            
+            </table>
+
+        <table style="width:100%;">
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;">                     
+                   
+                    Man. Programmate<td>
+                    <table style="width:100%;">
+                        <tr><td align="left">
+                        
+                    <table style="width: 75%; font-family: arial; font-size: 10pt;">
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                SISTEMAZIONI INFISSI</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                SOST. INFISSI</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                SIST. IMPIANTO ELETTRICO</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left" align="left">
+                                SOST. IMPIANTO ELETTRICO</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_4">
+                                SIST. IMPIANTO IDRAULICO CUCINA</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_5">
+                                SOST. IMPIANTO IDRAULICO CUCINA</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_6">
+                                SIST. IMPIANTO IDRAULICO BAGNO</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_7">
+                                SOST. IMPIANTO IDRAULICO BAGNO</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_8">
+                                SIST. SERRANDE</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_9">
+                                SOST. SERRANDE</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style2">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_10">
+                                SIST. PORTA INGRESSO</label></td>
+                        </tr>
+                        </table>
+                        </td>
+                            <td align="left">
+                    <table style="width: 75%; font-family: arial; font-size: 10pt;">
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_11">
+                                SOST. PORTA INGRESSO</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                SIST. INFISSI</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                SOST. INFISSI</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                SIST. IMPIANTO ELETTRICO</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                SOST. IMPIANTO ELETTRICO</td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_4">
+                                SIST. IMPIANTO IDRAULICO CUCINA</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_5">
+                                SOST. IMPIANTO IDRAULICO CUCINA</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_6">
+                                SIST. IMPIANTO IDRAULICO BAGNO</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_7">
+                                SOST. IMPIANTO IDRAULICO BAGNO</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_8">
+                                SIST. SERRANDE</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style5">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_9">
+                                SOST. SERRANDE</label></td>
+                        </tr>
+                        </table>
+                            </td>
+                            <td align="left">
+                    <table style="width: 75%; font-family: arial; font-size: 10.pt;">
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style1">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_10">
+                                SIST. PORTA INGRESSO</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style1">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_11">
+                                SOST. PORTA INGRESSO</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style1">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_12">
+                                SIST. SANITARI BAGNO</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style1">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_13">
+                                SOST. SANITARI BAGNO</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style1">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_14">
+                                SIST. LAVELLO CUCINA</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style1">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_15">
+                                SOS. LAVELLO CUCINA</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style1">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_16">
+                                SIST. CALORIFERI</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style1">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_17">
+                                SOST. CALORIFERI</label></td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style1">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_18">
+                                SIST. PAVIMENTI
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style1">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_19">
+                                SOST. PAVIMENTI
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  style="border: 1px solid #000000" class="style1">
+                                &nbsp;</td>
+                            <td style="font-family: arial; font-size: 9pt;text-align: left">
+                                <label for="chLavori_20">
+                                FORO AREAZIONE CUCINA</label></td>
+                        </tr>
+                    </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    &nbsp;</td>
+            </tr>
+            </table>
+
+        <table style="width:100%;">
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    Data presunta fine lavori</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30" 
+                    valign="bottom">
+                    &nbsp;___________</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    Note</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30" 
+                    valign="bottom">
+                    _________________________________________________________________________________________</td>
+            </tr>
+        </table>
+        <br />
+    
+    </div>
+    </form>
+</body>
+</html>

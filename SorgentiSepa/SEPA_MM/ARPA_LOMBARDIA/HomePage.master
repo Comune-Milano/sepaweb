@@ -1,0 +1,485 @@
+﻿<%@ Master Language="VB" CodeFile="HomePage.master.vb" Inherits="ARPA_LOMBARDIA_HomePage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+    <title>Sep@Web - Anagrafe Regionale del Patrimonio Abitativo Lombardia</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link href="../StandardTelerik/Style/Site.css?v=<%=version %>" rel="stylesheet" type="text/css" />
+    <script src="../StandardTelerik/Scripts/jsFunzioni.js?v=<%=version %>" type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/jsMessage.js?v=<%=version %>" type="text/javascript"></script>
+    <script src="js/jsFunzioni.js?v=<%=version %>" type="text/javascript"></script>
+    <telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
+        <script type="text/javascript">
+            function pageLoad(sender, eventArgs) {
+                initialize();
+            };
+            function loadingMenu() {
+                if (document.getElementById('optMenu').value == '0') {
+                    var currentLoadingPanel = $find("<%= RadAjaxLoadingPanel1.ClientID%>");
+                    var currentUpdatedControl = "<%= RestrictionZoneID.ClientID %>";
+                    currentLoadingPanel.show(currentUpdatedControl);
+                };
+            };
+            function onClientItemClickedMenu(sender, eventArgs) {
+                var menu = $find("<%= NavigationMenu.ClientID %>");
+                menu.close();
+                var elementoSelezionato = eventArgs.get_item().get_value();
+                if (elementoSelezionato == 'NuovaElaborazione') {
+                    openWindow(sender, eventArgs, 'MasterHomePage_RadWindowElaborazione');
+                } else if (elementoSelezionato == 'RicercaElaborazione') {
+                    Ricerca();
+                } else if (elementoSelezionato == 'NuovaElaborazioneOA') {
+                     openWindow(sender, eventArgs, 'MasterHomePage_RadWindowElaborazioneOA');
+                } else if (elementoSelezionato == 'RicercaElaborazioneOA') {
+                    RicercaOA();
+                } else if (elementoSelezionato == 'Parametri') {
+                    Parametri();
+                } else if (elementoSelezionato == 'ParametriGestore') {
+                    ParametriGestore();
+                } else if (elementoSelezionato == 'TipoProprietaFabbricato') {
+                    Gestione(1);
+                } else if (elementoSelezionato == 'TipologiaGestore') {
+                    Gestione(2);
+                } else if (elementoSelezionato == 'PrefissoIndirizzo') {
+                    Gestione(3);
+                } else if (elementoSelezionato == 'TipologiaPiano') {
+                    Gestione(4);
+                } else if (elementoSelezionato == 'SiNo') {
+                    Gestione(5);
+                } else if (elementoSelezionato == 'DestinazioniUso') {
+                    Gestione(6);
+                } else if (elementoSelezionato == 'StatoUnita') {
+                    Gestione(7);
+                } else if (elementoSelezionato == 'Log') {
+                    Log();
+                } else if (elementoSelezionato == 'TipoSoggettoOccupante') {
+                    Gestione(8);
+                } else if (elementoSelezionato == 'AreaISEE') {
+                    Gestione(9);
+                } else if (elementoSelezionato == 'FasciaAreaISEE') {
+                    Gestione(10);
+                } else if (elementoSelezionato == 'Sesso') {
+                    Gestione(11);
+                } else if (elementoSelezionato == 'TipologiaParentela') {
+                    Gestione(12);
+                } else if (elementoSelezionato == 'CondizioneLavorativa') {
+                    Gestione(13);
+                } else if (elementoSelezionato == 'NucleoFamiliare') {
+                    Gestione(14);
+                } else if (elementoSelezionato == 'Cittadinanza') {
+                    Gestione(15);
+                } else if (elementoSelezionato == 'Procedure') {
+                    Procedure();
+                };
+            };
+            function confirmCallbackFnElaborazione(arg) {
+                if (arg == true) {
+                    document.getElementById('btnConfermaElaborazione').click();
+                };
+            };
+            function proceduraNONValidazione(sender, args) {
+                apriConfirm('Vuoi procedere senza la validazione del file?', function callbackFn(arg) { if (arg == true) { clickElimina('btnConfermaElabNoValidazione') } }, 300, 150, 'Attenzione', null);
+            };
+            function clickElimina(btnToClik) {
+                loadingMenu();
+                var attr;
+                attr = $('#' + btnToClik).attr('onclick');
+                $('#' + btnToClik).attr('onclick', '__doPostBack("' + document.getElementById(btnToClik).name + '", "")');
+                document.getElementById(btnToClik).click();
+                $('#' + btnToClik).attr('onclick', attr);
+            };
+        </script>
+    </telerik:RadCodeBlock>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" onsubmit="validNavigation=true;return true;">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server" AsyncPostBackTimeout="720000">
+            <Scripts>
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+                <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
+            </Scripts>
+        </telerik:RadScriptManager>
+        <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+            <ClientEvents OnRequestStart="requestStartAjax" />
+            <AjaxSettings>
+                <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">
+                    <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="RestrictionZoneID" LoadingPanelID="RadAjaxLoadingPanel1" />
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+                <telerik:AjaxSetting AjaxControlID="RestrictionZoneID">
+                    <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="RestrictionZoneID" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+                <telerik:AjaxSetting AjaxControlID="PanelRadWindowElaborazione">
+                    <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="PanelRadWindowElaborazione" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+                <telerik:AjaxSetting AjaxControlID="PanelRadWindowElaborazioneOA">
+                    <UpdatedControls>
+                        <telerik:AjaxUpdatedControl ControlID="PanelRadWindowElaborazioneOA" LoadingPanelID="RadAjaxLoadingPanel1"></telerik:AjaxUpdatedControl>
+                    </UpdatedControls>
+                </telerik:AjaxSetting>
+            </AjaxSettings>
+        </telerik:RadAjaxManager>
+        <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server">
+        </telerik:RadAjaxLoadingPanel>
+        <telerik:RadWindowManager runat="server" ID="RadWindowManager1" VisibleStatusbar="False"
+            RestrictionZoneID="RestrictionZoneID" Behavior="Minimize, Pin, Maximize, Move, Resize">
+            <Localization Maximize="<%$ Resources:RadWindow, Maximize %>" Minimize="<%$ Resources:RadWindow, Minimize %>"
+                Close="<%$ Resources:RadWindow, Close %>" PinOff="<%$ Resources:RadWindow, PinOff %>"
+                PinOn="<%$ Resources:RadWindow, PinOn %>" Reload="<%$ Resources:RadWindow,Reload %>"
+                Restore="<%$ Resources:RadWindow, Restore%>" Cancel="<%$ Resources:RadWindow, Cancel %>"
+                OK="<%$ Resources:RadWindow, OK %>" No="<%$ Resources:RadWindow, No %>" Yes="<%$ Resources:RadWindow, Yes %>" />
+        </telerik:RadWindowManager>
+        <asp:Panel ID="RestrictionZoneID" runat="server" CssClass="demo-container size-narrow">
+            <div id="divGenerale">
+                <div id="divTop">
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 33%; vertical-align: top;" rowspan="2">
+                                <img alt="Logo Gestore" src="../immagini/LogoComuneC.gif" style="position: relative; top: -3px; left: 0px; height: 57px; width: 59px;" />
+                            </td>
+                            <td style="width: 34%;">
+                                <center>
+                                    <table>
+                                        <tr>
+                                            <td class="TitoloModulo">
+                                                <center>
+                                                    ANAGRAFE REGIONALE DEL PATRIMONIO ABITATIVO LOMBARDIA</center>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <center>
+                                                    <span id="testo" runat="server" clientidmode="Static" style="visibility: hidden;"><b>
+                                                        <span style="color: #006600; font-size: 0px;"></span></b></span>
+                                                </center>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </center>
+                            </td>
+                            <td style="width: 33%; text-align: right;" rowspan="2">
+                                <table align="right">
+                                    <tr>
+                                        <td style="width: 60px;" class="TitoloOperatore">Utente:
+                                        </td>
+                                        <td style="width: 10px;">&nbsp;
+                                        </td>
+                                        <td class="TitoloNomeOperatore" nowrap="nowrap">
+                                            <asp:Label ID="lblOperatore" runat="server" Text=""></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="TitoloOperatore" nowrap="nowrap" style="vertical-align: top;">Filiale:
+                                        </td>
+                                        <td>&nbsp;
+                                        </td>
+                                        <td class="TitoloNomeOperatore" style="vertical-align: top;" nowrap="nowrap">
+                                            <asp:Label ID="lblFiliale" runat="server" Text=""></asp:Label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="divBody">
+                    <div id="divHeader">
+                        <table style="width: 97%; height: 100%; vertical-align: bottom;">
+                            <tr>
+                                <td style="width: 97%;">
+                                    <telerik:RadMenu ID="NavigationMenu" runat="server" ResolvedRenderMode="Classic"
+                                        Style="z-index: 999;" OnClientItemClicked="onClientItemClickedMenu">
+                                        <Items>
+                                            <telerik:RadMenuItem runat="server" Text="Elaborazione ARPA" PostBack="false">
+                                                <Items>
+                                                    <telerik:RadMenuItem runat="server" Text="Nuova" Value="NuovaElaborazione" PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Ricerca" Value="RicercaElaborazione" PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                </Items>
+                                            </telerik:RadMenuItem>
+
+                                            <telerik:RadMenuItem runat="server" IsSeparator="True" Value="SepArpaOA" >
+                                            </telerik:RadMenuItem>
+
+                                            <telerik:RadMenuItem runat="server" Text="Elaborazione O.A." PostBack="false" Value="ElaborazioneOA">
+                                                <Items>
+                                                    <telerik:RadMenuItem runat="server" Text="Nuova" Value="NuovaElaborazioneOA" PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Ricerca" Value="RicercaElaborazioneOA" PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                </Items>
+                                            </telerik:RadMenuItem>
+
+                                            <telerik:RadMenuItem runat="server" IsSeparator="True">
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem runat="server" Text="Parametri" PostBack="false">
+                                                <Items>
+                                                    <telerik:RadMenuItem runat="server" Text="Elaborazione" Value="Parametri" PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Gestore" Value="ParametriGestore" PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                </Items>
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem runat="server" IsSeparator="True">
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem runat="server" Text="Gestione" PostBack="false">
+                                                <Items>
+                                                    <telerik:RadMenuItem runat="server" Text="Tipo Propriet&agrave; Fabbricato" Value="TipoProprietaFabbricato"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Tipologia del Gestore" Value="TipologiaGestore"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Prefisso Indirizzo" Value="PrefissoIndirizzo"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Tipologia Piano" Value="TipologiaPiano"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Sì/No" Value="SiNo" PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Destinazioni d'Uso" Value="DestinazioniUso"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Stato dell'Unit&agrave;" Value="StatoUnita"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Tipologia Soggetto Occupante" Value="TipoSoggettoOccupante"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Area ISEE" Value="AreaISEE"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Fascia Area ISEE" Value="FasciaAreaISEE"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Sesso" Value="Sesso"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Tipologia Parentela" Value="TipologiaParentela"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Condizione Lavorativa" Value="CondizioneLavorativa"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Nucleo Familiare" Value="NucleoFamiliare"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                    <telerik:RadMenuItem runat="server" Text="Cittadinanza" Value="Cittadinanza"
+                                                        PostBack="false">
+                                                    </telerik:RadMenuItem>
+                                                </Items>
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem runat="server" IsSeparator="True">
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem runat="server" Text="Log" Value="Log" PostBack="false">
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem runat="server" IsSeparator="True">
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem runat="server" Text="Procedure" Value="Procedure" PostBack="false">
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem runat="server" IsSeparator="True">
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem runat="server" Text="Home" Value="Home" PostBack="false" onclick="loadingMenu();TornaHome();">
+                                            </telerik:RadMenuItem>
+                                        </Items>
+                                        <ExpandAnimation Type="OutQuart" Duration="800" />
+                                        <CollapseAnimation Type="OutQuint" Duration="800" />
+                                    </telerik:RadMenu>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="width: 3px;">&nbsp;
+                            </td>
+                            <td>
+                                <div id="divTitolo" class="TitoloModulo">
+                                    <asp:ContentPlaceHolder ID="CPTitolo" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </div>
+                                <div id="divMenu">
+                                    <asp:ContentPlaceHolder ID="CPMenu" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </div>
+                                <div id="divContenuto" style="overflow: auto;" onscroll="document.getElementById('yPosFiliali').value = this.scrollTop;">
+                                    <asp:ContentPlaceHolder ID="CPContenuto" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </div>
+                                <div id="divFooter">
+                                    <asp:ContentPlaceHolder ID="CPFooter" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </div>
+                            </td>
+                            <td style="width: 3px;">&nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </asp:Panel>
+        <asp:HiddenField ID="HFSepaTest" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="optMenu" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="HFPathLock" runat="server" Value="" ClientIDMode="Static" />
+        <asp:HiddenField ID="HFBlockExit" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="yPosFiliali" runat="server" Value="0" ClientIDMode="Static" />
+        <telerik:RadWindow ID="RadWindowElaborazione" runat="server" CenterIfModal="true"
+            Modal="true" Width="400px" Height="200px" VisibleStatusbar="false" Title="Nuova Elaborazione"
+            Behaviors="Move" RestrictionZoneID="RestrictionZoneID" ReloadOnShow="True" ShowContentDuringLoad="False">
+            <ContentTemplate>
+                <asp:Panel runat="server" ID="PanelRadWindowElaborazione" Style="height: 100%;">
+                    <br />
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="font-size: 9pt;">
+                                <table>
+                                    <tr id="trAnnoElaborazione" runat="server">
+                                        <td>Anno:
+                                        </td>
+                                        <td style="width: 10px;">&nbsp;
+                                        </td>
+                                        <td>
+                                            <telerik:RadComboBox ID="ddlAnnoElaborazione" runat="server" Width="150px" ResolvedRenderMode="Classic"
+                                                HighlightTemplatedItems="true" EnableLoadOnDemand="true" AutoPostBack="true">
+                                            </telerik:RadComboBox>
+                                        </td>
+                                        <td style="width: 10px;">&nbsp;
+                                        </td>
+                                        <td>
+                                            <asp:Image ID="imgAlert" runat="server" ImageUrl="../StandardTelerik/Immagini/Alert.gif"
+                                                Visible="false" />
+                                        </td>
+                                        <td>&nbsp;
+                                        </td>
+                                        <td>
+                                            <asp:Label ID="lblAlert" runat="server" Text="Per questo anno esiste già una elaborazione."
+                                                Visible="false" Font-Italic="True"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7">
+                                            <asp:CheckBox ID="cbDatiNonAccatastati" runat="server" Text="UI non accatastate per dati mancanti." />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                <br />
+                                <br />
+                                <table align="right">
+                                    <tr>
+                                        <td>
+                                            <telerik:RadButton ID="btnNuovaElaborazione" runat="server" Text="Avvia Nuova Elaborazione"
+                                                ToolTip="Avvia Nuova Elaborazione">
+                                            </telerik:RadButton>
+                                        </td>
+                                        <td style="width: 10px;">&nbsp;
+                                        </td>
+                                        <td>
+                                            <telerik:RadButton ID="btnAnnullaNuovaElaborazione" runat="server" Text="Annulla"
+                                                ToolTip="Annulla e Esci" AutoPostBack="false" OnClientClicked="closeNuovaElaborazione">
+                                            </telerik:RadButton>
+                                        </td>
+                                        <td style="width: 10px;">&nbsp;
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+            </ContentTemplate>
+        </telerik:RadWindow>
+        <telerik:RadWindow ID="RadWindowElaborazioneOA" runat="server" CenterIfModal="true"
+            Modal="true" Width="400px" Height="200px" VisibleStatusbar="false" Title="Nuova Elaborazione"
+            Behaviors="Move" RestrictionZoneID="RestrictionZoneID" ReloadOnShow="True" ShowContentDuringLoad="False">
+            <ContentTemplate>
+                <asp:Panel runat="server" ID="PanelRadWindowElaborazioneOA" Style="height: 100%;">
+                    <br />
+                    <table style="width: 100%;">
+                        <tr>
+                            <td style="font-size: 9pt;">
+                                <table>
+                                    <tr id="tr1" runat="server">
+                                        <td>Azione:
+                                        </td>
+                                        <td style="width: 10px;">&nbsp;
+                                        </td>
+                                        <td>
+                                            <telerik:RadComboBox ID="cmbAzione" runat="server" Width="150px" ResolvedRenderMode="Classic"
+                                                HighlightTemplatedItems="true" EnableLoadOnDemand="true" AutoPostBack="false">
+                                                <Items>
+                                                    <telerik:RadComboBoxItem Value="I" text="Inserimento" />
+                                                    <telerik:RadComboBoxItem Value="M" text="Modifica" />
+                                                </Items>
+                                            </telerik:RadComboBox>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: right;">
+                                <br />
+                                <br />
+                                <table align="right">
+                                    <tr>
+                                        <td>
+                                            <telerik:RadButton ID="btnAvviaElaborazioneOA" runat="server" Text="Avvia Nuova Elaborazione"
+                                                ToolTip="Avvia Nuova Elaborazione">
+                                            </telerik:RadButton>
+                                        </td>
+                                        <td style="width: 10px;">&nbsp;
+                                        </td>
+                                        <td>
+                                            <telerik:RadButton ID="btnEsciElaborazioneOA" runat="server" Text="Annulla"
+                                                ToolTip="Annulla e Esci" AutoPostBack="false" OnClientClicked="closeNuovaElaborazioneOA">
+                                            </telerik:RadButton>
+                                        </td>
+                                        <td style="width: 10px;">&nbsp;
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+            </ContentTemplate>
+        </telerik:RadWindow>
+        <div style="display: none;">
+            <asp:Button ID="btnConfermaElaborazione" runat="server" ClientIDMode="Static" OnClientClick="loadingMenu();" />
+            <asp:Button ID="btnConfermaElabNoValidazione" runat="server" ClientIDMode="Static"
+                OnClientClick="loadingMenu();" />
+        </div>
+        <telerik:RadNotification ID="RadNotificationNote" runat="server" Title="Sep@Com"
+            Height="85px" Animation="Fade" EnableRoundedCorners="true" EnableShadow="true"
+            AutoCloseDelay="3500" Position="BottomRight" OffsetX="-30" OffsetY="-70" ShowCloseButton="true">
+        </telerik:RadNotification>
+        <script type="text/javascript">
+            function initialize() {
+                if (document.getElementById('HFSepaTest').value != '0') {
+                    ParametroAmbiente();
+                };
+                validNavigation = false;
+            };
+            setTimeout(function () { window.focus(); }, 60000);
+        </script>
+    </form>
+    <script src="../StandardTelerik/Scripts/gestioneDimensioniPaginaTelerik.js?v=<%=version %>"
+        type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/jsFunzioniLock.js?v=<%=version %>" type="text/javascript"></script>
+</body>
+</html>

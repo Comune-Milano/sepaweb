@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<acquisizione_avviso>
+	<informazioni_banca>
+		<codice_sia>$sia$</codice_sia>
+		<codice_servizio>$servizio$</codice_servizio>
+		<codice_sottoservizio>$sottoservizio$</codice_sottoservizio>
+		<numero_lista modificabile="N">$lista$</numero_lista>
+	</informazioni_banca>
+	<informazioni_debitore>
+		<codice_fiscale_debitore modificabile="N">$cfdebitore$</codice_fiscale_debitore>
+		<codice_debitore modificabile="N">$codicedebitore$</codice_debitore>
+		<anagrafica_debitore modificabile="N">$debitore$</anagrafica_debitore>
+		<continuazione_anagrafica modificabile="N">$presso$</continuazione_anagrafica>
+		<indirizzo_debitore modificabile="N">$indirizzo$</indirizzo_debitore>
+		<cap_debitore modificabile="N">$cap$</cap_debitore>
+		<localita_debitore modificabile="N">$citta$</localita_debitore>
+		<provincia_debitore modificabile="N">$provincia$</provincia_debitore>
+		<email_debitore modificabile="N">$mail$</email_debitore>
+	</informazioni_debitore>
+	<informazioni_pagamento>
+		<importo modificabile="N">$importo$</importo>
+		<scadenza modificabile="N">$scadenza$</scadenza>
+		<identificativo_disposizione>$identificativo$</identificativo_disposizione>
+		<causale_bollettino modificabile="S">$causale$</causale_bollettino>
+	</informazioni_pagamento>
+</acquisizione_avviso>
+

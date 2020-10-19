@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Items>
+    <Item Text="        Blu" Value="Blu" ImageUrl="Immagini/Ball-blue-128.png" />
+    <Item Text="        Bianco" Value="Bianco" ImageUrl="Immagini/Ball-white-128.png" />
+    <Item Text="        Verde" Value="Verde" ImageUrl="Immagini/Ball-green-128.png" />
+    <Item Text="        Giallo" Value="Giallo" ImageUrl="Immagini/Ball-yellow-128.png" />
+    <Item Text="        Rosso" Value="Rosso" ImageUrl="Immagini/Ball-red-128.png" />
+</Items>

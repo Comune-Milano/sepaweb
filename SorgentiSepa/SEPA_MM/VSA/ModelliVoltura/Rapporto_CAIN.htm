@@ -1,0 +1,746 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Rapporto Sintetico CAIN</title>
+    <style type="text/css">
+        .LeftNormale
+        {
+            font-family: Arial;
+            font-size: 12pt;
+            text-align: justify;
+        }
+        .style1
+        {
+            height: 23px;
+        }
+    </style>
+</head>
+<body>
+    <table style="width: 100%;" cellpadding="3">
+        <tr>
+            <td align='center' style="font-weight: bold; font-size: 22px; font-family: Arial">
+                Cambio Intestazione
+            </td>
+        </tr>
+        <tr>
+            <td align='center' style="font-weight: bold; font-size: 14px; font-family: Arial">
+                Richiesta di cambio intestazione
+            </td>
+        </tr>
+        <tr>
+            <td align='center' style="font-size: 14px; font-family: Arial">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td align='center' style="font-size: 14px; font-family: Arial">
+                Domanda PG: $pg_dom$ del $dataPres$
+            </td>
+        </tr>
+        <tr>
+            <td align='center' style="font-size: 14px; font-family: Arial">
+                Codice UI: $codUI$ - Nominativo: $intestatario$
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td align='left' style="font-weight: bold; font-size: 16px; font-family: Arial">
+                Dati anagrafici e gestionali
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td align='justify' style="font-size: 16px; font-family: Arial; background-color: #FFFFCC;
+                text-align: justify; line-height: normal;">
+                Nominativo: $intestatario$, tipo UI $tipoUI$, indirizzo $indirizzo$, civico $numcivico$
+                - CAP $cap$, Localita $localita$, Interno $numalloggio$, Proprietà Comune di Milano,
+                Superficie $supMQ$, Vani $numVani$, piano $piano$, scala $scala$, N.componenti $numComp$,
+                Cod.fiscale $codFiscINT$, occ.abus. $occupabus$, gest.condom. $condominio$, gest.
+                autonoma $autogestione$, n.contratto $codcontratto$, data inizio locazione $datadecorr$,
+                tipo contratto $tipocontr$
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr style="background-color: #CCCCFF" class="LeftNormale">
+            <td width="400px">
+                Fase di Ricezione
+            </td>
+            <td>
+                Presa in carico il $dataPres$ da $referente$.
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Modalita di Presentazione
+            </td>
+            <td>
+                <b>$modPres$</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2" style="font-weight: bold; font-size: 16px; font-family: Arial;
+                color: #0000FF;">
+                Selezione del subentrante
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Subentrante
+            </td>
+            <td>
+                <b>$richiedente$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Data Nascita
+            </td>
+            <td>
+                <b>$dataNasc$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Comune Nascita
+            </td>
+            <td>
+                <b>$comunasc$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Provincia o nazione estera di nascita
+            </td>
+            <td>
+                <b>$provnascita$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Cittadinanza
+            </td>
+            <td>
+                <b>$cittadinanza$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Cod. Fiscale
+            </td>
+            <td>
+                <b>$codFisc$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Tipo documento d'identità
+            </td>
+            <td>
+                <b>$tipoDoc$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Numero Documento
+            </td>
+            <td>
+                <b>$numDoc$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Data Rilascio
+            </td>
+            <td>
+                <b>$dataDoc$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Autorità Rilasciante
+            </td>
+            <td>
+                <b>$comuneRilas$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Località
+            </td>
+            <td>
+                <b>$localita$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Eventuale Permesso di Soggiorno
+            </td>
+            <td>
+                <b>$permsogg$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Num. telefono
+            </td>
+            <td>
+                <b>$telefono$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Referente Amministrativo
+            </td>
+            <td>
+                <b>$referente$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Limite Durata Del Procedimento (gg)
+            </td>
+            <td>
+                <b>$tempoProcesso$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Motivo richiesta
+            </td>
+            <td>
+                <b>$procedura$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Tipo Evento
+            </td>
+            <td>
+                <b>$causale$</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2" style="font-weight: bold; font-size: 16px; font-family: Arial;
+                color: #0000FF;">
+                Uscita intestatario
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Tipo evento
+            </td>
+            <td>
+                <b>$causale$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Data evento
+            </td>
+            <td>
+                <b>$dataEvento$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Documentazione ritirata
+            </td>
+            <td>
+                <b>$docAllegati$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Documentazione Integrativa Richiesta
+            </td>
+            <td>
+                <b>$docMancante$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Data Ricezione Richiesta
+            </td>
+            <td>
+                <b>$dataPres$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2" style="font-weight: bold; font-size: 16px; font-family: Arial;
+                color: #0000FF;">
+                Situazione anagrafica e reddituale precedente
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Anno dell'indagine <b>$anno1$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Area <b>$area1$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Classe <b>$classe1$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                ISEE <b>$isee1$</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                $tabellaComponenti$
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p style='page-break-after: always' class='mini'>
+                    <font face='Arial' size='2'>&nbsp;</font></p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2" style="font-weight: bold; font-size: 16px; font-family: Arial;
+                color: #0000FF;">
+                Situazione anagrafica e reddituale aggiornata
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Anno dell'indagine <b>$anno2$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Area <b>$area2$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Classe <b>$classe2$ </b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                ISEE <b>$isee2$ </b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                $tabellaComponenti2$
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+        <tr style="background-color: #CCCCFF" class="LeftNormale">
+            <td width="400px">
+                Fase di Verifica
+            </td>
+            <td>
+                Presa in carico da $referente$.
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Confermata la presenza dei requisiti
+            </td>
+            <td>
+                <b>$permRequisiti$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Assenza nel nucleo familiare originario
+            </td>
+            <td>
+                <b>$originario$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Concessione ampl. Nucleo familiare generico
+            </td>
+            <td>
+                <b>
+                    <img src="../block_SI.gif" alt="si" width="20" height="20" border="1" /></b>
+                <b>
+                    <img src="../block_NO.gif" alt="no" width="20" height="20" border="1" /></b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Concessione ampl. Nucleo fam. comma 3 art.20 R.R.1/04
+            </td>
+            <td>
+                <b>
+                    <img src="../block_SI.gif" alt="si" width="20" height="20" border="1" /></b>
+                <b>
+                    <img src="../block_NO.gif" alt="no" width="20" height="20" border="1" /></b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Presenza illeciti amministrativi
+            </td>
+            <td>
+                <b>
+                    <img src="../block_SI.gif" alt="si" width="20" height="20" border="1" /></b>
+                <b>
+                    <img src="../block_NO.gif" alt="no" width="20" height="20" border="1" /></b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Procedure decadenza
+            </td>
+            <td>
+                <b>
+                    <img src="../block_SI.gif" alt="si" width="20" height="20" border="1" /></b>
+                <b>
+                    <img src="../block_NO.gif" alt="no" width="20" height="20" border="1" /></b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Presenza pratica legale
+            </td>
+            <td>
+                <b>
+                    <img src="../block_SI.gif" alt="si" width="20" height="20" border="1" /></b>
+                <b>
+                    <img src="../block_NO.gif" alt="no" width="20" height="20" border="1" /></b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Presenza di UI dipendente
+            </td>
+            <td>
+                <b>$uidipend$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Assegnazione riservata a FFOO
+            </td>
+            <td>
+                <b>$flagFFOO$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Condizioni di sottoutilizzo
+            </td>
+            <td>
+                <b>
+                    <img src="../block_SI.gif" alt="si" width="20" height="20" border="1" /></b>
+                <b>
+                    <img src="../block_NO.gif" alt="no" width="20" height="20" border="1" /></b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Ulteriore carenza presupposti di legge
+            </td>
+            <td>
+                <b>
+                    <img src="../block_SI.gif" alt="si" width="20" height="20" border="1" /></b>
+                <b>
+                    <img src="../block_NO.gif" alt="no" width="20" height="20" border="1" /></b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Sopralluogo
+            </td>
+            <td>
+                <b>$sopralluogo$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Proposta
+            </td>
+            <td>
+                <b>$proposta$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Data variazione
+            </td>
+            <td>
+                <b>$dataDecisione1$</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+        <tr style="background-color: #CCCCFF" class="LeftNormale">
+            <td width="400px">
+                Fase di Attuazione
+            </td>
+            <td>
+                Presa in carico da $referente$.
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Parere
+            </td>
+            <td>
+                <b>$decisione$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Eventuali Osservazioni
+            </td>
+            <td>
+                <b>$osservaz$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Data Parere
+            </td>
+            <td>
+                <b>$dataDecisione$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Autorizzazione provvedimento RFIL
+            </td>
+            <td>
+                <b>$autorizzProvv$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Eventuali osservazioni
+            </td>
+            <td>
+                <b>$osservaz$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Data variazione
+            </td>
+            <td>
+                <b>$dataUltima$</b>
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                Data trasmissione ASCO
+            </td>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+        <tr class="LeftNormale">
+            <td>
+                &nbsp
+            </td>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td>
+                $tblRiesame$
+            </td>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+    </table>
+    <table width="100%">
+        <tr>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+        <tr>
+            <td align="center" style="font-size: 16px; font-family: Arial;">
+                <b>Modelli stampati</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+        <tr>
+            <td>
+                $modelliStampati$
+            </td>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2" style="font-weight: bold; font-size: 16px; font-family: Arial;
+                color: #0000FF;">
+                <b>$fraseultima$</b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td align='center' style="font-weight: bold; font-size: 16px; font-family: Arial">
+                VALIDAZIONE PARERE
+            </td>
+            <td align='center' style="font-weight: bold; font-size: 16px; font-family: Arial">
+                VALIDAZIONE DECISIONE
+            </td>
+        </tr>
+        <tr>
+            <td align='center' style="font-weight: bold; font-size: 16px; font-family: Arial">
+                Il Responsabile di Sede Territoriale
+            </td>
+            <td align='center' style="font-weight: bold; font-size: 16px; font-family: Arial">
+                Il dirigente</td>
+        </tr>
+        <tr>
+            <td align='center' style="font-weight: bold; font-size: 14px; font-family: Arial">
+                $responsabile$
+                <br />
+                            $firmaresponsabile$</td>
+            <td align='center' style="font-weight: bold; font-size: 14px; font-family: Arial">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style1">
+                &nbsp
+            </td>
+            <td align='center' style="font-weight: bold; font-size: 14px; font-family: Arial"
+                class="style1">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td align="left" style="font-size: 14px; font-family: Arial">
+                Data ___________&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Firma ________________________
+            </td>
+            <td align="center" style="font-size: 14px; font-family: Arial">
+                Data ___________&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Firma ________________________
+            </td>
+        </tr>
+        <tr>
+            <td align='left' style="font-size: 14px; font-family: Arial">
+                &nbsp;
+            </td>
+            <td style="font-size: 14px; font-family: Arial">
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

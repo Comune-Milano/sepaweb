@@ -1,0 +1,82 @@
+<%@ Page Language="VB" AutoEventWireup="false" Inherits="pagina_home" CodeFile="pagina_home.aspx.vb" EnableSessionState="ReadOnly" %>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Pagina Principale</title>
+    <meta content="Microsoft Visual Studio.NET 7.0" name="GENERATOR" />
+    <meta content="Visual Basic 7.0" name="CODE_LANGUAGE" />
+    <meta content="JavaScript" name="vs_defaultClientScript" />
+    <meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema" />
+</head>
+<body style="background-color: #f2f5f1">
+    <form id="form1" runat="server">
+    <div style="position: relative; left: -12px">
+        <table style="width: 100%;" cellpadding="0" cellspacing="0">
+            <tr>
+                <td style="width: 1%;  height: 42px;">
+                </td>
+                <td style="width: 99%">
+                    <asp:Label ID="Label1" runat="server" Text="GESTIONE SISTEMA" Style="font-size: 24pt;
+                        color: #722615; font-family: Arial; font-weight: 700;"></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <img alt="sfondo" src="Immagini/SfondoHome.jpg" height="75px" width="100%" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+                <td>
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="width: 100%;">
+                                <table width="100%">
+                                    <tr>
+                                        <td style="width: 20%">
+                                            &nbsp;
+                                        </td>
+                                        <td style="width: 70%">
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                    <asp:Image ID="Image3" runat="server" ImageUrl="../Images/sepa_image_34.jpg" />
+                                        </td>
+                                    </tr>
+                                    </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="height: 30px;">
+                                &nbsp;
+                            </td>
+                            <td style="height: 30px;">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                    <asp:Label ID="Label2" runat="server" Font-Bold="True" Font-Names="Tahoma" Font-Size="8pt"
+                        Text="VERSIONE 1.20" Font-Italic="False" Width="150px"></asp:Label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

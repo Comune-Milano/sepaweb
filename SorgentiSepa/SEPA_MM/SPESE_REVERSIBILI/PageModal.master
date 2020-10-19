@@ -1,0 +1,170 @@
+﻿<%@ Master Language="VB" CodeFile="PageModal.master.vb" Inherits="SPESE_REVERSIBILI_PageModal" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Spese reversibili</title>
+    <link href="css/smoothness/jquery-ui-1.9.0.custom.css" rel="stylesheet" type="text/css" />
+    <link href="css/stile.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.9.0.custom.js"></script>
+    <script src="js/gestioneDimensioniPagina.js" type="text/javascript"></script>
+    <script src="js/gestioneDimensioniPaginaTelerik.js" type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/modalTelerik.js" type="text/javascript"></script>
+    <script src="js/functions.js" type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/jsFunzioni.js" type="text/javascript"></script>
+    <style type="text/css">
+        .radLabelT
+        {
+            background-color: transparent;
+            border-style: none;
+            font-weight: bold;
+            font-family: Segoe UI;
+            font-size: 12pt;
+            width: 100%;
+            color: Black !important;
+        }
+        .radLabelV
+        {
+            background-color: transparent;
+            border-style: none;
+            font-weight: bold;
+            font-family: Segoe UI;
+            font-size: 12pt;
+            width: 100%;
+            color: #1c2466 !important;
+        }
+        .radLabelConguaglioR
+        {
+            background-color: transparent;
+            border-style: none;
+            font-weight: bold;
+            font-family: Segoe UI;
+            font-size: 12pt;
+            width: 100%;
+            color: Red !important;
+        }
+        .radLabelConguaglioG
+        {
+            background-color: transparent;
+            border-style: none;
+            font-weight: bold;
+            font-family: Segoe UI;
+            font-size: 12pt;
+            width: 100%;
+            color: Green !important;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body onload="controlloBrowser();">
+    <form id="form1" runat="server" onsubmit="loading(0);return true;">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+    </telerik:RadScriptManager>
+    <telerik:RadFormDecorator Skin="Web20" ID="FormDecorator1" runat="server" DecoratedControls="Buttons" />
+    <div id="generale">
+        <div id="divTop">
+            <table style="width: 100%;">
+                <tr>
+                    <td style="width: 33%; vertical-align: top;" rowspan="2">
+                        <img alt="Logo Gestore" src="../immagini/LogoComuneC.gif" style="position: relative;
+                            top: -3px; left: 0px; height: 57px; width: 59px;" />
+                    </td>
+                    <td style="width: 34%;">
+                        <center>
+                            <table>
+                                <tr>
+                                    <td class="TitoloModulo">
+                                        <center>
+                                            SPESE REVERSIBILI</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>
+                                            <span id="testo" runat="server" clientidmode="Static" style="visibility: hidden;"><b>
+                                                <span style="color: #006600; font-size: 0px;"></span></b></span>
+                                        </center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </td>
+                    <td style="width: 33%; text-align: right;" rowspan="2">
+                        <table align="right">
+                            <tr>
+                                <td style="width: 60px;" class="TitoloOperatore">
+                                    Utente:
+                                </td>
+                                <td style="width: 10px;">
+                                    &nbsp;
+                                </td>
+                                <td class="TitoloNomeOperatore" nowrap="nowrap">
+                                    <asp:Label ID="lblOperatore" runat="server" Text=""></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="TitoloOperatore" nowrap="nowrap" style="vertical-align: top;">
+                                    Filiale:
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                                <td class="TitoloNomeOperatore" style="vertical-align: top;" nowrap="nowrap">
+                                    <asp:Label ID="lblFiliale" runat="server" Text=""></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="divBody">
+            <div id="header">
+                <table border="0" cellpadding="0" cellspacing="0" width="95%">
+                    <tr>
+                        <td style="width: 30%; text-align: right;">
+                            <asp:Label ID="StatoSpeseReversibili" runat="server" CssClass="TitoloModulo" BackColor="#FF9900">
+                            </asp:Label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="titolo">
+                <p>
+                    <asp:Label ID="TitoloMaster" runat="server" Width="100%" CssClass="TitoloModulo"></asp:Label>
+                </p>
+            </div>
+            <div id="contenuto" style="overflow: auto">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+                <br />
+                <br />
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+                <asp:Label ID="LabelContenuto" runat="server" Font-Names="Arial" Font-Size="9pt"></asp:Label>
+            </div>
+            <div id="footer">
+                <br />
+                <asp:TextBox ID="TextBoxSelezionato" runat="server" BackColor="Transparent" BorderColor="Transparent"
+                    BorderStyle="None" BorderWidth="0" Width="80%" Font-Bold="True" Font-Names="Arial"
+                    ReadOnly="true" Font-Size="8pt" ForeColor="Maroon"></asp:TextBox>
+                <br />
+                <br />
+                <div id="dialog" style="display: none;">
+                </div>
+                <div id="loading" style="display: none; text-align: center;">
+                </div>
+                <div id="divLoading" style="width: 0px; height: 0px; display: none;">
+                    <img src="" id="imageLoading" alt="" />
+                </div>
+                <img id="imgStampa" alt="" src="" style="display: none;" />
+                <img id="imgStampa1" alt="" src="" style="display: none;" />
+                <asp:HiddenField ID="tipoSubmit" runat="server" Value="0" />
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

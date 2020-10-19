@@ -1,0 +1,173 @@
+﻿<%@ Master Language="VB" CodeFile="HomePage.master.vb" Inherits="RILEVAZIONI_HomePage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Gestione Rilevazioni Stato di Fatto U.I.</title>
+    <link href="../Standard/Style/Site.css" rel="stylesheet" type="text/css" />
+    <link href="../Standard/Style/css/smoothness/jquery-ui-1.10.4.custom.css" rel="stylesheet"
+        type="text/css" />
+    <script src="../Standard/Scripts/jquery/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="../Standard/Scripts/jquery/jquery.ui.datepicker-it.js" type="text/javascript"></script>
+    <script src="../Standard/Scripts/jquery/jquery-ui-1.9.0.custom.js" type="text/javascript"></script>
+    <script src="../Standard/Scripts/jsFunzioni.js" type="text/javascript"></script>
+    <script src="../Standard/Scripts/gestioneDimensioniPagina.js" type="text/javascript"></script>
+    <script src="../Standard/Scripts/jsMessage.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+        function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                initialize();
+            };
+        };
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" onsubmit="BeforeSubmit();return true;">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div id="divGenerale">
+        <div id="divHeader" style="overflow: auto; height: 32px;">
+            <table style="width: 100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="width: 90%;">
+                        <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="False"
+                            IncludeStyleBlock="false" Orientation="Horizontal" RenderingMode="List" Style="z-index: 900">
+                            <Items>
+                                <asp:MenuItem Text="Gestione" Value="Gestione" Selectable="False">
+                                    <asp:MenuItem Text="Gest. St.Professionale" Value="Utenti"></asp:MenuItem>
+                                    <asp:MenuItem Text="Operatori" Value="UtentiOperatori"></asp:MenuItem>
+                                    <asp:MenuItem Text="Gest. Unità" Value="GestUnita"></asp:MenuItem>
+                                    <asp:MenuItem Text="Gest. Lotti" Value="GestLotti"></asp:MenuItem>
+                                    <asp:MenuItem Text="Gest. Rilievo" Value="GestRilievo"></asp:MenuItem>
+                                    <asp:MenuItem Text="Gest. Referenti" Value="GestRefer"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Elaborazione Dati" Value="CDati" Selectable="False">
+                                    <asp:MenuItem Text="Download Schede" Value="ScaricaScheda"></asp:MenuItem>
+                                    <asp:MenuItem Text="Upload Schede" Value="CaricaScheda"></asp:MenuItem>
+                                    <asp:MenuItem Text="Stampa Massiva Schede" Value="StampaSchede"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Report" Value="reportRilievi" Selectable="False">
+                                    <asp:MenuItem Text="Ricerca UI" Value="rpt1"></asp:MenuItem>
+                                    <asp:MenuItem Text="Ricerca UI valori riattam." Value="rpt2"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Parametri" Value="Parametri" Selectable="False">
+                                    <asp:MenuItem Text="Valori Monetari" Value="ValoriMonetari"></asp:MenuItem>
+                                    <asp:MenuItem Text="Scheda" Value="Scheda"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Guida" Value="Guida" Selectable="True"></asp:MenuItem>
+                                <asp:MenuItem Text="Home" Value="Esci" ToolTip="Esci dalla gestione Rilevazioni">
+                                </asp:MenuItem>
+                            </Items>
+                        </asp:Menu>
+                    </td>
+                    <td>
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <asp:Image ID="imgutente" runat="server" Height="14px" ImageUrl="../NuoveImm/Albero_1.gif" />
+                                </td>
+                                <td>
+                                    <asp:Label ID="lbltextute" runat="server" Font-Bold="False" Font-Names="arial" Font-Size="8pt"
+                                        ForeColor="#721C1F" Width="35px">Utente</asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblOperatore" runat="server" Font-Bold="True" Font-Size="X-Small"
+                                        Width="150px"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="divBody">
+            <div id="divTitolo">
+                <table id="tbTitolo">
+                    <tr>
+                        <td style="width: 5px;">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <asp:ContentPlaceHolder ID="CPTitolo" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="divMenu" style="height: 32px;">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 5px;">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <asp:ContentPlaceHolder ID="CPMenu" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="width: 100%; height: 100%; overflow: auto;">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 5px">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <asp:ContentPlaceHolder ID="CPContenuto" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="divFooter">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 5px">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <asp:ContentPlaceHolder ID="CPFooter" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+                <div id="dialog" style="display: none;">
+                </div>
+                <div id="confirm" style="display: none;">
+                </div>
+                <div id="loading" style="display: none; text-align: center;">
+                </div>
+                <div id="divLoading" style="width: 0px; height: 0px; display: none;">
+                    <img src="../Standard/Immagini/load.gif" id="imageLoading" alt="" />
+                </div>
+                <div id="divOscura" style="display: none; text-align: center; width: 100%; height: 100%;
+                    position: absolute; top: 0px; left: 0px; background-color: #cccccc; z-index: 1000;">
+                </div>
+                <asp:HiddenField ID="tipoSubmit" runat="server" Value="0" />
+            </div>
+        </div>
+    </div>
+    <asp:HiddenField ID="noClose" runat="server" Value="0" ClientIDMode="Static" />
+    <asp:HiddenField ID="noCloseRead" runat="server" Value="0" ClientIDMode="Static" />
+    <asp:HiddenField ID="optMenu" runat="server" Value="0" ClientIDMode="Static" />
+    <script src="../Standard/Scripts/jsfunzioniExit.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        initialize();
+        function initialize() {
+            if (document.getElementById('divHeader') != null) {
+                document.getElementById('divHeader').style.overflow = '';
+            };
+            if (document.getElementById('divMenuStampe') != null) {
+                document.getElementById('divMenuStampe').style.overflow = '';
+            };
+
+            AfterSubmit();
+            window.focus();
+        };
+    </script>
+    </form>
+</body>
+</html>

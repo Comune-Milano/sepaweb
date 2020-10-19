@@ -1,0 +1,177 @@
+﻿/* BODY
+----------------------------------------------------------*/
+
+body
+{
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-size: 8pt;
+    font-family: Arial,Helvetica,Garuda,sans-serif;
+    margin: 0px;
+    padding: 0px;
+    color: Black;
+    background: url('../Immagini/Sfondo.png');
+    background-repeat: repeat-x;
+}
+
+input {
+    font-size: 8pt;
+    /*font-family: "Helvetica Neue" , "Lucida Grande" , "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;*/
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+select {
+    font-size: 8pt;
+    /*font-family: "Helvetica Neue" , "Lucida Grande" , "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;*/
+    font-family: Arial,Helvetica,sans-serif;
+}
+
+/* TAB MENU   
+----------------------------------------------------------*/
+
+div.hideSkiplink
+{
+    background-color: #EBE9ED; /*background-color: #800000;*/
+    width: 100%;
+}
+
+div.menu
+{
+    padding: 4px 0px 5px 10px;
+    font-size: 8pt;
+    font-weight: bold;
+}
+
+div.menu ul
+{
+    text-align: left;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: auto;
+}
+
+div.menu ul li a, div.menu ul li a:visited
+{
+    background-color: #507CD1;
+    border: 2px #EBE9ED solid; /*border: 2px #800000 solid;*/
+    color: White;
+    display: block;
+    line-height: 1.35em;
+    padding: 4px 20px;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+div.menu ul li a:hover
+{
+    background-color: #FFF5D3;
+    color: Black;
+    text-decoration: none;
+}
+
+div.menu ul li a:active
+{
+    background-color: #465c71;
+    color: #cfdbe6;
+    text-decoration: none;
+}
+/* FINE TAB MENU   
+----------------------------------------------------------*/
+
+
+
+table
+{
+    width: 100%;
+}
+
+#generale
+{
+    width: 100%;
+    position: relative;
+    top: 5px;
+    left: 15px;
+}
+
+#header
+{
+    height:40px;
+}
+
+#contenuto
+{
+    overflow: auto;
+    width: 97%;
+    height:620px;
+}
+
+#footer
+{
+    height:60px;
+}
+
+/*-------------------------------------------*/
+
+/*BOTTONI*/
+.bottone
+{
+    /*background-color: #507cd1;     border-style: none;     color: White;     font-weight: bold;     font-size: 8pt;     height: 25px;     cursor: pointer;     */
+    background-color: transparent;
+    border-left: 8px solid #800000;
+    border-right: 0px solid #800000;
+    border-top: 0px solid #800000;
+    border-bottom: 0px solid #800000;
+    font-weight: bold;
+    font-size: 9pt;
+    height: 22px;
+    cursor: pointer;
+}
+
+/*BOTTONI*/
+.bottoneConferma
+{
+    /*background-color: #507cd1;     border-style: none;     color: White;     font-weight: bold;     font-size: 8pt;     height: 25px;     cursor: pointer;     */
+    background-color: transparent;
+    border-left: 8px solid #800000;
+    border-right: 0px solid #800000;
+    border-top: 0px solid #800000;
+    border-bottom: 0px solid #800000;
+    font-weight: bold;
+    font-size: 9pt;
+    height: 22px;
+    cursor: pointer;
+}
+
+/*-------------------------------------------*/
+
+/* formato data e numeri  */
+.numero
+{
+    text-align: right;
+    width: 100px;
+}
+
+.data
+{
+    width: 70px;
+}
+
+
+/* modifica per il tasto di chiusura del dialog*/
+/*.no-close .loading-titlebar-close
+{display: none;}
+
+.no-close .dialog-titlebar-close
+{display: none;}
+
+/* hide the close x on the loading screen */
+/*.loadingScreenWindow .loading-titlebar-close {
+	display: none;
+}
+*/
+/* hide the close x on the loading screen */
+.loadingScreenWindow .ui-dialog-titlebar-close {
+	display: none;
+}
+

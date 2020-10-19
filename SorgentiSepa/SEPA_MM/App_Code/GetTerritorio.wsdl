@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://comune.milano.it/DB2Anagrafe/WSDB2Territori" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://comune.milano.it/DB2Anagrafe/WSDB2Territori" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://comune.milano.it/DB2Anagrafe/WSDB2Territori">
+            <s:element name="getIndirizzibyCodice">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="codice" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getIndirizzibyCodiceResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getIndirizzibyCodiceResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getIndirizzibyDescrizione">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Descrizione" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getIndirizzibyDescrizioneResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getIndirizzibyDescrizioneResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getCivicibyCodice">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="Codice" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getCivicibyCodiceResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getCivicibyCodiceResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getInfobyCivico">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="CodVia" type="s:int" />
+                        <s:element minOccurs="1" maxOccurs="1" name="CivicoIntero" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CivicoBarrato" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getInfobyCivicoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getInfobyCivicoResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getComunebyCodice">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="codice" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getComunebyCodiceResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getComunebyCodiceResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getComunebyBelfiore">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="codice" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getComunebyBelfioreResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getComunebyBelfioreResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getComunebyDescrizione">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="codice" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getComunebyDescrizioneResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getComunebyDescrizioneResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getNazionebySigla">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="codice" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getNazionebySiglaResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getNazionebySiglaResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getNazionebyBelfiore">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="codice" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getNazionebyBelfioreResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getNazionebyBelfioreResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getNazionebyDescrizione">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="DescrizioneNazione" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getNazionebyDescrizioneResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getNazionebyDescrizioneResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="getIndirizzibyCodiceSoapIn">
+        <wsdl:part name="parameters" element="tns:getIndirizzibyCodice" />
+    </wsdl:message>
+    <wsdl:message name="getIndirizzibyCodiceSoapOut">
+        <wsdl:part name="parameters" element="tns:getIndirizzibyCodiceResponse" />
+    </wsdl:message>
+    <wsdl:message name="getIndirizzibyDescrizioneSoapIn">
+        <wsdl:part name="parameters" element="tns:getIndirizzibyDescrizione" />
+    </wsdl:message>
+    <wsdl:message name="getIndirizzibyDescrizioneSoapOut">
+        <wsdl:part name="parameters" element="tns:getIndirizzibyDescrizioneResponse" />
+    </wsdl:message>
+    <wsdl:message name="getCivicibyCodiceSoapIn">
+        <wsdl:part name="parameters" element="tns:getCivicibyCodice" />
+    </wsdl:message>
+    <wsdl:message name="getCivicibyCodiceSoapOut">
+        <wsdl:part name="parameters" element="tns:getCivicibyCodiceResponse" />
+    </wsdl:message>
+    <wsdl:message name="getInfobyCivicoSoapIn">
+        <wsdl:part name="parameters" element="tns:getInfobyCivico" />
+    </wsdl:message>
+    <wsdl:message name="getInfobyCivicoSoapOut">
+        <wsdl:part name="parameters" element="tns:getInfobyCivicoResponse" />
+    </wsdl:message>
+    <wsdl:message name="getComunebyCodiceSoapIn">
+        <wsdl:part name="parameters" element="tns:getComunebyCodice" />
+    </wsdl:message>
+    <wsdl:message name="getComunebyCodiceSoapOut">
+        <wsdl:part name="parameters" element="tns:getComunebyCodiceResponse" />
+    </wsdl:message>
+    <wsdl:message name="getComunebyBelfioreSoapIn">
+        <wsdl:part name="parameters" element="tns:getComunebyBelfiore" />
+    </wsdl:message>
+    <wsdl:message name="getComunebyBelfioreSoapOut">
+        <wsdl:part name="parameters" element="tns:getComunebyBelfioreResponse" />
+    </wsdl:message>
+    <wsdl:message name="getComunebyDescrizioneSoapIn">
+        <wsdl:part name="parameters" element="tns:getComunebyDescrizione" />
+    </wsdl:message>
+    <wsdl:message name="getComunebyDescrizioneSoapOut">
+        <wsdl:part name="parameters" element="tns:getComunebyDescrizioneResponse" />
+    </wsdl:message>
+    <wsdl:message name="getNazionebySiglaSoapIn">
+        <wsdl:part name="parameters" element="tns:getNazionebySigla" />
+    </wsdl:message>
+    <wsdl:message name="getNazionebySiglaSoapOut">
+        <wsdl:part name="parameters" element="tns:getNazionebySiglaResponse" />
+    </wsdl:message>
+    <wsdl:message name="getNazionebyBelfioreSoapIn">
+        <wsdl:part name="parameters" element="tns:getNazionebyBelfiore" />
+    </wsdl:message>
+    <wsdl:message name="getNazionebyBelfioreSoapOut">
+        <wsdl:part name="parameters" element="tns:getNazionebyBelfioreResponse" />
+    </wsdl:message>
+    <wsdl:message name="getNazionebyDescrizioneSoapIn">
+        <wsdl:part name="parameters" element="tns:getNazionebyDescrizione" />
+    </wsdl:message>
+    <wsdl:message name="getNazionebyDescrizioneSoapOut">
+        <wsdl:part name="parameters" element="tns:getNazionebyDescrizioneResponse" />
+    </wsdl:message>
+    <wsdl:portType name="WSDB2TerritoriSoap">
+        <wsdl:operation name="getIndirizzibyCodice">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca Indirizzi in base al Codice Via</wsdl:documentation>
+            <wsdl:input message="tns:getIndirizzibyCodiceSoapIn" />
+            <wsdl:output message="tns:getIndirizzibyCodiceSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getIndirizzibyDescrizione">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca Indirizzi in base alla Descrizione o parte di essa</wsdl:documentation>
+            <wsdl:input message="tns:getIndirizzibyDescrizioneSoapIn" />
+            <wsdl:output message="tns:getIndirizzibyDescrizioneSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getCivicibyCodice">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca Civici in base al Codice Via</wsdl:documentation>
+            <wsdl:input message="tns:getCivicibyCodiceSoapIn" />
+            <wsdl:output message="tns:getCivicibyCodiceSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getInfobyCivico">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Informazioni territoriali in base al Codice Via, Civico Intero e Barrato</wsdl:documentation>
+            <wsdl:input message="tns:getInfobyCivicoSoapIn" />
+            <wsdl:output message="tns:getInfobyCivicoSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getComunebyCodice">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca Comuni in base al Codice Comune</wsdl:documentation>
+            <wsdl:input message="tns:getComunebyCodiceSoapIn" />
+            <wsdl:output message="tns:getComunebyCodiceSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getComunebyBelfiore">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca Comuni in base al Codice Belfiore</wsdl:documentation>
+            <wsdl:input message="tns:getComunebyBelfioreSoapIn" />
+            <wsdl:output message="tns:getComunebyBelfioreSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getComunebyDescrizione">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca Comuni in base alla Descrizione</wsdl:documentation>
+            <wsdl:input message="tns:getComunebyDescrizioneSoapIn" />
+            <wsdl:output message="tns:getComunebyDescrizioneSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getNazionebySigla">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca Nazioni in base alla Sigla (es. A, Austria)</wsdl:documentation>
+            <wsdl:input message="tns:getNazionebySiglaSoapIn" />
+            <wsdl:output message="tns:getNazionebySiglaSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getNazionebyBelfiore">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca Nazioni in base al Codice Belfiore (es. Z102, Austria)</wsdl:documentation>
+            <wsdl:input message="tns:getNazionebyBelfioreSoapIn" />
+            <wsdl:output message="tns:getNazionebyBelfioreSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getNazionebyDescrizione">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca Nazioni in base alla Descrizione</wsdl:documentation>
+            <wsdl:input message="tns:getNazionebyDescrizioneSoapIn" />
+            <wsdl:output message="tns:getNazionebyDescrizioneSoapOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="WSDB2TerritoriSoap" type="tns:WSDB2TerritoriSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getIndirizzibyCodice">
+            <soap:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getIndirizzibyCodice" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getIndirizzibyDescrizione">
+            <soap:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getIndirizzibyDescrizione" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCivicibyCodice">
+            <soap:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getCivicibyCodice" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getInfobyCivico">
+            <soap:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getInfobyCivico" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getComunebyCodice">
+            <soap:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getComunebyCodice" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getComunebyBelfiore">
+            <soap:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getComunebyBelfiore" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getComunebyDescrizione">
+            <soap:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getComunebyDescrizione" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNazionebySigla">
+            <soap:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getNazionebySigla" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNazionebyBelfiore">
+            <soap:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getNazionebyBelfiore" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNazionebyDescrizione">
+            <soap:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getNazionebyDescrizione" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WSDB2TerritoriSoap12" type="tns:WSDB2TerritoriSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getIndirizzibyCodice">
+            <soap12:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getIndirizzibyCodice" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getIndirizzibyDescrizione">
+            <soap12:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getIndirizzibyDescrizione" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getCivicibyCodice">
+            <soap12:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getCivicibyCodice" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getInfobyCivico">
+            <soap12:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getInfobyCivico" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getComunebyCodice">
+            <soap12:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getComunebyCodice" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getComunebyBelfiore">
+            <soap12:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getComunebyBelfiore" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getComunebyDescrizione">
+            <soap12:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getComunebyDescrizione" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNazionebySigla">
+            <soap12:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getNazionebySigla" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNazionebyBelfiore">
+            <soap12:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getNazionebyBelfiore" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getNazionebyDescrizione">
+            <soap12:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Territori/getNazionebyDescrizione" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="WSDB2Territori">
+        <wsdl:port name="WSDB2TerritoriSoap" binding="tns:WSDB2TerritoriSoap">
+            <soap:address location="http://10.63.2.200:48140/DB2Territori/DB2territori.asmx" />
+        </wsdl:port>
+        <wsdl:port name="WSDB2TerritoriSoap12" binding="tns:WSDB2TerritoriSoap12">
+            <soap12:address location="http://10.63.2.200:48140/DB2Territori/DB2territori.asmx" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

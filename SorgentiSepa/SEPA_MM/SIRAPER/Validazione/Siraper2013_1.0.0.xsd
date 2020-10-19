@@ -1,0 +1,1294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by finazzo (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Gianluigi Zorat (Lombardia Informattica S.p.A.) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.w3.org/2000/10/XMLSchema">
+	<!-- TIPI SEMPLICI -->
+	<xs:simpleType name="anno_formattato">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="((0[1-9]|1\d|2[0-9])-([0][1-9]|1[0-2])|30-(0[13-9]|1[0-2])|31-(0[13578]|1[02]))-\d\d\d\d"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="anno">
+		<xs:restriction base="xs:string">
+			<xs:length value="4"/>
+			<xs:pattern value="[0-9]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="fiscale_codice">
+		<xs:restriction base="xs:string">
+			<xs:length value="16"/>
+			<xs:pattern value="[A-Z]{6}[0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{2}[A-Z][0-9LMNPQRSTUV]{3}[A-Z]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="codice_avviamento_postale">
+		<xs:restriction base="xs:string">
+			<xs:length value="5"/>
+			<xs:pattern value="[0-9]*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="inquilino_sesso">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="M"/>
+			<xs:enumeration value="F"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="codice_aler">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="A_MI"/>
+			<xs:enumeration value="A_BG"/>
+			<xs:enumeration value="A_BS"/>
+			<xs:enumeration value="A_CO"/>
+			<xs:enumeration value="A_CR"/>
+			<xs:enumeration value="A_MN"/>
+			<xs:enumeration value="A_MO"/>
+			<xs:enumeration value="A_PV"/>
+			<xs:enumeration value="A_SO"/>
+			<xs:enumeration value="A_VA"/>
+			<xs:enumeration value="A_LC"/>
+			<xs:enumeration value="A_LO"/>
+			<xs:enumeration value="A_BU"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_tabella_classi_isee">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="I2008"/>
+			<xs:enumeration value="I2009"/>
+			<xs:enumeration value="I2009-ISTAT"/>
+			<xs:enumeration value="I2010-ISTAT"/>
+			<xs:enumeration value="I2011-ISTAT"/>
+			<xs:enumeration value="I2012-ISTAT"/>
+			<xs:enumeration value="I2013-ISTAT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="codice_sigla_ente_proprietario">
+		<xs:union>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="A_MI"/>
+					<xs:enumeration value="A_MO"/>
+					<xs:enumeration value="A_BG"/>
+					<xs:enumeration value="A_BS"/>
+					<xs:enumeration value="A_CO"/>
+					<xs:enumeration value="A_CR"/>
+					<xs:enumeration value="A_MN"/>
+					<xs:enumeration value="A_PV"/>
+					<xs:enumeration value="A_SO"/>
+					<xs:enumeration value="A_VA"/>
+					<xs:enumeration value="A_LC"/>
+					<xs:enumeration value="A_LO"/>
+					<xs:enumeration value="A_BU"/>
+					<xs:enumeration value="RL"/>
+					<xs:enumeration value="AL"/>
+					<xs:enumeration value="AD"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:length value="8"/>
+					<xs:pattern value="C_[0-9]{6}"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_nome_ente_gestore_alloggio">
+		<xs:union>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="ALER_MI"/>
+					<xs:enumeration value="ALER_MO"/>
+					<xs:enumeration value="ALER_BG"/>
+					<xs:enumeration value="ALER_BS"/>
+					<xs:enumeration value="ALER_CO"/>
+					<xs:enumeration value="ALER_CR"/>
+					<xs:enumeration value="ALER_MN"/>
+					<xs:enumeration value="ALER_PV"/>
+					<xs:enumeration value="ALER_SO"/>
+					<xs:enumeration value="ALER_VA"/>
+					<xs:enumeration value="ALER_LC"/>
+					<xs:enumeration value="ALER_LO"/>
+					<xs:enumeration value="ALER_BU"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:maxLength value="100"/>
+					<xs:pattern value="COMUNE DI [A-Z' ]*"/>
+				</xs:restriction>
+			</xs:simpleType>
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:maxLength value="100"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
+	</xs:simpleType>
+	<xs:simpleType name="alloggio_piano">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AA"/>
+			<xs:enumeration value="SS"/>
+			<xs:enumeration value="TT"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="14"/>
+			<xs:enumeration value="15"/>
+			<xs:enumeration value="16"/>
+			<xs:enumeration value="17"/>
+			<xs:enumeration value="18"/>
+			<xs:enumeration value="19"/>
+			<xs:enumeration value="20"/>
+			<xs:enumeration value="21"/>
+			<xs:enumeration value="22"/>
+			<xs:enumeration value="23"/>
+			<xs:enumeration value="24"/>
+			<xs:enumeration value="25"/>
+			<xs:enumeration value="26"/>
+			<xs:enumeration value="27"/>
+			<xs:enumeration value="28"/>
+			<xs:enumeration value="29"/>
+			<xs:enumeration value="30"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="alloggio_categoria_catastale">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="A01"/>
+			<xs:enumeration value="A02"/>
+			<xs:enumeration value="A03"/>
+			<xs:enumeration value="A04"/>
+			<xs:enumeration value="A05"/>
+			<xs:enumeration value="A06"/>
+			<xs:enumeration value="A07"/>
+			<xs:enumeration value="A08"/>
+			<xs:enumeration value="A09"/>
+			<xs:enumeration value="A10"/>
+			<xs:enumeration value="A11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_amministrazione_alloggio">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_alloggio_dismesso_cartolarizzato">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_alloggio_riscatto">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_coordinata_gauss_boaga">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="15"/>
+			<xs:pattern value="[0-9]{7}(.[0-9]{1,7})?"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="alloggio_tipo_godimento">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_alloggio_escluso">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_coefficiente_ubicazione">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0.85"/>
+			<xs:enumeration value="0.90"/>
+			<xs:enumeration value="0.95"/>
+			<xs:enumeration value="1.00"/>
+			<xs:enumeration value="1.10"/>
+			<xs:enumeration value="1.20"/>
+			<xs:enumeration value="1.25"/>
+			<xs:enumeration value="1.30"/>
+			<xs:enumeration value="1.40"/>
+			<xs:enumeration value="1.50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_coefficiente_classe_demografica_ante_legem">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1.20"/>
+			<xs:enumeration value="1.10"/>
+			<xs:enumeration value="1.05"/>
+			<xs:enumeration value="0.95"/>
+			<xs:enumeration value="0.90"/>
+			<xs:enumeration value="0.80"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_coefficiente_classe_demografica_rl27">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1.20"/>
+			<xs:enumeration value="1.10"/>
+			<xs:enumeration value="1.05"/>
+			<xs:enumeration value="1.00"/>
+			<xs:enumeration value="0.95"/>
+			<xs:enumeration value="0.90"/>
+			<xs:enumeration value="0.80"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="alloggio_intervento">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NC"/>
+			<xs:enumeration value="RE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_coefficiente_piano">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0.80"/>
+			<xs:enumeration value="0.90"/>
+			<xs:enumeration value="1.00"/>
+			<xs:enumeration value="1.20"/>
+			<xs:enumeration value="0.95"/>
+			<xs:enumeration value="1.10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_pse">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="1"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_enumeration_0_2">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_enumeration_1_2">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_enumeration_0_3">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="0"/>
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_enumeration_1_3">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_enumeration_1_4">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_enumeration_1_5">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_enumeration_1_6">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_enumeration_1_7">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_enumeration_1_9">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_enumeration_1_10">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_enumeration_1_11">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_enumeration_1_12">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="tipo_enumeration_1_18">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1"/>
+			<xs:enumeration value="2"/>
+			<xs:enumeration value="3"/>
+			<xs:enumeration value="4"/>
+			<xs:enumeration value="5"/>
+			<xs:enumeration value="6"/>
+			<xs:enumeration value="7"/>
+			<xs:enumeration value="8"/>
+			<xs:enumeration value="9"/>
+			<xs:enumeration value="10"/>
+			<xs:enumeration value="11"/>
+			<xs:enumeration value="12"/>
+			<xs:enumeration value="13"/>
+			<xs:enumeration value="14"/>
+			<xs:enumeration value="15"/>
+			<xs:enumeration value="16"/>
+			<xs:enumeration value="17"/>
+			<xs:enumeration value="18"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- TIPI COMPOSTI -->
+	<xs:element name="RICHIESTA" type="RICHIESTAType">
+		<xs:annotation>
+			<xs:documentation>root element</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="RICHIESTAType">
+		<xs:sequence>
+			<xs:element name="DATA_DI_TRASMISSIONE" type="anno_formattato" nillable="false"/>
+			<xs:element name="SIGLA_ENTE_PROPRIETARIO" type="codice_sigla_ente_proprietario" nillable="false"/>
+			<xs:element name="TIPO_ENTE_PROPRIETARIO" type="tipo_enumeration_1_5" nillable="false"/>
+			<xs:element name="ENTE_PROPRIETARIO_CODICE_FISCALE" type="fiscale_codice" minOccurs="0"/>
+			<xs:element name="ENTE_PROPRIETARIO_PARTITA_IVA" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="11"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="RAGIONE_SOCIALE_ENTE_PROPRIETARIO">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="255"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DATA_DI_RIFERIMENTO" type="anno_formattato"/>
+			<xs:element name="PERIODO_DI_RIFERIMENTO" type="anno"/>
+			<xs:element name="FABBRICATO" type="FABBRICATOType" minOccurs="0" maxOccurs="150"/>
+			<xs:element name="PROGRAMMAZIONE" type="PROGRAMMAZIONEType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="PROGRAMMAZIONEType">
+		<xs:sequence>
+			<xs:element name="CODICE_ISTAT_COMUNE" nillable="true" minOccurs="1" maxOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGI_NUOVI_ERP_SOCIALE" type="xs:nonNegativeInteger" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ALLOGGI_NUOVI_ERP_MODERATO" type="xs:nonNegativeInteger" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ALLOGGI_NUOVI_NON_ERP" type="xs:nonNegativeInteger" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ALLOGGI_DA_ACQUISTARE_ERP_SOCIALE" type="xs:nonNegativeInteger" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ALLOGGI_DA_ACQUISTARE_ERP_MODERATO" type="xs:nonNegativeInteger" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ALLOGGI_DA_ACQUISTARE_NON_ERP" type="xs:nonNegativeInteger" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ALLOGGI_DA_RECUPERARE_RISTRUTTURARE_ERP_SOCIALE" type="xs:nonNegativeInteger" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ALLOGGI_DA_RECUPERARE_RISTRUTTURARE_ERP_MODERATO" type="xs:nonNegativeInteger" nillable="true" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ALLOGGI_DA_RECUPERARE_RISTRUTTURARE_NON_ERP" type="xs:nonNegativeInteger" nillable="true" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="FABBRICATOType">
+		<xs:sequence>
+			<xs:element name="FABBRICATO_CODICE_DI_RICONOSCIMENTO">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="80"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FABBRICATO_TIPO_PROPRIETA" type="tipo_enumeration_1_2" nillable="false"/>
+			<xs:element name="FABBRICATO_TIPO_GESTIONE" type="tipo_enumeration_1_4"/>
+			<xs:element name="FABBRICATO_CODICE_ISTAT_COMUNE" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="6"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="FABBRICATO_UBICAZIONE" type="tipo_enumeration_1_11" nillable="false" minOccurs="0"/>
+			<xs:element name="FABBRICATO_COEFFICIENTE_UBICAZIONE" type="tipo_coefficiente_ubicazione" nillable="false" minOccurs="0"/>
+			<xs:element name="FABBRICATO_ANNO_COSTRUZIONE" type="anno" nillable="false" minOccurs="0"/>
+			<xs:element name="FABBRICATO_ANNO_RISTRUTTURAZIONE" type="anno" nillable="false" minOccurs="0"/>
+			<xs:element name="FABBRICATO_INDIRIZZO" type="INDIRIZZOType" maxOccurs="unbounded"/>
+			<xs:element name="NUMERO_ALLOGGI_A_RISCATTO" nillable="false" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:integer">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO" type="ALLOGGIOType" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ALLOGGIOType">
+		<xs:sequence>
+			<xs:element name="ALLOGGIO_CODICE_DI_RICONOSCIMENTO" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ENTE_GESTORE_CODICE_FISCALE" type="fiscale_codice" nillable="false" minOccurs="0"/>
+			<xs:element name="ENTE_GESTORE_PARTITA_IVA" nillable="false" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="11"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_NOME_ENTE_GESTORE" type="tipo_nome_ente_gestore_alloggio" nillable="false"/>
+			<xs:element name="ALLOGGIO_TIPO_ENTE_GESTORE" type="tipo_enumeration_1_3" nillable="false"/>
+			<xs:element name="ALLOGGIO_TIPO_AMMINISTRAZIONE" type="tipo_enumeration_1_3" nillable="false"/>
+			<xs:element name="ALLOGGIO_DISMESSO_CARTOLARIZZATO" type="tipo_enumeration_1_3" nillable="false"/>
+			<xs:element name="PROVENTI_DA_DISMISSIONE_CARTOLARIZZAZIONE" nillable="false" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_A_RISCATTO" type="tipo_enumeration_1_2" nillable="false"/>
+			<xs:element name="ALLOGGIO_SEZIONE">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="10"/>
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_FOGLIO">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_MAPPALE">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_SUBALTERNO">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_PREFISSO_INDIRIZZO" type="tipo_enumeration_1_18" nillable="false"/>
+			<xs:element name="ALLOGGIO_NOME_VIA" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_NUMERO_CIVICO" nillable="false" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_ESPONENTE" nillable="false" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_NOME_LOCALITA" nillable="false" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_CAP" type="codice_avviamento_postale" nillable="false"/>
+			<xs:element name="COORDINATA_GAUSS_BOAGA_X" type="tipo_coordinata_gauss_boaga" nillable="false" minOccurs="0"/>
+			<xs:element name="COORDINATA_GAUSS_BOAGA_Y" type="tipo_coordinata_gauss_boaga" nillable="false" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_OCCUPATO_NON_OCCUPATO" type="tipo_enumeration_1_6" nillable="false"/>
+			<xs:element name="ALLOGGIO_TIPO_GODIMENTO"
+				type="tipo_enumeration_1_10" nillable="false" />
+			<xs:element name="ALLOGGIO_ESCLUSO" type="tipo_enumeration_1_2" nillable="false"/>
+			<xs:element name="ALLOGGIO_CATEGORIA_CATASTALE" type="alloggio_categoria_catastale" nillable="false"/>
+			<xs:element name="ALLOGGIO_RENDITA_CATASTALE" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_COEFFICIENTE_CLASSE_DEMOGRAFICA_ANTE_LEGEM" type="tipo_coefficiente_classe_demografica_ante_legem" nillable="false" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_COEFFICIENTE_CLASSE_DEMOGRAFICA_LR27" type="tipo_coefficiente_classe_demografica_rl27" nillable="true" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_NUMERO_STANZE" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:nonNegativeInteger">
+						<xs:minInclusive value="1"/>
+						<xs:maxInclusive value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_ANNO_DI_ULTIMAZIONE_RECUPERO_RISTRUTTURAZIONE" type="anno" nillable="false" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_TIPO_INTERVENTO" type="alloggio_intervento" nillable="false"/>
+			<xs:element name="ALLOGGIO_PIANO" type="alloggio_piano" nillable="false"/>
+			<xs:element name="ALLOGGIO_COEFFICIENTE_PIANO" type="tipo_coefficiente_piano" nillable="false"/>
+			<xs:element name="ALLOGGIO_SUPERFICI" type="SUPERFICIType" nillable="false"/>
+			<xs:element name="ALLOGGIO_TIPO_RISCALDAMENTO" type="tipo_enumeration_0_3" nillable="false"/>
+			<xs:element name="ALLOGGIO_ASCENSORE_AL_SERVIZIO" type="tipo_enumeration_1_2" default="1" nillable="false"/>
+			<xs:element name="ALLOGGIO_STATI_CONSERVAZIONE" type="CONSERVAZIONEType" nillable="false"/>
+			<xs:element name="ALLOGGIO_TIPO_CUCINA" type="tipo_enumeration_0_3" nillable="false"/>
+			<xs:element name="ALLOGGIO_PRESENZA_BARRIERE_ARCHITETTONICHE" type="tipo_enumeration_0_2" nillable="false"/>
+			<xs:element name="ALLOGGIO_COSTO_BASE_MQ_ANNUALE" nillable="false" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_PERCENTUALE_ISTAT_AGGIORNAMENTO_ANNUALE" nillable="false" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_CANONE_BASE_EQUO_CANONE_ANNUALE" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_CANONE_INDICIZZATO_ANNUALE" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_PERCENTUALE_APPLICAZIONE" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_FASCIA_APPARTENENZA" type="xs:string" nillable="true" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_AREA_DI_APPARTENENZA" type="tipo_enumeration_1_4" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_CANONE_APPLICATO_ANNUALE" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_PERCENTUALE_ISTAT_DI_AGGIORNAMENTO_LR27" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="3"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_TIPO_CANONE" type="tipo_enumeration_1_10" nillable="false"/>
+			<xs:element name="CANONE_ANNUALE_ANTE_LEGEM" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CANONE_ANUALE_A_REGIME" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_VALORE_CONVENZIONALE" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_COSTO_CONVENZIONALE" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_CARATTERISTICHE_UNITA_ABITATIVA" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_REDDITO_PREVALENTEMENTE_DIPENDENTE" type="tipo_enumeration_1_2" nillable="true" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_ABBATTIMENTO_CANONE" type="tipo_enumeration_1_2" nillable="true" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_SOVRAPPREZZO_DECADENZA" type="tipo_enumeration_1_2" nillable="true" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_PERCENTUALE_AGGIUNTIVA_PER_AREA_DECADENZA" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+						<xs:maxExclusive value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_SOVRAPPREZZO_SOTTOUTILIZZO" type="tipo_enumeration_1_2" nillable="true" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_REDDITO_DIPENDENTE_MINORE_PENSIONE" type="tipo_enumeration_1_2" nillable="true" minOccurs="0"/>
+			<xs:element name="NUMERO_BOX_POSTI_AUTO_CONTRATTO_SEPARATO" type="xs:nonNegativeInteger" minOccurs="0"/>
+			<xs:element name="CANONE_BOX_POSTI_AUTO_CONTRATTO_SEPARATO_ANNUALE" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_CONTABILITA_UNICA" type="tipo_enumeration_1_2"/>
+			<xs:element name="ALLOGGIO_GETTITO_PREVISTO_CONTABILITA_UNICA" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_MOROSITA_PRECEDENTI_FAMIGLIE_OCCUPANTI" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_MOROSITA_ATTUALE_FAMIGLIA_OCCUPANTE" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CODICE_MIR" nillable="false" minOccurs="1">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="0"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_NUM_PERSONE_INVALIDE_100_CON_INDENNITA_ACCOMPAGNAMENTO" type="xs:nonNegativeInteger" nillable="true" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_NUM_PERSONE_INVALIDE_100_SENZA_INDENNITA_ACCOMPAGNAMENTO" type="xs:nonNegativeInteger" nillable="true" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_NUM_PERSONE_INVALIDE_AL_67_O_99" type="xs:nonNegativeInteger" nillable="true" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_SPESE_SOST_INVALIDI_100" nillable="true" minOccurs="0" maxOccurs="unbounded">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_STATO_AGGIORNAMENTO_ANAGRAFE_NUCLEO_FAMILIARE" type="tipo_enumeration_0_2"/>
+			<xs:element name="DATA_CALCOLO_ISEE" type="anno_formattato" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_ISR" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_ISP" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_PSE" type="tipo_pse" nillable="true" minOccurs="0"/>
+			<xs:element name="ALLOGGIO_ISE_ERP" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_ISEE_ERP" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_ISE_ERP_ASSEGNATO" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_ISEE_ERP_ASSEGNATO" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="REDDITO_DIPENDENTE_ASSIMILATO" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALTRI_TIPI_REDDITI_IMPONIBILI" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="VALORE_LOCATIVO" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_VALORE_MERCATO" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="VETUSTA" nillable="false" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:maxInclusive value="1"/>
+						<xs:fractionDigits value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="NUMERO_COMPONENTI" type="xs:nonNegativeInteger"/>
+			<xs:element name="ANNO_VETUSTA" type="anno"/>
+			<xs:element name="PERCENTUALE_VALORE_LOCATIVO" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="TABELLA_CLASSI_ISEE" type="tipo_tabella_classi_isee" minOccurs="0"/>
+			<xs:element name="INVALIDITA_SOCIALE" type="tipo_enumeration_1_2" minOccurs="0"/>
+			<xs:element name="ISEE_PRONUNCIA_DECADENZA" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DATA_DISPONIBILITA" type="anno_formattato" nillable="false" minOccurs="0"/>
+			<xs:element name="DATA_CONTRATTO" type="anno_formattato" nillable="false" minOccurs="0"/>
+			<xs:element name="VALORE_PATRIMONIALE" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO" type="INQUILINOType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="INQUILINOType">
+		<xs:sequence>
+			<xs:element name="INQUILINO_CODICE_DI_RICONOSCIMENTO" type="xs:string" nillable="false"/>
+			<xs:element name="INQUILINO_CODICE_FISCALE" type="fiscale_codice" minOccurs="0"/>
+			<xs:element name="INQUILINO_COGNOME" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_NOME" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="60"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_SESSO" type="inquilino_sesso"/>
+			<xs:element name="INQUILINO_RAPPORTO_PARENTELA" type="tipo_enumeration_1_9" nillable="false"/>
+			<xs:element name="INQUILINO_TIPOLOGIA_NUCLEO" type="tipo_enumeration_1_5" default="1" nillable="false"/>
+			<xs:element name="INQUILINO_NUCLEO_FAMILIARE" type="xs:nonNegativeInteger" nillable="false"/>
+			<xs:element name="INQUILINO_FISCALMENTE_A_CARICO" type="tipo_enumeration_1_2" nillable="false"/>
+			<xs:element name="INQUILINO_DATA_NASCITA" type="anno_formattato" nillable="false"/>
+			<xs:element name="INQUILINO_LUOGO_NASCITA" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:length value="4"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_CITTADINANZA" type="tipo_enumeration_1_3" nillable="false" minOccurs="0"/>
+			<xs:element name="INQUILINO_CONDIZIONE_PROFESSIONALE_E_NON" type="tipo_enumeration_1_7" nillable="false"/>
+			<xs:element name="INQUILINO_PROFESSIONE" type="tipo_enumeration_1_12"/>
+			<xs:element name="INQUILINO_REDDITO_COMPLESSIVO" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="150000"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_REDDITO_DA_LAVORO_DIPENDENTE" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="150000"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_REDDITO_DA_LAVORO_AUTONOMO" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="150000"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_REDDITO_DA_PENSIONE" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="150000"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_REDDITO_DA_TERRENI" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="150000"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_REDDITO_DA_FABBRICATI" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="150000"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_REDDITO_DI_ALTRO_TIPO" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="150000"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_ALTRI_EMOLUMENTI" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="150000"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_REDDITO_DA_PROVENTI_AGRARI" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="150000"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_DETRAZIONE_IRPEF_DOVUTA" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="50000"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_ANNO_PERCEZIONE_REDDITO" type="anno" minOccurs="0"/>
+			<xs:element name="INQUILINO_DETRAZIONE_SPESE_SANITARIE" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="50000"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_DETRAZIONE_SPESE_PER_ANZIANI_O_DISABILI" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:maxInclusive value="50000"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_SUSSIDI_ENTI_PUBBLICI" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="INQUILINO_PATRIMONIO_MOBILIARE" type="MOBILIAREType" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:element name="INQUILINO_PATRIMONIO_IMMOBILIARE" type="IMMOBILIAREType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="SUPERFICIType">
+		<xs:sequence>
+			<xs:element name="ALLOGGIO_SUPERFICIE_UTILE" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:fractionDigits value="2"/>
+						<xs:minInclusive value="14"/>
+						<xs:maxInclusive value="300"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_SUPERFICIE_EFFETIVA_CANTINE_SOFFITTE" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_SUPERFICIE_EFFETTIVA_BALCONI" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_SUPERFICIE_EFFETTIVA_AREA_PRIVATA" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_SUPERFICIE_VERDE_CONDOMINIALE" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_SUPERFICIE_BOX" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="NUMERO_BOX_POSTI_AUTO" type="xs:nonNegativeInteger"/>
+			<xs:element name="ALLOGGIO_SUPERFICIE_POSTO_AUTO" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_SUPERFICIE_CONVENZIONALE_ANTE_LEGEM">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_SUPERFICIE_CONVENZIONALE_LR27" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ALLOGGIO_SUPERFICIE_ALTRE_PERTINENZE" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CONSERVAZIONEType">
+		<xs:sequence>
+			<xs:element name="ALLOGGIO_STATO_CONSERVAZIONE_ACCESSI" type="tipo_enumeration_0_3" nillable="false"/>
+			<xs:element name="ALLOGGIO_STATO_CONSERVAZIONE_FACCIATA" type="tipo_enumeration_0_3" nillable="false"/>
+			<xs:element name="ALLOGGIO_STATO_CONSERVAZIONE_PAVIMENTI" type="tipo_enumeration_0_3" nillable="false"/>
+			<xs:element name="ALLOGGIO_STATO_CONSERVAZIONE_PARETI" type="tipo_enumeration_0_3" nillable="false"/>
+			<xs:element name="ALLOGGIO_STATO_CONSERVAZIONE_INFISSI" type="tipo_enumeration_0_3" nillable="false"/>
+			<xs:element name="ALLOGGIO_STATO_CONSERVAZIONE_IMPIANTO_ELETTRICO" type="tipo_enumeration_0_3" nillable="false"/>
+			<xs:element name="ALLOGGIO_STATO_CONSERVAZIONE_IMPIANTO_IDRICO" type="tipo_enumeration_0_3" nillable="false"/>
+			<xs:element name="ALLOGGIO_STATO_CONSERVAZIONE_RISCALDAMENTO" type="tipo_enumeration_0_3" nillable="false"/>
+			<xs:element name="ALLOGGIO_CONSERVAZIONE_STATO_GENERALE" type="tipo_enumeration_1_3" nillable="false"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="MOBILIAREType">
+		<xs:sequence>
+			<xs:element name="ANNO_RIFERIMENTO" type="anno"/>
+			<xs:element name="CODICE_INTERMEDIARIO_GESTORE">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:maxLength value="50"/>
+						<xs:minLength value="1"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="DENOMINAZIONE_INTERMEDIARIO_GESTORE">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="IMPORTO_PATRIMONIO_MOBILIARE">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="VALORE_PATRIMONIO_MOBILIARE_NETTO_IMPRESE">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minInclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="IMMOBILIAREType">
+		<xs:sequence>
+			<xs:element name="ANNO_RIFERIMENTO" type="anno"/>
+			<xs:element name="TIPO_PATRIMONIO_IMMOBILIARE" type="tipo_enumeration_1_3"/>
+			<xs:element name="QUOTA_PROPRIETA_IMMOBILE">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minExclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="VALORE_ICI_IMMOBILE">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minExclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="QUOTA_MUTUO_RESIDUO_IMMOBILE" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:decimal">
+						<xs:minExclusive value="0"/>
+						<xs:fractionDigits value="2"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="INDIRIZZOType">
+		<xs:sequence>
+			<xs:element name="PREFISSO_INDIRIZZO" type="tipo_enumeration_1_18" nillable="true"/>
+			<xs:element name="NOME_VIA" nillable="false">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="100"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="NUMERO_CIVICO" nillable="true">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="ESPONENTE" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="10"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="NOME_LOCALITA" nillable="true" minOccurs="0">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:minLength value="1"/>
+						<xs:maxLength value="50"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="CAP" type="codice_avviamento_postale" nillable="false"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

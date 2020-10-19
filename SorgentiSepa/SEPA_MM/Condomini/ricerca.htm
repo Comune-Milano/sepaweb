@@ -1,0 +1,52 @@
+﻿<HTML>
+<HEAD>
+<TITLE> Cercare una parola in un documento con JavaScript  - di Eliana Argenti e Tommaso Bientinesi</TITLE>
+<script language="JavaScript">
+var volte = 0;
+ var trovato = false;
+var base='';
+function inizia() {
+  base = opener.document.body.createTextRange();
+  }
+  function trova() {
+      try {
+          if (document.MioForm.testo.value == '') {
+              alert('Nulla da cercare!');
+              return;
+          }
+          if (volte == 0) {
+              inizia()
+          }
+          trovato = base.findText(document.MioForm.testo.value)
+          if (trovato) {
+              base.findText(document.MioForm.testo.value);
+              base.select();
+              base.scrollIntoView();
+              volte++;
+              base.moveStart("character", 1);
+              base.moveEnd("textedit");
+          }
+          else {
+              if (volte == '0')
+                  alert('"' + document.MioForm.testo.value + '" non è stato trovato in questa pagina.');
+              else {
+                  alert('"' + document.MioForm.testo.value + '"  è  stato trovato  ' + volte + ' volte in questa pagina.');
+                  volte = 0;
+              }
+          }
+      } 
+      catch (Error)
+        {volte = 0; }
+ }
+</script>
+</HEAD>
+<body bgcolor="#e0e4e3" font size="3" vLink=#ff6633>
+    <H3 ALIGN="center"><FONT COLOR=red>RICERCA NEL DOCUMENTO</FONT></H3>
+    <font color=navy><form name="MioForm">
+<input type="text" name="testo">
+<input type="button" value="TROVA" onClick="trova()">
+</form>
+</h4></FONT>
+&nbsp;<br>
+</body>
+</HTML>

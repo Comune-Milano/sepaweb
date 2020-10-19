@@ -1,0 +1,221 @@
+﻿<%@ Master Language="VB" CodeFile="MasterGLocat.master.vb" Inherits="Gestione_locatari_MasterGLocat" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+    <style type="text/css">
+        .riTextBox
+        {
+            text-transform: uppercase;
+        }
+        .ErrorControl
+        {
+        
+        border: solid 1px Red;
+           
+        }.ErrorControl:hover
+        {
+        
+        border: solid 1px Red;
+           
+        }
+        /*.RadInput_Web20 .riHover,html body .RadInput_Hover_Web20,html body .RadInput_Web20 .riFocused,html body .RadInput_Focused_Web20{color:#333;border-color:red}*/
+              
+            
+    </style>
+    <title>Gestione Locatari</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon" />
+    <link href="../StandardTelerik/Style/Site.css" rel="stylesheet" type="text/css" />
+    <script src="../StandardTelerik/Scripts/jsFunzioni.js" type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/modalTelerik.js" type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/jsMessage.js" type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/jsAutoComplete.js" type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/chiamateGeneriche.js" type="text/javascript"></script>
+    <script src="js/jsFunzioni.js" type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/jsRedirectLoading.js" type="text/javascript"></script>
+      <script src="../StandardTelerik/Scripts/jsFunzioniLock.js" type="text/javascript"></script>
+    <telerik:RadCodeBlock ID="RadCodeBlock1" runat="server">
+        <script type="text/javascript">
+            function prova() {
+                $telerik.$('#txtCF').removeClass('riTextBox');
+
+            }
+
+            function pageLoad(sender, eventArgs) {
+                initialize();
+            };
+            function loadingMenu() {
+                var currentLoadingPanel = $find("<%= RadAjaxLoadingPanel1.ClientID%>");
+                var currentUpdatedControl = "<%= RestrictionZoneID.ClientID %>";
+                currentLoadingPanel.show(currentUpdatedControl);
+            };
+            function closeloadingMenu() {
+                var currentLoadingPanel = $find("<%= RadAjaxLoadingPanel1.ClientID%>");
+                var currentUpdatedControl = "<%= RestrictionZoneID.ClientID %>";
+                currentLoadingPanel.hide(currentUpdatedControl);
+            };
+        </script>
+    </telerik:RadCodeBlock>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div id="divCaricamentoIniziale" style="margin: 0px; width: 100%; height: 100%; position: fixed;
+        top: 0px; left: 0px; filter: alpha(opacity=100); opacity: 1; background-color: #e7edf7;
+        z-index: 9999;">
+        <div style="margin-left: -117px; margin-top: -48px; width: 234px; height: 97px; position: fixed;
+            top: 50%; left: 50%; background-color: transparent;">
+            <table style="width: 100%; height: 100%;">
+                <tr>
+                    <td valign="middle" align="center">
+                        <img title="Caricamento in Corso..." alt="Caricamento in Corso..." src="../StandardTelerik/Immagini/loading.gif" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <form id="form1" runat="server" onsubmit="validNavigation=true;return true;">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server" AsyncPostBackTimeout="720000">
+        <Scripts>
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
+        </Scripts>
+    </telerik:RadScriptManager>
+    <telerik:RadFormDecorator ID="FormDecorator1" runat="server" DecoratedControls="Buttons">
+    </telerik:RadFormDecorator>
+    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+        <ClientEvents OnRequestStart="requestStartAjax" />
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="RadAjaxManager1">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="RestrictionZoneID" LoadingPanelID="RadAjaxLoadingPanel1" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            <telerik:AjaxSetting AjaxControlID="RestrictionZoneID">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="RestrictionZoneID" LoadingPanelID="RadAjaxLoadingPanel1">
+                    </telerik:AjaxUpdatedControl>
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+    </telerik:RadAjaxManager>
+    <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server">
+    </telerik:RadAjaxLoadingPanel>
+    <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel2" runat="server" Skin="Metro">
+    </telerik:RadAjaxLoadingPanel>
+    <telerik:RadWindowManager runat="server" ID="RadWindowManagerMaster" VisibleStatusbar="False"
+        RestrictionZoneID="RestrictionZoneID" Behavior="Minimize, Pin, Maximize, Move, Resize" ClientIDMode="Static">
+        <Localization Maximize="<%$ Resources:RadWindow, Maximize %>" Minimize="<%$ Resources:RadWindow, Minimize %>"
+            Close="<%$ Resources:RadWindow, Close %>" PinOff="<%$ Resources:RadWindow, PinOff %>"
+            PinOn="<%$ Resources:RadWindow, PinOn %>" Reload="<%$ Resources:RadWindow,Reload %>"
+            Restore="<%$ Resources:RadWindow, Restore%>" Cancel="<%$ Resources:RadWindow, Cancel %>"
+            OK="<%$ Resources:RadWindow, OK %>" No="<%$ Resources:RadWindow, No %>" Yes="<%$ Resources:RadWindow, Yes %>" />
+    </telerik:RadWindowManager>
+    <telerik:RadWindow ID="RadWindow1" runat="server" CenterIfModal="true" Modal="true"
+        VisibleStatusbar="false" Width="650px" Height="550px" Behaviors="Pin, Move, Close"
+        RestrictionZoneID="RestrictionZoneID">
+    </telerik:RadWindow>
+    <asp:Panel ID="RestrictionZoneID" runat="server" CssClass="demo-container size-narrow">
+        <div id="divGenerale">
+            <div id="divBody">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 3px;">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <div id="divTitolo" class="TitoloModulo">
+                                <asp:ContentPlaceHolder ID="CPTitolo" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                            <div id="divMenu" class="MenuModulo">
+                                <asp:ContentPlaceHolder ID="CPMenu" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                            <div id="divContenuto" style="overflow: auto;">
+                                <asp:ContentPlaceHolder ID="CPContenuto" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                            <div id="divFooter">
+                                <table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td style="width: 95%;">
+                                            <asp:ContentPlaceHolder ID="CPFooter" runat="server">
+                                            </asp:ContentPlaceHolder>
+                                        </td>
+                                        <td>
+                                            <table style="width: 100%;">
+                                                <tr>
+                                                    <td style="text-align: right;">
+                                                        &nbsp
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                        <td style="width: 3px;">
+                            &nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </asp:Panel>
+    <asp:HiddenField ID="solaLettura" runat="server" Value="0" ClientIDMode="Static" />
+    <asp:HiddenField ID="HFSepaTest" runat="server" Value="0" ClientIDMode="Static" />
+    <asp:HiddenField ID="HFModulo" runat="server" Value="" ClientIDMode="Static" />
+    <asp:HiddenField ID="optMenu" runat="server" Value="1" ClientIDMode="Static" />
+    <asp:HiddenField ID="HFPathLock" runat="server" Value="" ClientIDMode="Static" />
+    <asp:HiddenField ID="HFPathExit" runat="server" Value="" ClientIDMode="Static" />
+    <asp:HiddenField ID="HFBlockExit" runat="server" Value="1" ClientIDMode="Static" />
+    <asp:HiddenField ID="HFVerticalPosition" runat="server" Value="0" ClientIDMode="Static" />
+    <asp:HiddenField ID="HFResizeColonneGridFit" runat="server" Value="1" ClientIDMode="Static" />
+     <asp:HiddenField ID="frmModify" runat="server" Value="0" ClientIDMode="Static" />
+    <asp:HiddenField ID="PageID" runat="server" Value="" ClientIDMode="Static" />
+    <asp:HiddenField ID="hiddenLockCorrenti" runat="server" Value="" ClientIDMode="Static" />
+    <asp:HiddenField ID="HFNoNascondiLoading" runat="server" Value="0" ClientIDMode="Static" />
+    <asp:HiddenField ID="HFForceNoLoadingPanel" runat="server" Value="0" ClientIDMode="Static" />
+    <telerik:RadNotification ID="RadNotificationMsg" runat="server" Title="SepaWeb" Height="85px"
+        Animation="Fade" EnableRoundedCorners="true" EnableShadow="true" AutoCloseDelay="1500"
+        Position="BottomRight" OffsetX="-30" OffsetY="-70" ShowCloseButton="true">
+    </telerik:RadNotification>
+    <telerik:RadWindow ID="modalRadWindow" runat="server" CenterIfModal="true" Modal="True"
+        VisibleStatusbar="False" ClientIDMode="Static" ShowContentDuringLoad="False"
+        RestrictionZoneID="RestrictionZoneID">
+    </telerik:RadWindow>
+    </form>
+    <script src="../StandardTelerik/Scripts/gestioneDimensioniPaginaTelerik.js" type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/jsFunzioniLock.js" type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/jsfunzioniExit.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function initialize() {
+            if (document.getElementById('HFSepaTest').value != '0') {
+                ParametroAmbiente();
+            };
+            validNavigation = false;
+            $("#divContenuto").scroll(function () {
+                document.getElementById('HFVerticalPosition').value = document.getElementById('divContenuto').scrollTop;
+            });
+            document.getElementById('divContenuto').scrollTop = document.getElementById('HFVerticalPosition').value;
+            if (document.getElementById('divCaricamentoIniziale')) {
+                if (document.getElementById('HFNoNascondiLoading')) {
+                    if (document.getElementById('HFNoNascondiLoading').value == '1') {
+                        document.getElementById('HFNoNascondiLoading').value = '0';
+                        document.getElementById('divCaricamentoIniziale').style.zIndex = 1000;
+                    } else {
+                        document.getElementById('divCaricamentoIniziale').style.zIndex = 9999;
+                        document.getElementById('divCaricamentoIniziale').style.visibility = 'hidden';
+                    };
+                } else {
+                    document.getElementById('divCaricamentoIniziale').style.zIndex = 9999;
+                    document.getElementById('divCaricamentoIniziale').style.visibility = 'hidden';
+                };
+            };
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>Trova</title>
+
+ 
+
+<script type="text/javascript">
+
+
+    function TastoInvio(e) {
+        sKeyPressed1 = e.which;
+        if (sKeyPressed1 == 13) {
+
+            findtext();
+        }
+    }
+
+
+    function $onkeydown() {
+
+        if (event.keyCode == 13) {
+            findtext();
+        }
+    }
+
+    // on load create a textrange with everything in my
+    // editor object tbContentElement
+    var rng = dialogArguments.document.body.createTextRange();
+    rng.collapse();
+
+    function window.onunload() {
+        dialogArguments.dWin = null; // releases my reference
+    }
+
+    // returns a calculated value for matching case and
+    // matching whole words
+    function searchtype() {
+        var retval = 0;
+        var matchcase = 0;
+        var matchword = 0;
+        if (document.all.blnMatchCase.checked) matchcase = 4;
+        if (document.all.blnMatchWord.checked) matchword = 2;
+        retval = matchcase + matchword;
+        return (retval);
+    }
+
+
+
+
+
+    // find the text I want
+    function findtext() {
+        try {
+            if (document.all.strSearch.value.length < 1) {
+                alert("Inserire la parola da cercare nel campo \"Trova\".");
+            }
+            else {
+                var searchval = document.all.strSearch.value;
+                rng.collapse(false);
+                if (rng.findText(searchval, 1000000000, searchtype())) {
+                    rng.select();
+                }
+                else {
+                    var startfromtop = confirm("Nessuna parola trovata.\nVuoi ricominciare la ricerca dall\'inizio pagina?");
+                    if (startfromtop) {
+                        rng.expand("textedit"); // selects everything
+                        rng.collapse(); // collapse at the beginning
+                        rng.select(); // create the selection
+                        findtext(); // start again
+                    }
+                }
+            }
+        }
+        catch (error) { }
+    }
+
+    // ---------------------------
+    // bonus replace code!
+    // ---------------------------
+
+    // replace the selected text
+//    function replacetext() {
+//        if (document.all.strSearch.value.length < 1) {
+//            alert("Please enter text in the \"Find what:\" field.");
+//        } else {
+//            if (document.all.blnMatchCase.checked) {
+//                if (rng.text == document.all.strSearch.value) rng.text = document.all.strReplace.value
+//            } else {
+//                if (rng.text.toLowerCase() == document.all.strSearch.value.toLowerCase()) rng.text = document.all.strReplace.value
+//            }
+//            findtext();
+//        }
+//    }
+
+//    function replacealltext() {
+//        if (document.all.strSearch.value.length < 1) {
+//            alert("Please enter text in the \"Find what:\" field.");
+//        } else {
+//            var searchval = document.all.strSearch.value;
+//            var wordcount = 0;
+//            var msg = "";
+//            rng.expand("textedit");
+//            rng.collapse();
+//            rng.select();
+//            while (rng.findText(searchval, 1000000000, searchtype())) {
+//                rng.select();
+//                rng.text = document.all.strReplace.value;
+//                wordcount++;
+//            }
+//            if (wordcount == 0) msg = "Word was not found. Nothing was replaced."
+//            else msg = wordcount + " word(s) were replaced.";
+//            alert(msg);
+//        }
+//    }
+
+</script>
+</head>
+<body bgcolor="ThreeDFace">
+<script type="text/javascript">
+    if (navigator.appName == 'Microsoft Internet Explorer') {
+        document.onkeydown = $onkeydown;
+    }
+    else {
+        window.document.addEventListener("keydown", TastoInvio, true);
+
+    }
+
+   </script>
+<FORM NAME="frmSearch" method="post" action="" onsubmit="findtext();return false;">
+<TABLE CELLSPACING="0" cellpadding="5" border="0">
+<TR><TD VALIGN="top" align="left" nowrap style="font-family:Arial; font-size:11px;">
+    Trova<label for="strSearch" accesskey="n">:</label><br>
+
+    <INPUT TYPE=TEXT SIZE=40 NAME=strSearch id="strSearch" style="width:280px;"><br>
+   <label for="strReplace" style="visibility:hidden ">Replace with:</label><br>
+    <INPUT TYPE=TEXT SIZE=40 NAME=strReplace id="strReplace" style="width : 280px; visibility:hidden "><br>
+    <INPUT TYPE=Checkbox SIZE=40 NAME=blnMatchCase id="blnMatchCase"><label for="blnMatchCase"><u>M</u>aiuscole/minuscole</label><br>
+    <INPUT TYPE=Checkbox SIZE=40 NAME=blnMatchWord ID="blnMatchWord"><label for="blnMatchWord">Solo parole i<u>n</u>tere</label>
+</td>
+<td rowspan="2" valign="top">
+    <button name="btnFind" accesskey="f" onClick="findtext();" style="width:75px; height:22px; font-family:Tahoma; font-size:11px; margin-top:15px"><u>T</u>rova</button><br>
+
+    <button name="btnCancel" onClick="window.close();" style="width:75px; height:22px; font-family:Tahoma; font-size:11px; margin-top:7px">Chiudi</button><br>
+<!--    <button name="btnReplace" style="width:75px; height:22px; font-family:Tahoma; font-size:11px; margin-top:7px" onClick="replacetext();">Replace</button><br>
+    <button name="btnReplaceall" style="width:75px; height:22px; font-family:Tahoma; font-size:11px; margin-top:7px" onClick="replacealltext();">Replace All</button><br>
+--></td></tr>
+</table>
+</body>
+</html>

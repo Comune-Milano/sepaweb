@@ -1,0 +1,597 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ExpertPdf.MergePdf</name>
+    </assembly>
+    <members>
+        <member name="T:ExpertPdf.MergePdf.EncryptionKeySize">
+            <summary>
+            The length of the encryption key
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.EncryptionKeySize.EncryptKey128Bit">
+            <summary>
+            A 128 bit length.
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.EncryptionKeySize.EncryptKey40Bit">
+            <summary>
+            A 40 bit length.
+            </summary>
+        </member>
+        <member name="T:ExpertPdf.MergePdf.PdfDocumentInfo">
+            <summary>
+            This class encapsulates the options to control the merged PDF document
+            description (author, title, keywords, etc). The PDFMerge class defines 
+            a reference to an object of this type
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfDocumentInfo.AuthorName">
+            <summary>
+            Gets or sets name of the document author.
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfDocumentInfo.CreatedDate">
+            <summary>
+            Gets or sets the date and time when the document was created.
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfDocumentInfo.Keywords">
+            <summary>
+            Gets or sets document keywords.
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfDocumentInfo.Application">
+            <summary>
+            Gets or sets the name of the application that produced this document
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfDocumentInfo.Subject">
+            <summary>
+            Gets or sets the subject of the document.
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfDocumentInfo.Title">
+            <summary>
+            Gets or sets document title.
+            </summary>
+        </member>
+        <member name="T:ExpertPdf.MergePdf.PdfSecurityOptions">
+            <summary>
+            This class encapsulates the options to control the 
+            security options of the merged PDF document. The PDFMerge class defines 
+            a reference to an object of this type
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfSecurityOptions.CanAssembleDocument">
+            <summary>
+            Can assemble the document (create bookmarks, thumbnail images or insert, rotate, delete
+            pages). This property has effect when a 128 bit key is used.
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfSecurityOptions.CanCopyContent">
+            <summary>
+            Can copy the document content. 
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfSecurityOptions.CanEditAnnotations">
+            <summary>
+            Can edit PDF document annotations. 
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfSecurityOptions.CanEditContent">
+            <summary>
+            Can edit PDF document content. 
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfSecurityOptions.CanFillFormFields">
+            <summary>
+            Can fill the form fields. This property has effect when a 128 bit key is used. To disable form filling the CanEditContent and CanEditAnnotations must be set on false.
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfSecurityOptions.CanPrint">
+            <summary>
+            Can print the document. 
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfSecurityOptions.KeySize">
+            <summary>
+            The dimension of the encryption key. By default a 128 bit key is used.
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfSecurityOptions.OwnerPassword">
+            <summary>
+            The password required to change permissions of the PDF document like printing or editing.
+            If the OwnerPassword property is an empty string and the UserPassword is not empty,
+            the OwnerPassword will be automatically assigned with the value from UserPassword and when the PDF document is opened in the viewer using the user password (which is also the owner password) 
+            all the operations like printing, copying, etc will be allowed.
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfSecurityOptions.UserPassword">
+            <summary>
+            The password required to open the PDF document. If the OwnerPassword property is an empty string and the UserPassword is not empty,
+            the OwnerPassword will be automatically assigned with the value from UserPassword and when the PDF document is opened in the viewer using the user password (which is also the owner password) 
+            all the operations like printing, copying, etc will be allowed.
+            </summary>
+        </member>
+        <member name="T:ExpertPdf.MergePdf.MergeImageFormat">
+            <summary>
+            The supporter image formats
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.MergeImageFormat.Bmp">
+            <summary>
+            Bmp
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.MergeImageFormat.Gif">
+            <summary>
+            Gif
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.MergeImageFormat.Jpeg">
+            <summary>
+            Jpeg
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.MergeImageFormat.Png">
+            <summary>
+            Png
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.MergeImageFormat.Tiff">
+            <summary>
+            Tiff
+            </summary>
+        </member>
+        <member name="T:ExpertPdf.MergePdf.RenderImageFormatConverter">
+            <summary>
+            This class converts a MergeImageFormat to System.Drawing.ImageFormat
+            </summary>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.RenderImageFormatConverter.GetImageFormat(ExpertPdf.MergePdf.MergeImageFormat)">
+            <summary>
+            Converts a MergeImageFormat to System.Drawing.ImageFormat
+            </summary>
+            <param name="format">The MergeImageFormat to convert</param>
+            <returns>The converted ImageFormat</returns>
+        </member>
+        <member name="T:ExpertPdf.MergePdf.MergePDFException">
+            <summary>
+            The type of exceptions thrown by the library 
+            </summary>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.MergePDFException.#ctor(System.String)">
+            <summary>
+            Constructs an exception object
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.MergePDFException.#ctor(System.String,System.Exception)">
+            <summary>
+            Constructs an exception object
+            </summary>
+            <param name="message">The exception message</param>
+            <param name="innerException">The exception which produced this exception</param>
+        </member>
+        <member name="T:ExpertPdf.MergePdf.PDFCompressionLevel">
+            <summary>
+            The rendered PDF compression level
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PDFCompressionLevel.AboveNormal">
+            <summary>
+            Better compression but takes more time to compress
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PDFCompressionLevel.BelowNormal">
+            <summary>
+            Something middle between normal and BestSpeed compressions
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PDFCompressionLevel.Best">
+            <summary>
+            Use the best compression but takes more time to compress
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PDFCompressionLevel.BestSpeed">
+            <summary>
+            The compression speed is high but the compression percentage is low
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PDFCompressionLevel.NoCompression">
+            <summary>
+            Does not do any compression
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PDFCompressionLevel.Normal">
+            <summary>
+            Use normal compression, a balance between compression speed and resulted size
+            </summary>
+        </member>
+        <member name="T:ExpertPdf.MergePdf.PdfDocumentOptions">
+            <summary>
+            This class encapsulates the options to control the PDF document
+            redering process. The PDFMerge class define 
+            a reference to an object of this type
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfDocumentOptions.PdfPageOrientation">
+            <summary>
+            This property controls the PDF page orientation
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfDocumentOptions.PdfCompressionLevel">
+            <summary>
+            This property controls the compression level of the rendered PDF document
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PdfDocumentOptions.PdfPageSize">
+            <summary>
+            This property controls the size of the rendered PDF document
+            </summary>
+        </member>
+        <member name="T:ExpertPdf.MergePdf.PDFMerge">
+            <summary>
+            PDF Merge manager
+            </summary>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.#ctor">
+            <summary>
+            Merge using default PDF document options
+            </summary>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.#ctor(ExpertPdf.MergePdf.PdfDocumentOptions)">
+            <summary>
+            Merge using the specified PDF document options
+            </summary>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.AppendPDFFile(System.String)">
+            <summary>
+            Appends an existing PDF document
+            </summary>
+            <param name="pdfFileFullPath">The full file path of the existing PDF document</param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.AppendPDFFile(System.String,System.Int32)">
+            <summary>
+            Appends pages from the specified source document starting from zero based page index
+            in the source document.
+            </summary>
+            <param name="pdfFileFullPath">The full path of the document to be appended</param>
+            <param name="startIndex">The zero based index of the page from the source document from where to start appending pages</param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.AppendPDFFile(System.String,System.Int32,System.Int32)">
+            <summary>
+            Appends at most length pages from the specified source document starting from zero based index
+            startIndex in the source document.
+            </summary>
+            <param name="pdfFileFullPath">The full path of the document to be appended</param>
+            <param name="startIndex">The zero based index of the page from the source document from where to start appending pages</param>
+            <param name="length">The number of pages to be taken from the source document and appended to the merged document. If the specified length is
+            bigger than the available number of pages starting from the specified start page index, only the available number of pages will be appended.</param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.AppendPDFFile(System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Appends at most length pages from the specified password protected source document starting from zero based index
+            startIndex in the source document.
+            </summary>
+            <param name="pdfFileFullPath">The full path of the document to be appended</param>
+            <param name="password">The password to open the appended document. If this argument is null no password will be used.</param>
+            <param name="startIndex">The zero based index of the page from the source document from where to start appending pages</param>
+            <param name="length">The number of pages to be taken from the source document and appended to the merged document. If the specified length is
+            bigger than the available number of pages starting from the specified start page index, only the available number of pages will be appended.
+            If the length is negative e.g -1, all the PDF pages available from startIndex will be appended to the merged document.</param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.AppendEmptyPage">
+            <summary>
+            Appends an empty page to PDF document
+            </summary>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.AppendPDFStream(System.IO.Stream)">
+            <summary>
+            Appends a PDF stream to the merged document
+            </summary>
+            <param name="pdfStream">The PDF stream to be appended</param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.AppendPDFStream(System.IO.Stream,System.Int32)">
+            <summary>
+            Appends pages from the specified source document starting from zero based page index
+            in the source document.
+            </summary>
+            <param name="pdfStream">The PDF stream to be appended</param>
+            <param name="startIndex">The zero based index of the page from the source document from where to start appending pages</param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.AppendPDFStream(System.IO.Stream,System.Int32,System.Int32)">
+            <summary>
+            Appends at most length pages from the specified source document starting from zero based index
+            startIndex in the source document.
+            </summary>
+            <param name="pdfStream">The PDF stream to be appended</param>
+            <param name="startIndex">The zero based index of the page from the source document from where to start appending pages</param>
+            <param name="length">The number of pages to be taken from the source document and appended to the merged document. If the specified length is
+            bigger than the available number of pages starting from the specified start page index, only the available number of pages will be appended.</param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.AppendPDFStream(System.IO.Stream,System.String,System.Int32,System.Int32)">
+            <summary>
+            Appends at most length pages from the specified password protected source document starting from zero based index
+            startIndex in the source document.
+            </summary>
+            <param name="pdfStream">The PDF stream to be appended</param>
+            <param name="password">The password to open the appended document. If this argument is null no password will be used.</param>
+            <param name="startIndex">The zero based index of the page from the source document from where to start appending pages</param>
+            <param name="length">The number of pages to be taken from the source document and appended to the merged document. If the specified length is
+            bigger than the available number of pages starting from the specified start page index, only the available number of pages will be appended.
+            If the length is negative e.g -1, all the PDF pages available from startIndex will be appended to the merged document.</param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.AppendImageFile(System.String)">
+            <summary>
+            Append an existing image file
+            </summary>
+            <param name="imageFileFullPath">The full file path of the existing image file</param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.AppendImageObject(System.Drawing.Image)">
+            <summary>
+            Append a System.Drawing.Image object
+            </summary>
+            <param name="img">The image object</param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.GetCurrentPageCount">
+            <summary>
+            Retrieves the number of pages of current PDF document
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.RenderMergedPDFDocument">
+            <summary>
+            Renders the merged document into memory buffer.
+            </summary>
+            <returns>The rendered document bytes.</returns>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.SaveMergedPDFToFile(System.String)">
+            <summary>
+            Saves the merged PDF document into the specified disk file.
+            </summary>
+            <param name="outFile">The full path of the file where to save the rendered PDF document.</param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.SaveMergedPDFToStream(System.IO.Stream)">
+            <summary>
+            Saves the merged PDF document into the specified stream.
+            </summary>
+            <param name="outPdfStream">The output stream where to save the merged PDF document.</param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.GetPageCount(System.String)">
+            <summary>
+            A fast method to obtain the page count of a specified PDF document.
+            </summary>
+            <param name="pdfFilePath">The path of the PDF file for which to get the page count.</param>
+            <returns>The number of pages in the specified PDF document.</returns>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMerge.GetPageCount(System.IO.Stream)">
+            <summary>
+            A fast method to obtain the page count of a specified PDF document.
+            </summary>
+            <param name="pdfStream">The stream containing the PDF document for which to get the page count.</param>
+            <returns>The number of pages in the specified PDF document.</returns>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PDFMerge.LicenseKey">
+            <summary>
+            Gets or sets the license key
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PDFMerge.SecurityOptions">
+            <summary>
+            Gets the PDF security options object of the merged PDF document. This object properties
+            allow the control of the merged document encryption, password protection, print and copy rigths, etc
+            </summary>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PDFMerge.DocumentInfo">
+            <summary>
+            Gets or sets the info object of the merged PDF document. This object properties allow the control
+            of the merged document information like author, title, creation date, etc
+            </summary>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMergeDocument.GetPageCount(System.String)">
+            <summary>
+            A fast method to obtain the page count of a specified PDF document.
+            </summary>
+            <param name="pdfFilePath">The path of the PDF file for which to get the page count.</param>
+            <returns>The number of pages in the specified PDF document.</returns>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMergeDocument.GetPageCount(System.IO.Stream)">
+            <summary>
+            A fast method to obtain the page count of a specified PDF document.
+            </summary>
+            <param name="pdfStream">The stream containing the PDF document for which to get the page count.</param>
+            <returns>The number of pages in the specified PDF document.</returns>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMergeDocument.RenderMergedPDFDocument">
+            <summary>
+            Renders the merged PDF document to a byte array.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMergeDocument.SaveMergedPDFToStream(System.IO.Stream)">
+            <summary>
+            Saves the merge PDF document to the specified stream.
+            </summary>
+            <param name="outPdfStream">The stream where to save the merged PDF document.</param>
+        </member>
+        <member name="M:ExpertPdf.MergePdf.PDFMergeDocument.SaveMergedPDFToFile(System.String)">
+            <summary>
+            Saves the rendered PDF document from into the specified 
+            disk file
+            </summary>
+            <param name="outFile">The full path of the file where to save the rendered PDF document</param>
+        </member>
+        <member name="P:ExpertPdf.MergePdf.PDFMergeDocument.LicenseKey">
+            <summary>
+            Gets or sets the license key
+            </summary>
+        </member>
+        <member name="T:ExpertPdf.MergePdf.PDFPageOrientation">
+            <summary>
+            PDF page orientation
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PDFPageOrientation.Portrait">
+            <summary>
+            Portrait
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PDFPageOrientation.Landscape">
+            <summary>
+            Landscape
+            </summary>
+        </member>
+        <member name="T:ExpertPdf.MergePdf.PdfPageSize">
+            <summary>
+            The PDF document size
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.Letter">
+            <summary>
+            Letter format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.Note">
+            <summary>
+            Note format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.Legal">
+            <summary>
+            Legal format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.A0">
+            <summary>
+            A0 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.A1">
+            <summary>
+            A1 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.A2">
+            <summary>
+            A2 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.A3">
+            <summary>
+            A3 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.A4">
+            <summary>
+            A4 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.A5">
+            <summary>
+            A5 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.A6">
+            <summary>
+            A6 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.A7">
+            <summary>
+            A7 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.A8">
+            <summary>
+            A8 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.A9">
+            <summary>
+            A9 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.A10">
+            <summary>
+            A0 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.B0">
+            <summary>
+            B0 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.B1">
+            <summary>
+            B1 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.B2">
+            <summary>
+            B2 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.B3">
+            <summary>
+            B3 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.B4">
+            <summary>
+            B4 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.B5">
+            <summary>
+            B5 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.ArchE">
+            <summary>
+            ArchE format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.ArchD">
+            <summary>
+            ArchD format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.ArchC">
+            <summary>
+            ArchC format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.ArchB">
+            <summary>
+            ArchB format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.ArchA">
+            <summary>
+            ArchA format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.Flsa">
+            <summary>
+            Flsa format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.HalfLetter">
+            <summary>
+            HalfLetter format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.Letter11x17">
+            <summary>
+            11x17 format
+            </summary>
+        </member>
+        <member name="F:ExpertPdf.MergePdf.PdfPageSize.Ledger">
+            <summary>
+            Ledger format
+            </summary>
+        </member>
+    </members>
+</doc>

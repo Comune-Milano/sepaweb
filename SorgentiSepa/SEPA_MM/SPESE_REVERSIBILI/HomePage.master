@@ -1,0 +1,252 @@
+﻿<%@ Master Language="VB" CodeFile="HomePage.master.vb" Inherits="SPESE_REVERSIBILI_HomePage" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Spese reversibili</title>
+    <link href="css/smoothness/jquery-ui-1.9.0.custom.css" rel="stylesheet" type="text/css" />
+    <link href="css/stile.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.9.0.custom.js"></script>
+    <script src="js/gestioneDimensioniPagina.js" type="text/javascript"></script>
+    <script src="js/gestioneDimensioniPaginaTelerik.js" type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/modalTelerik.js" type="text/javascript"></script>
+    <script src="js/functions.js" type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/jsFunzioni.js" type="text/javascript"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .nascondi {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+
+        function GetRadWindow() {
+            var oWindow = null;
+            if (window.radWindow) {
+                oWindow = window.radWindow;
+            } else {
+                if (window.frameElement) {
+                    if (window.frameElement.radWindow) {
+                        oWindow = window.frameElement.radWindow;
+                    };
+                };
+            };
+            return oWindow;
+        };
+        function CancelEdit() {
+            if (GetRadWindow()) {
+                GetRadWindow().close();
+            };
+        };
+
+        function tornaHome() {
+
+            if (document.getElementById('HiddenContratto')) {
+                if (document.getElementById('HiddenContratto').value != '') {
+                    //self.close();
+                    CancelEdit();
+                }
+            } else {
+            location.href = 'Default.aspx';
+            };
+        }
+    </script>
+</head>
+<body onload="controlloBrowser();">
+    <form id="form1" runat="server" onsubmit="loading(0);return true;">
+        <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+        </telerik:RadScriptManager>
+        <telerik:RadWindowManager ID="RadWindowManager1" runat="server" Localization-OK="Ok"
+            Localization-Cancel="Annulla">
+        </telerik:RadWindowManager>
+        <telerik:RadFormDecorator Skin="Web20" ID="FormDecorator1" runat="server" DecoratedControls="Buttons" />
+        <div id="generale">
+            <div id="divTop">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 33%; vertical-align: top;" rowspan="2">
+                            <img alt="Logo Gestore" src="../immagini/LogoComuneC.gif" style="position: relative; top: -3px; left: 0px; height: 57px; width: 59px;" />
+                        </td>
+                        <td style="width: 34%;">
+                            <center>
+                                <table>
+                                    <tr>
+                                        <td class="TitoloModulo">
+                                            <center>
+                                               <asp:Label ID="lblTitoloModulo" runat="server" Text="SPESE REVERSIBILI"></asp:Label></center>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <center>
+                                                <span id="testo" runat="server" clientidmode="Static" style="visibility: hidden;"><b>
+                                                    <span style="color: #006600; font-size: 0px;"></span></b></span>
+                                            </center>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </td>
+                        <td style="width: 33%; text-align: right;" rowspan="2">
+                            <table align="right">
+                                <tr>
+                                    <td class="TitoloOperatore">Utente:
+                                    </td>
+                                    <td class="TitoloNomeOperatore" nowrap="nowrap">
+                                        <asp:Label ID="lblOperatore" runat="server" Text=""></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="TitoloOperatore" nowrap="nowrap" style="vertical-align: top;">Filiale:
+                                    </td>
+                                    <td class="TitoloNomeOperatore" style="vertical-align: top;" nowrap="nowrap">
+                                        <asp:Label ID="lblFiliale" runat="server" Text=""></asp:Label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="divBody">
+                <div id="header">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td style="width: 70%; position: relative; z-index: 1000">
+                                <telerik:RadMenu ID="NavigationMenu" runat="server">
+                                    <Items>
+                                        <telerik:RadMenuItem Text="Consuntivi e Conguagli" Value="Consuntivi" ToolTip="Consuntivi e Conguagli"
+                                            PostBack="False">
+                                            <Items>
+                                                <telerik:RadMenuItem Text="Prospetto" Value="ProspettoConsuntivi" ToolTip="Prospetto consuntivi" />
+                                                <telerik:RadMenuItem Text="Ricerca" Value="Conguagli" ToolTip="Ricerca per unità immobiliari" />
+                                            <telerik:RadMenuItem Text="Estrazioni" Value="Estrazioni" ToolTip="Estrazione conguaglio e spese" />
+                                                <telerik:RadMenuItem Text="Anomalie" Value="AnomalieConguagli" ToolTip="Anomalie consuntivi/conguagli" />
+                                                <telerik:RadMenuItem Text="Gestione" Value="Importa" ToolTip="Importa consuntivi"
+                                                    PostBack="False">
+                                                    <Items>
+                                                        <telerik:RadMenuItem Text="Multe" Value="ImportaMulte" ToolTip="Gestione multe" />
+                                                        <telerik:RadMenuItem Text="Custodi" Value="ImportaCustodi" ToolTip="Gestione custodi" />
+                                                        <telerik:RadMenuItem Text="Fatture idriche" Value="ImportFattIdriche" ToolTip="Gestione fatture idriche">
+                                                        </telerik:RadMenuItem>
+                                                        <telerik:RadMenuItem Text="Fatture elettriche" Value="ImportFattElettriche" ToolTip="Gestione fatture elettriche">
+                                                        </telerik:RadMenuItem>
+                                                        <telerik:RadMenuItem Text="Noleggio" Value="ImportaNoleggio" ToolTip="Gestione noleggio">
+                                                        </telerik:RadMenuItem>
+                                                        <telerik:RadMenuItem Text="Autogestioni" Value="ImportaAutogestioni" ToolTip="Autogestioni">
+                                                        </telerik:RadMenuItem>
+                                                        <telerik:RadMenuItem Text="Manutenzioni" Value="ImportODL" ToolTip="Gestione manutenzioni">
+                                                        </telerik:RadMenuItem>
+                                                        <telerik:RadMenuItem Text="Riscaldamento (da file Excel)" Value="ImportRiscaldamentoDaXLS"
+                                                            ToolTip="Import riscaldamento da file Excel">
+                                                        </telerik:RadMenuItem>
+                                                         <telerik:RadMenuItem Text="Import totale" Value="ImportTotale"
+                                                            ToolTip="Import totale">
+                                                        </telerik:RadMenuItem>
+                                                    </Items>
+                                                </telerik:RadMenuItem>
+                                                <telerik:RadMenuItem Text="Schede di imputazione" Value="SchedaImputazione" ToolTip="Imputazione"
+                                                    PostBack="False">
+                                                    <Items>
+                                                        <%--<telerik:RadMenuItem Text="Edifici" Value="ImputazioneEdifici" />--%>
+                                                        <telerik:RadMenuItem Text="Pulizie" Value="Imputazione" />
+                                                        <telerik:RadMenuItem Text="Ascensori" Value="ImputazioneAscensori" />
+                                                    </Items>
+                                                </telerik:RadMenuItem>
+                                            </Items>
+                                        </telerik:RadMenuItem>
+                                        <%--<telerik:RadMenuItem Text="Preventivi" Value="Preventivi" ToolTip="Preventivi" PostBack="False">
+                                        <Items>
+                                            <telerik:RadMenuItem Text="Prospetto" Value="Prospetto" ToolTip="Prospetto" />
+                                            <telerik:RadMenuItem Text="Ricerca per unità immobiliari" Value="QueryUI" ToolTip="Ricerca per unità immobiliari" />
+                                            <telerik:RadMenuItem Text="Anomalie" Value="AnomaliePreventivo" ToolTip="Anomalie preventivi" />
+                                        </Items>
+                                    </telerik:RadMenuItem>
+                                    <telerik:RadMenuItem Text="Bollettazione" Value="CreaBolletta" ToolTip="Creazione delle bollette"
+                                        PostBack="False">
+                                        <Items>
+                                            <telerik:RadMenuItem Text="Conguaglio" Value="CreaConguaglio" ToolTip="Crea bolletta conguaglio" />
+                                            <telerik:RadMenuItem Text="Preventivo" Value="CreaPreventivo" ToolTip="Crea bolletta preventivo" />
+                                        </Items>
+                                    </telerik:RadMenuItem>--%>
+                                        <telerik:RadMenuItem Text="CDR" Value="Carature" ToolTip="Gestione CDR" PostBack="False">
+                                            <Items>
+                                                <%--<telerik:RadMenuItem Text="Ascensore" Value="Ascensore" ToolTip="Carature ascensore"></telerik:RadMenuItem>
+                                                        <telerik:RadMenuItem Text="Riscaldamento" Value="Riscaldamento" ToolTip="Carature riscaldamento e acqua calda"></telerik:RadMenuItem>
+                                                        <telerik:RadMenuItem Text="Servizi" Value="Servizi" ToolTip="Carature servizi"></telerik:RadMenuItem>--%>
+                                                <telerik:RadMenuItem Text="Modifica massiva" Value="ModificaMassivaCaratura" ToolTip="Modifica massiva CDR">
+                                                </telerik:RadMenuItem>
+                                                <telerik:RadMenuItem Text="Modifica manuale" Value="ModificaManualeCaratura" ToolTip="Modifica selettiva CDR">
+                                                </telerik:RadMenuItem>
+                                            </Items>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Text="Parametri" Value="Parametri" ToolTip="Parametri" PostBack="False">
+                                            <Items>
+                                                <telerik:RadMenuItem Text="Edifici in condominio" ToolTip="Edifici in condominio"
+                                                    Value="Edifici_Cond">
+                                                </telerik:RadMenuItem>
+                                            </Items>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Text="Emesso" ToolTip="Emesso" Value="EmessoT" PostBack="False">
+                                            <Items>
+                                                <telerik:RadMenuItem Text="Calcolo" ToolTip="Calcola emesso" Value="Emesso">
+                                                </telerik:RadMenuItem>
+                                                <telerik:RadMenuItem Text="Importa" ToolTip="Importa emesso" Value="ImportaEmesso">
+                                                </telerik:RadMenuItem>
+                                            </Items>
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Text="Eventi" Value="Eventi">
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Text="Cambia Elaborazione" Value="CambiaElaborazione">
+                                        </telerik:RadMenuItem>
+                                        <telerik:RadMenuItem Text="Home" Value="Home" ToolTip="Home Page" />
+                                    </Items>
+                                </telerik:RadMenu>
+                            </td>
+                            <td style="width: 30%; text-align: center;">
+                                <asp:Label ID="StatoSpeseReversibili" runat="server" CssClass="TitoloModulo" BackColor="#FF9900">
+                                </asp:Label>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="titolo">
+                    <p>
+                        <asp:Label ID="TitoloMaster" runat="server" Width="100%" CssClass="TitoloModulo"></asp:Label>
+                    </p>
+                </div>
+                <div id="contenuto" style="overflow: auto">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <br />
+                    <br />
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <asp:Label ID="LabelContenuto" runat="server" Font-Names="Arial" Font-Size="9pt"></asp:Label>
+                </div>
+                <div id="footer">
+                    <br />
+                    <asp:TextBox ID="TextBoxSelezionato" runat="server" BackColor="Transparent" BorderColor="Transparent"
+                        BorderStyle="None" BorderWidth="0" Width="80%" Font-Bold="True" Font-Names="Arial"
+                        ReadOnly="true" Font-Size="8pt" ForeColor="Maroon"></asp:TextBox>
+                    <br />
+                    <br />
+                    <div id="dialog" style="display: none;">
+                    </div>
+                    <div id="loading" style="display: none; text-align: center;">
+                    </div>
+                    <div id="divLoading" style="width: 0px; height: 0px; display: none;">
+                        <img src="" id="imageLoading" alt="" />
+                    </div>
+                    <img id="imgStampa" alt="" src="" style="display: none;" />
+                    <img id="imgStampa1" alt="" src="" style="display: none;" />
+                    <asp:HiddenField ID="tipoSubmit" runat="server" Value="0" />
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

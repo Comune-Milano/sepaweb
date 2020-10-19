@@ -1,0 +1,295 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+Modulo Stato Manutentivo
+</title>
+    
+    <style type="text/css">
+        .style3
+        {
+            height: 128px;
+        }
+        </style>
+    
+</head>
+<body>
+    <form name="form1" method="post" action="ModuloBianco.aspx" id="form1">
+    <div style="text-align: center">
+    <table style="width: 100%; height: 100%;">
+                    <tr>
+                        <td style="width : 40%; text-align :center;">
+                            <img alt="" src="MM_113_84.png" /></td>
+                    </tr>
+                    <tr>
+                        <td style="width : 35%; font-family : Arial; font-size :8pt" >
+                            <br />
+                            <br />
+                            </td>
+                    </tr>
+                    <tr>
+                        <td style="width : 35%; font-family : Arial; font-size :8pt" >
+                            <br />
+        <span style="font-family: arial; font-size: 14pt; font-weight: bold" >VERIFICA STATO MANUTENTIVO</span></td>
+                    </tr>
+                    <tr>
+                        <td style="width : 35%; font-family : Arial; font-size :12pt; font-weight: bold;" 
+                            align="left" >
+                            <br />
+                            $indirizzo$</td>
+                    </tr>
+                    </table>
+        <br />
+        <br />
+        <br />
+        <table style="width:100%;">
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom">
+                    Quartiere</td>
+                <td style="text-align: left" height="30" valign="bottom">
+                                        $quartiere$</td>
+                <td style="text-align: left; font-family: arial; font-size: 12pt;" height="30" 
+                    valign="bottom">
+                    Condominio di proprietà interamente comunale</td>
+                <td style="text-align: left" height="30" valign="bottom">
+                    <span id="Label3" style="font-family:arial;font-size:12pt; text-align: left;">$condominio$</span></td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" valign="bottom" 
+                    >
+                    Gestione diretta del riscaldamento</td>
+                <td style="text-align: left" height="30" valign="bottom">
+                    $diretta$</td>
+                <td style="text-align: left; font-family: arial; font-size: 12pt;"  height="30" 
+                    valign="bottom">
+                    Zona Decentramento:</td>
+                <td style="text-align: left; font-family: arial; font-size: 12pt;"  height="30" 
+                    valign="bottom">
+                    $zona$</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="middle" >
+                    Unità Occupata Abusivamente</td>
+                <td align="left" 
+                    style="text-align: left; font-family: arial; font-size: 12pt;" >
+                                        $abusivo$</td>
+                <td align="left" 
+                    style="text-align: left; font-family: arial; font-size: 12pt;" >
+                    Tipologia</td>
+                <td align="left" 
+                    style="text-align: left; font-family: arial; font-size: 12pt;" >
+                    $tipoalloggio$</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30" 
+                    valign="bottom">
+                    Numero di vani</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    $numlocali$</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    Numero Servizi</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    $numservizi$</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30" 
+                    valign="bottom">
+                    Data sopralluogo di pre-sloggio</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    $presloggio$</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    Data sopralluogo di SLOGGIO</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    $sopralluogo$</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30" 
+                    valign="middle">
+                    Data di SLOGGIO</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="middle" >
+                    $datasloggio$</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Recuperata da GRTP<br />
+                    (eventuali note)</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                                        $grtp$<br />
+                                        $notegrtp$</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30" 
+                    valign="middle">
+                    Struttura Dep. delle chiavi</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="middle" >
+                    $depchiavi$</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    &nbsp;</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                                        &nbsp;</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30" 
+                    valign="middle">
+                    Strut. Dep. delle chiavi in caso di lavori</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="middle" >
+                    $struttura$</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Data Consegna $dataconsegnaST$</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                                        Data Ripresa $dataripresaST$</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    class="style3" >
+                    Stato dell&#39;Unità</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    class="style3" >
+                    $stato$<br />
+                    $stato1$</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    class="style3" >
+                    Data Disponibilità</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    class="style3" >
+                    $disponibilita$ 
+                    <i style="text-align: left; font-family: ARIAL; font-size: 9pt;">
+                    <br />
+                    (presunta in caso di Stato Riassegnabile con lavori)</i></td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Data Quantificazione Addebiti</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    $dataaddebiti$</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Importo Trasporto Masserizie</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    $importotrasporto$</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Importo Danni</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    $importodanni$</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Note Addebiti</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    $notedanni$</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Tipo
+                    Porta </td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    $tipoporta$<br />
+                    $notetipoporta$</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Indicare quali soluzioni per la messa in 
+                    <br />
+                    sicurezza si intendono realizzare</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    $soluzioni$<br />
+                    $notesoluzioni$</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Destinato a portatori di handicap</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    $handicap$</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Motivazioni obbligatorie, se non destinato 
+                    <br />
+                    a
+                    portatori di handicap</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    <br />
+                    $motivazioni$</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30">
+                    Data Consegna chiavi</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    $dataconsegna$</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    Consegnate a</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    <br />
+                    $consegnatea$</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    Data Ripresa chiavi</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30">
+                    $dataripresa$</td>
+                <td style="text-align: left"  height="30">
+                    &nbsp;</td>
+                <td style="text-align: left"  height="30">
+                    &nbsp;</td>
+            </tr>
+         
+            
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" >
+                    &nbsp;&nbsp;</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30">
+                    &nbsp;&nbsp;</td>
+                <td style="text-align: left"  height="30">
+                    &nbsp;</td>
+                <td style="text-align: left"  height="30">
+                    &nbsp;</td>
+            </tr>
+         
+            
+            </table>
+
+        <table style="width:100%;">
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;">                     
+                   
+                    Man. Programmate<td 
+                    align="left" style="text-align: left; font-family: ARIAL; font-size: 12pt;">
+                    $interventi$</td>
+            </tr>
+            </table>
+
+        <table style="width:100%;">
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    Data presunta fine lavori</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30" 
+                    valign="bottom">
+                    $datafinelavori$</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;" 
+                    valign="bottom" >
+                    Note</td>
+                <td style="text-align: left; font-family: ARIAL; font-size: 12pt;"  height="30" 
+                    valign="bottom">
+                    &nbsp;</td>
+            </tr>
+        </table>
+        <table style="width:100%;">
+            <tr>
+                <td style="text-align: left">
+                    $note$</td>
+            </tr>
+        </table>
+        <br />
+    
+    </div>
+    </form>
+</body>
+</html>

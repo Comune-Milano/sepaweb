@@ -1,0 +1,291 @@
+﻿<%@ Master Language="VB" CodeFile="HomePage.master.vb" Inherits="Spalmatore_HomePage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Modulo compensazione crediti</title>
+    <style type="text/css">
+        #divLoadingHome
+        {
+            background: #CCC;
+            filter: alpha(opacity=60); /* IE */
+            -moz-opacity: 0.6; /* Mozilla */
+            opacity: 0.6; /* CSS3 */
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <link href="../../StandardTelerik/Style/Site.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript">
+        function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                initialize();
+            };
+        };
+
+        function requestStart(sender, args) {
+
+            if (args.get_eventTarget().indexOf("btnExport") >= 0) {
+                args.set_enableAjax(false);
+            }
+
+        };
+        function svuota() {
+
+
+        }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .RadForm.rfdButton input[type='button'].rfdDecorated, .RadForm.rfdButton input[type='reset'].rfdDecorated, .RadForm.rfdButton input[type='submit'].rfdDecorated, .RadForm.rfdButton .rfdSkinnedButton button
+        {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+        <Scripts>
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.Core.js" />
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQuery.js" />
+            <asp:ScriptReference Assembly="Telerik.Web.UI" Name="Telerik.Web.UI.Common.jQueryInclude.js" />
+            <asp:ScriptReference Path="../../Standard/Scripts/jsFunzioni.js" />
+            <asp:ScriptReference Path="../../Standard/Scripts/jsMessage.js" />
+            <asp:ScriptReference Path="../../Standard/Scripts/notify.js" />
+            <asp:ScriptReference Path="../../Standard/Scripts/jsFunzioni.js" />
+            <asp:ScriptReference Path="../../Funzioni.js" />
+        </Scripts>
+    </telerik:RadScriptManager>
+    <telerik:RadWindowManager ID="RadWindowManager1" runat="server" Localization-OK="Ok"
+        Localization-Cancel="Annulla">
+    </telerik:RadWindowManager>
+    <telerik:RadFormDecorator Skin="Web20" ID="FormDecorator1" runat="server" DecoratedControls="Buttons"
+        ControlsToSkip="Zone" />
+    <telerik:RadStyleSheetManager ID="RadStyleSheetManager1" runat="server">
+        <StyleSheets>
+            <telerik:StyleSheetReference Name="Telerik.Web.UI.Skins.Calendar.css" Assembly="Telerik.Web.UI" />
+            <telerik:StyleSheetReference Name="Telerik.Web.UI.Skins.Web20.Calendar.Web20.css"
+                Assembly="Telerik.Web.UI" />
+        </StyleSheets>
+    </telerik:RadStyleSheetManager>
+    <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
+        <ClientEvents OnRequestStart="requestStart" />
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="divGenerale">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="divGenerale" LoadingPanelID="RadAjaxLoadingPanel1" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="NavigationMenu">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="divGenerale" LoadingPanelID="RadAjaxLoadingPanel1" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+        </AjaxSettings>
+    </telerik:RadAjaxManager>
+    <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server">
+    </telerik:RadAjaxLoadingPanel>
+    <script type="text/javascript">
+        function OnClientUpdated(sender, args) {
+            var message = "Update (check) was done!";
+            var newMsgs = sender.get_value();
+            if (newMsgs != 0) {
+                sender.show();
+                //message += (newMsgs == 1) ? (" There is 1 new message!") : (" There are " + newMsgs + " new messages!");
+            } else {
+                //message += " There are no new messages!";
+            }
+            //logEvent(message);
+        }
+
+
+    </script>
+    <asp:Panel runat="server" ID="divGenerale">
+        <div id="divTop">
+            <table width="100%">
+                <tr>
+                    <td style="width: 33%; vertical-align: top;" rowspan="2">
+                        <img alt="Logo Gestore" src="../../immagini/LogoComuneC.gif" style="position: relative;
+                            top: -3px; left: 0px; height: 57px; width: 59px;" />
+                    </td>
+                    <td style="width: 34%;">
+                        <center>
+                            <table>
+                                <tr>
+                                    <td class="TitoloModulo">
+                                        <center>
+                                            COMPENSAZIONE SCRITTURE GESTIONALI</center>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <center>
+                                            <span id="testo" runat="server" clientidmode="Static" style="visibility: hidden;"><b>
+                                                <span style="color: #006600; font-size: 0px;"></span></b></span>
+                                        </center>
+                                    </td>
+                                </tr>
+                            </table>
+                        </center>
+                    </td>
+                    <td style="width: 33%; text-align: right;" rowspan="2">
+                        <table align="right">
+                            <tr>
+                                <td style="width: 60px;" class="TitoloOperatore">
+                                    Utente:
+                                </td>
+                                <td style="width: 10px;">
+                                    &nbsp;
+                                </td>
+                                <td class="TitoloNomeOperatore" nowrap="nowrap">
+                                    <asp:Label ID="lblOperatore" runat="server" Text=""></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="divBody">
+            <div id="divHeader" style="overflow: auto;">
+                <table style="width: 97%; height: 100%; vertical-align: bottom;">
+                    <tr>
+                        <td style="width: 97%;">
+                            <telerik:RadMenu ID="NavigationMenu" runat="server" Skin="Web20" RenderMode="Classic"
+                                ClientIDMode="Static">
+                                <Items>
+                                    <telerik:RadMenuItem Text="Spalmatore" Value="Spalmatore" PostBack="False">
+                                        <Items>
+                                            <telerik:RadMenuItem Text="Ricerca Scritture Gest." Value="Elaborazione">
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Elenco Elaborazioni" Value="stato_elaborazione">
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Log" Value="Log">
+                                            </telerik:RadMenuItem>
+                                        </Items>
+                                    </telerik:RadMenuItem>
+                                    <telerik:RadMenuItem Text="" Value="separatore" PostBack="False" IsSeparator="True">
+                                    </telerik:RadMenuItem>
+                                    <telerik:RadMenuItem Text="Report" Value="Reportistica" PostBack="False">
+                                        <Items>
+                                            <telerik:RadMenuItem Text="Report Boll. Gestionali" Value="Report1">
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Report Emesso Totale" Value="Report2">
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Report Emesso Totale Completo" Value="Report4">
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Report Integrale Boll. Contab." Value="Report3">
+                                            </telerik:RadMenuItem>
+                                            <telerik:RadMenuItem Text="Elenco file" Value="elencoFile">
+                                            </telerik:RadMenuItem>
+                                        </Items>
+                                    </telerik:RadMenuItem>
+                                    <telerik:RadMenuItem Text="" Value="separatore" PostBack="False" IsSeparator="True">
+                                    </telerik:RadMenuItem>
+                                    <telerik:RadMenuItem Text="Gestione" Value="Gestione" PostBack="False">
+                                        <Items>
+                                            <telerik:RadMenuItem Text="Tabella Eccezioni KPI1" Value="KPI1">
+                                            </telerik:RadMenuItem>
+                                        </Items>
+                                    </telerik:RadMenuItem>
+                                    <telerik:RadMenuItem Text="" Value="separatore" PostBack="False" IsSeparator="True">
+                                    </telerik:RadMenuItem>
+                                    <telerik:RadMenuItem Text="Home" Value="Esci" ToolTip="Esci dal modulo">
+                                    </telerik:RadMenuItem>
+                                    <telerik:RadMenuItem Text="" Value="separatore" PostBack="False" IsSeparator="True">
+                                    </telerik:RadMenuItem>
+                                </Items>
+                            </telerik:RadMenu>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <table style="width: 100%">
+                <tr>
+                    <td>
+                        <div id="divTitolo" class="TitoloModulo">
+                            <asp:ContentPlaceHolder ID="CPTitolo" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                        <div id="divMenu" style="height: 32px;">
+                            <asp:ContentPlaceHolder ID="CPMenu" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                        <div id="divContenuto" style="overflow: auto;">
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <asp:ContentPlaceHolder ID="CPContenuto" runat="server">
+                                        </asp:ContentPlaceHolder>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="divFooter">
+                            <asp:ContentPlaceHolder ID="CPFooter" runat="server">
+                            </asp:ContentPlaceHolder>
+                            <asp:HiddenField ID="tipoSubmit" runat="server" Value="0" />
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </asp:Panel>
+    <script src="../../StandardTelerik/Scripts/gestioneDimensioniPaginaTelerik.js" type="text/javascript"></script>
+    <script src="../../StandardTelerik/Scripts/jsFunzioniLock.js" type="text/javascript"></script>
+    <script src="../../StandardTelerik/Scripts/jsfunzioniExit.js" type="text/javascript"></script>
+    <div id="divLoadingHome" style="position: absolute; margin: 0px; width: 100%; height: 100%;
+        top: 0px; left: 0px; background-color: #e7edf7; z-index: 3000; visibility: hidden;">
+        <div style="position: absolute; top: 50%; left: 50%; width: 234px; height: 97px;
+            margin-left: -117px; margin-top: -48px; background-color: #e7edf7;">
+            <table style="width: 100%; height: 100%;">
+                <tr>
+                    <td valign="middle" align="center">
+                        <img src="Immagini/loading.gif" alt="Caricamento in corso" /><br />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <asp:HiddenField ID="noClose" runat="server" Value="0" ClientIDMode="Static" />
+    <asp:HiddenField ID="txtModificato" runat="server" Value="0" ClientIDMode="Static" />
+    <asp:HiddenField ID="noCloseRead" runat="server" Value="0" ClientIDMode="Static" />
+    <asp:HiddenField ID="optMenu" runat="server" Value="0" ClientIDMode="Static" />
+    <asp:HiddenField ID="HFBeforeLoading" runat="server" Value="0" ClientIDMode="Static" />
+    <asp:HiddenField ID="HPageMasterHeight" runat="server" ClientIDMode="Static" Value="30" />
+    <script type="text/javascript">
+        initialize();
+        function initialize() {
+            if (document.getElementById('divHeader') != null) {
+                document.getElementById('divHeader').style.overflow = '';
+            };
+            if (document.getElementById('divMenuStampe') != null) {
+                document.getElementById('divMenuStampe').style.overflow = '';
+            };
+
+            CaricamentoInCorsoClose();
+            window.focus();
+        };
+
+        function CaricamentoInCorso() {
+            document.getElementById('NavigationMenu').style.visibility = 'hidden';
+            document.getElementById('divLoadingHome').style.visibility = 'visible';
+        }
+
+        function CaricamentoInCorsoClose() {
+            document.getElementById('NavigationMenu').style.visibility = 'visible';
+            document.getElementById('divLoadingHome').style.visibility = 'hidden';
+        }
+
+
+    </script>
+    </form>
+</body>
+</html>

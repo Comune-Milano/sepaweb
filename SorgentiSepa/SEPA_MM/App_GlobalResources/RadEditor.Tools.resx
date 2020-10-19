@@ -1,0 +1,585 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ReservedResource" xml:space="preserve">
+    <value>Please, do not delete this string. RadEditor needs it to determine if an external resource file is present in App_GlobalResources.</value>
+  </data>
+  <data name="AboutDialog" xml:space="preserve">
+    <value>A proposito di RadEditor</value>
+  </data>
+  <data name="AbsolutePosition" xml:space="preserve">
+    <value>Imposta posizione assoluta</value>
+  </data>
+  <data name="AjaxSpellCheck" xml:space="preserve">
+    <value>Controllo ortografico AJAX</value>
+  </data>
+  <data name="ApplyClass" xml:space="preserve">
+    <value>Classi CSS</value>
+  </data>
+  <data name="BackColor" xml:space="preserve">
+    <value>Colore sfondo</value>
+  </data>
+  <data name="Bold" xml:space="preserve">
+    <value>Grassetto</value>
+  </data>
+  <data name="ConvertToLower" xml:space="preserve">
+    <value>Converti in minuscolo</value>
+  </data>
+  <data name="ConvertToUpper" xml:space="preserve">
+    <value>Converti in maiuscolo</value>
+  </data>
+  <data name="Copy" xml:space="preserve">
+    <value>Copia</value>
+  </data>
+  <data name="Cut" xml:space="preserve">
+    <value>Taglia</value>
+  </data>
+  <data name="DecreaseSize" xml:space="preserve">
+    <value>Diminuisci dimensione</value>
+  </data>
+  <data name="DeleteCell" xml:space="preserve">
+    <value>Cancella cella</value>
+  </data>
+  <data name="DeleteColumn" xml:space="preserve">
+    <value>Cancella colonna</value>
+  </data>
+  <data name="DeleteRow" xml:space="preserve">
+    <value>Cancella riga</value>
+  </data>
+  <data name="DeleteTable" xml:space="preserve">
+    <value>Cancella tabella</value>
+  </data>
+  <data name="DocumentManager" xml:space="preserve">
+    <value>Inserisci/gestisci documenti</value>
+  </data>
+  <data name="FindAndReplace" xml:space="preserve">
+    <value>Cerca e sostituisci</value>
+  </data>
+  <data name="FlashManager" xml:space="preserve">
+    <value>Inserisci/gestisci oggetti Flash</value>
+  </data>
+  <data name="FontName" xml:space="preserve">
+    <value>Nome font</value>
+  </data>
+  <data name="FontSize" xml:space="preserve">
+    <value>Dimensione</value>
+  </data>
+  <data name="ForeColor" xml:space="preserve">
+    <value>Colore</value>
+  </data>
+  <data name="FormatBlock" xml:space="preserve">
+    <value>Stile paragrafo</value>
+  </data>
+  <data name="FormatCodeBlock" xml:space="preserve">
+    <value>Blocco codice</value>
+  </data>
+  <data name="FormatStripper" xml:space="preserve">
+    <value>Blocco formato</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Aiuto</value>
+  </data>
+  <data name="ImageManager" xml:space="preserve">
+    <value>Inserisci/gestisci immagini</value>
+  </data>
+  <data name="ImageMapDialog" xml:space="preserve">
+    <value>Inserisci/gestisci mappe immagini</value>
+  </data>
+  <data name="IncreaseSize" xml:space="preserve">
+    <value>Aumenta dimensione</value>
+  </data>
+  <data name="Indent" xml:space="preserve">
+    <value>Aumenta rientro</value>
+  </data>
+  <data name="InsertAnchor" xml:space="preserve">
+    <value>Inserisci/gestisci segnalibro</value>
+  </data>
+  <data name="InsertColumnLeft" xml:space="preserve">
+    <value>Inserisci una colonna sulla sinistra</value>
+  </data>
+  <data name="InsertColumnRight" xml:space="preserve">
+    <value>Inserisci una colonna sulla destra</value>
+  </data>
+  <data name="InsertCustomLink" xml:space="preserve">
+    <value>Link personalizzati</value>
+  </data>
+  <data name="InsertDate" xml:space="preserve">
+    <value>Inserisci data</value>
+  </data>
+  <data name="InsertEmailLink" xml:space="preserve">
+    <value>Inserisci/gestisci indirizzo e-mail</value>
+  </data>
+  <data name="InsertFormButton" xml:space="preserve">
+    <value>Inserisci pulsante</value>
+  </data>
+  <data name="InsertFormCheckbox" xml:space="preserve">
+    <value>Inserisci checkbox</value>
+  </data>
+  <data name="InsertFormElement" xml:space="preserve">
+    <value>Inserisci elemento form</value>
+  </data>
+  <data name="InsertFormForm" xml:space="preserve">
+    <value>Inserisci form</value>
+  </data>
+  <data name="InsertFormHidden" xml:space="preserve">
+    <value>Inserisci campo nascosto</value>
+  </data>
+  <data name="InsertFormPassword" xml:space="preserve">
+    <value>Inserisci campo password</value>
+  </data>
+  <data name="InsertFormRadio" xml:space="preserve">
+    <value>Inserisci radiobutton</value>
+  </data>
+  <data name="InsertFormReset" xml:space="preserve">
+    <value>Inserisci pulsante ripristino</value>
+  </data>
+  <data name="InsertFormSelect" xml:space="preserve">
+    <value>Inserisci pulsante selezione</value>
+  </data>
+  <data name="InsertFormSubmit" xml:space="preserve">
+    <value>Inserisci pulsante invio</value>
+  </data>
+  <data name="InsertFormText" xml:space="preserve">
+    <value>Inserisci campo di testo</value>
+  </data>
+  <data name="InsertFormTextarea" xml:space="preserve">
+    <value>Inserisci area di testo</value>
+  </data>
+  <data name="InsertGroupbox" xml:space="preserve">
+    <value>Inserisci raggruppamento controlli</value>
+  </data>
+  <data name="InsertHorizontalRule" xml:space="preserve">
+    <value>Linea orizzontale</value>
+  </data>
+  <data name="InsertOrderedList" xml:space="preserve">
+    <value>Elenco numerato</value>
+  </data>
+  <data name="InsertParagraph" xml:space="preserve">
+    <value>Nuovo paragrafo</value>
+  </data>
+  <data name="InsertRowAbove" xml:space="preserve">
+    <value>Inserisci riga sopra</value>
+  </data>
+  <data name="InsertRowBelow" xml:space="preserve">
+    <value>Inserisci riga sotto</value>
+  </data>
+  <data name="InsertSnippet" xml:space="preserve">
+    <value>Inserisci snippet di codice</value>
+  </data>
+  <data name="InsertSymbol" xml:space="preserve">
+    <value>Inserisci simbolo</value>
+  </data>
+  <data name="InsertTable" xml:space="preserve">
+    <value>Inserisci tabella</value>
+  </data>
+  <data name="InsertTime" xml:space="preserve">
+    <value>Inserisci orario corrente</value>
+  </data>
+  <data name="InsertUnorderedList" xml:space="preserve">
+    <value>Elenco puntato</value>
+  </data>
+  <data name="Italic" xml:space="preserve">
+    <value>Corsivo</value>
+  </data>
+  <data name="JustifyCenter" xml:space="preserve">
+    <value>Allineamento centrato</value>
+  </data>
+  <data name="JustifyFull" xml:space="preserve">
+    <value>Allineamento giustificato</value>
+  </data>
+  <data name="JustifyLeft" xml:space="preserve">
+    <value>Allineamento sinistro</value>
+  </data>
+  <data name="JustifyNone" xml:space="preserve">
+    <value>Rimuovi allineamento</value>
+  </data>
+  <data name="JustifyRight" xml:space="preserve">
+    <value>Allineamento destro</value>
+  </data>
+  <data name="LinkManager" xml:space="preserve">
+    <value>Inserisci/gestisci collegamenti ipertestuali</value>
+  </data>
+  <data name="MediaManager" xml:space="preserve">
+    <value>Inserisci/gestisci oggetti multimediali</value>
+  </data>
+  <data name="MergeColumns" xml:space="preserve">
+    <value>Unisci celle orizzontalmente</value>
+  </data>
+  <data name="MergeRows" xml:space="preserve">
+    <value>Unisci celle verticalmente</value>
+  </data>
+  <data name="ModuleManager" xml:space="preserve">
+    <value>Inserisci/gestisci moduli</value>
+  </data>
+  <data name="Outdent" xml:space="preserve">
+    <value>Diminuisci rientro</value>
+  </data>
+  <data name="PageProperties" xml:space="preserve">
+    <value>Proprietà pagina</value>
+  </data>
+  <data name="Paste" xml:space="preserve">
+    <value>Incolla</value>
+  </data>
+  <data name="PasteAsHtml" xml:space="preserve">
+    <value>Incolla come HTML</value>
+  </data>
+  <data name="PasteFromWord" xml:space="preserve">
+    <value>Incolla da Word</value>
+  </data>
+  <data name="PasteFromWordNoFontsNoSizes" xml:space="preserve">
+    <value>Incolla da Word, correggendo font</value>
+  </data>
+  <data name="PastePlainText" xml:space="preserve">
+    <value>Incolla come testo semplice</value>
+  </data>
+  <data name="PasteStrip" xml:space="preserve">
+    <value>Opzioni funzione Incolla</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Stampa</value>
+  </data>
+  <data name="RealFontSize" xml:space="preserve">
+    <value>Dimensione carattere reale</value>
+  </data>
+  <data name="Redo" xml:space="preserve">
+    <value>Ripeti</value>
+  </data>
+  <data name="RepeatLastCommand" xml:space="preserve">
+    <value>Ripeti ultimo comando</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>Seleziona tutto</value>
+  </data>
+  <data name="SetCellProperties" xml:space="preserve">
+    <value>Imposta proprietà cella</value>
+  </data>
+  <data name="SetImageProperties" xml:space="preserve">
+    <value>Imposta proprietà immagine</value>
+  </data>
+  <data name="SetLinkProperties" xml:space="preserve">
+    <value>Imposta proprietà link</value>
+  </data>
+  <data name="SetTableProperties" xml:space="preserve">
+    <value>Imposta proprietà tabella</value>
+  </data>
+  <data name="SpellCheck" xml:space="preserve">
+    <value>Controllo ortografico</value>
+  </data>
+  <data name="SplitCell" xml:space="preserve">
+    <value>Dividi cella</value>
+  </data>
+  <data name="StrikeThrough" xml:space="preserve">
+    <value>Barrato</value>
+  </data>
+  <data name="StripAll" xml:space="preserve">
+    <value>Cancella formattazioni</value>
+  </data>
+  <data name="StripCss" xml:space="preserve">
+    <value>Cancella formattazione CSS</value>
+  </data>
+  <data name="StripFont" xml:space="preserve">
+    <value>Cancella font</value>
+  </data>
+  <data name="StripSpan" xml:space="preserve">
+    <value>Cancella span</value>
+  </data>
+  <data name="StripWord" xml:space="preserve">
+    <value>Cancella formattazione Word</value>
+  </data>
+  <data name="StyleBuilder" xml:space="preserve">
+    <value>Personlizzatore stile</value>
+  </data>
+  <data name="Subscript" xml:space="preserve">
+    <value>Pedice</value>
+  </data>
+  <data name="Superscript" xml:space="preserve">
+    <value>Apice</value>
+  </data>
+  <data name="TableWizard" xml:space="preserve">
+    <value>Creazione guidata</value>
+  </data>
+  <data name="TemplateManager" xml:space="preserve">
+    <value>Inserisci/gestisci elementi HTML</value>
+  </data>
+  <data name="ToggleDocking" xml:space="preserve">
+    <value>Riaggancia barre degli strumenti/moduli</value>
+  </data>
+  <data name="ToggleScreenMode" xml:space="preserve">
+    <value>Visualizza a tutto schermo</value>
+  </data>
+  <data name="ToggleTableBorder" xml:space="preserve">
+    <value>Mostra/nascondi bordi</value>
+  </data>
+  <data name="Underline" xml:space="preserve">
+    <value>Sottolineato</value>
+  </data>
+  <data name="Undo" xml:space="preserve">
+    <value>Annulla</value>
+  </data>
+  <data name="Unlink" xml:space="preserve">
+    <value>Rimuovi collegamento ipertestuale</value>
+  </data>
+  <data name="Zoom" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="ImageEditor" xml:space="preserve">
+    <value>Editor immagine</value>
+  </data>
+  <data name="SilverlightManager" xml:space="preserve">
+    <value>Inserisci/gestisci oggetti Silverlight</value>
+  </data>
+  <data name="XhtmlValidator" xml:space="preserve">
+    <value>Controllo validazione codice XHTML</value>
+  </data>
+  <data name="SplitCellHorizontal" xml:space="preserve">
+    <value>Dividi celle orizzontalmente</value>
+  </data>
+  <data name="InsertImage" xml:space="preserve">
+    <value>Inserisci immagine</value>
+  </data>
+  <data name="InsertLink" xml:space="preserve">
+    <value>Inserisci collegamento ipertestuale</value>
+  </data>
+  <data name="PasteHtml" xml:space="preserve">
+    <value>Incolla HTML</value>
+  </data>
+  <data name="InsertTableLight" xml:space="preserve">
+    <value>Inserisci tabella</value>
+  </data>
+  <data name="ToggleFloatingToolbar" xml:space="preserve">
+    <value>Scambia barre strumenti volanti</value>
+  </data>
+  <data name="CSDialog" xml:space="preserve">
+    <value>Test di Compliance</value>
+  </data>
+  <data name="Enter" xml:space="preserve">
+    <value>Pressione del tasto Enter</value>
+  </data>
+  <data name="Clipboard" xml:space="preserve">
+    <value>Appunti</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Contenuto</value>
+  </data>
+  <data name="Editing" xml:space="preserve">
+    <value>Modifica</value>
+  </data>
+  <data name="Font" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Insert" xml:space="preserve">
+    <value>Inserisci</value>
+  </data>
+  <data name="Links" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="Media" xml:space="preserve">
+    <value>Media</value>
+  </data>
+  <data name="Paragraph" xml:space="preserve">
+    <value>Paragrafo</value>
+  </data>
+  <data name="Preferences" xml:space="preserve">
+    <value>Preferenze</value>
+  </data>
+  <data name="Proofing" xml:space="preserve">
+    <value>Strumenti di correzione</value>
+  </data>
+  <data name="Review" xml:space="preserve">
+    <value>Revisione</value>
+  </data>
+  <data name="Styles" xml:space="preserve">
+    <value>Stili</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Tabelle</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>Vista</value>
+  </data>
+  <data name="InsertExternalVideo" xml:space="preserve">
+    <value>Inserisci un video esterno</value>
+  </data>
+  <data name="ColorPicker" xml:space="preserve">
+    <value>Scelta colore</value>
+  </data>
+  <data name="AlignmentSelector" xml:space="preserve">
+    <value>Seleziona allineamento</value>
+  </data>
+  <data name="FormatSets" xml:space="preserve">
+    <value>Set di font</value>
+  </data>
+  <data name="FormatPainterApply" xml:space="preserve">
+    <value>Applica formato</value>
+  </data>
+  <data name="FormatPainter" xml:space="preserve">
+    <value>Format Painter</value>
+  </data>
+  <data name="FormatPainterApply" xml:space="preserve">
+    <value>Copia formato</value>
+  </data>
+  <data name="FormatPainterClear" xml:space="preserve">
+    <value>Pulisci formato</value>
+  </data>
+  <data name="FormatPainterCopy" xml:space="preserve">
+    <value>Copia formato</value>
+  </data>
+  <data name="DeleteTableItems" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="InsertTableItems" xml:space="preserve">
+    <value>Insert</value>
+  </data>
+  <data name="MergeSplitCells" xml:space="preserve">
+    <value>Merge and Split Cells</value>
+  </data>
+  <data name="MobileEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="ToggleEditMode" xml:space="preserve">
+    <value>Toggle Edit Mode</value>
+  </data>
+  <data name="ImageSizeMargins" xml:space="preserve">
+    <value>Size and Margins</value>
+  </data>
+  <data name="SizeMargins" xml:space="preserve">
+    <value>Size and Margins</value>
+  </data>
+  <data name="CellBorder" xml:space="preserve">
+    <value>Cell Border</value>
+  </data>
+  <data name="ImageBorder" xml:space="preserve">
+    <value>Image Border</value>
+  </data>
+  <data name="TableBorder" xml:space="preserve">
+    <value>Table Border</value>
+  </data>
+  <data name="EditContent" xml:space="preserve">
+    <value>Edit Content</value>
+  </data>
+  <data name="InsertTableDialog" xml:space="preserve">
+    <value>Insert Table</value>
+  </data>
+  <data name="MobileTableProperties" xml:space="preserve">
+    <value>Table Properties</value>
+  </data>
+</root>

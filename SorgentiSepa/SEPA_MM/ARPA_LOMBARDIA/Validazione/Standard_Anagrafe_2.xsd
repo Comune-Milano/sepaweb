@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:anpu="http://osservatorio.lispa.it/anpu/schemas/messages"
+	targetNamespace="http://osservatorio.lispa.it/anpu/schemas/messages"
+	>
+
+    <xsd:element name="richiesta"> 
+	    <xsd:complexType >
+	    	<xsd:sequence>
+	    		<xsd:element name="intestazione" type="anpu:IntestazioneType" maxOccurs="1" minOccurs="1"></xsd:element>
+	    		<xsd:element name="fabbricati" type="anpu:FabbricatoType" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+	    	</xsd:sequence>
+	    </xsd:complexType >
+    </xsd:element>
+
+    <xsd:complexType name="IntestazioneType">
+    	<xsd:attribute name="cfEnteProprietario" use="required" type="anpu:CodiceFiscaleEnteType"></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="FabbricatoType">
+    	<xsd:sequence>
+    		<xsd:element name="alloggi" type="anpu:AlloggioType" maxOccurs="unbounded" minOccurs="1"></xsd:element>
+    	</xsd:sequence>
+    	<xsd:attribute name="id" type="xsd:int"></xsd:attribute>
+    	<xsd:attribute name="cdFabbricato" type="xsd:string" use="required"></xsd:attribute>
+    	<xsd:attribute name="cfEnteProprietario" type="anpu:CodiceFiscaleEnteType" use="required"></xsd:attribute>
+    	<xsd:attribute name="tipoProprieta" use="required" type="anpu:ProprietaType"></xsd:attribute>
+    	<xsd:attribute name="numAlloggiAltraPrioprieta" type="xsd:int" ></xsd:attribute>
+    	<xsd:attribute name="annoCostruzione" type="anpu:AnnoType"></xsd:attribute>
+    	<xsd:attribute name="cdCatastaleComune" use="required" type="anpu:CodiceCatastaleType"></xsd:attribute>
+    	<xsd:attribute name="cdIstatComune" use="required" type="anpu:CodiceIstatType"></xsd:attribute>
+    	<xsd:attribute name="idEnteProprietario" type="xsd:int" ></xsd:attribute>
+    </xsd:complexType>
+
+    <xsd:complexType name="AlloggioType">
+    	<xsd:attribute name="id" type="xsd:int"></xsd:attribute>
+    	<xsd:attribute name="idFabbricato" type="xsd:int"></xsd:attribute>
+    	<xsd:attribute name="idEnteProprietario" type="xsd:int"></xsd:attribute>
+    	<xsd:attribute name="tipoEnteProprietario" type="xsd:int"></xsd:attribute>
+    	<xsd:attribute name="cdAlloggio" type="xsd:string"
+    		use="required">
+    	</xsd:attribute>
+    	<xsd:attribute name="tipoGestore" type="anpu:EnteGestoreType"></xsd:attribute>
+    	<xsd:attribute name="idEnteGestore" type="xsd:int"></xsd:attribute>
+    	<xsd:attribute name="cfEnteGestore"
+    		type="anpu:CodiceFiscaleEnteType">
+    	</xsd:attribute>
+    	<xsd:attribute name="ragioneSocialeEnteGestore"
+    		type="xsd:string">
+    	</xsd:attribute>
+    	<xsd:attribute name="cdCatastaleEnteGestore"
+    		type="anpu:CodiceCatastaleType">
+    	</xsd:attribute>
+    	<xsd:attribute name="denominazioneEnteGestore"
+    		type="xsd:string">
+    	</xsd:attribute>
+    	<xsd:attribute name="foglio" type="xsd:int"></xsd:attribute>
+    	<xsd:attribute name="particella" type="xsd:int"></xsd:attribute>
+    	<xsd:attribute name="subalterno" type="xsd:int"></xsd:attribute>
+    	<xsd:attribute name="categoria" type="anpu:CategoriaType"></xsd:attribute>
+    	<xsd:attribute name="classe" type="anpu:ClasseType"></xsd:attribute>
+    	<xsd:attribute name="classeBis" type="anpu:ClasseBisType"></xsd:attribute>
+    	<xsd:attribute name="consistenza" type="anpu:ConsistenzaType"></xsd:attribute>
+    	<xsd:attribute name="rendita"
+    		type="anpu:DecimalePositivoType">
+    	</xsd:attribute>
+    	<xsd:attribute name="prefissoIndirizzo"
+    		type="anpu:PrefissoIndirizzoType" use="required">
+    	</xsd:attribute>
+    	<xsd:attribute name="denominazioneIndirizzo" type="xsd:string"
+    		use="required">
+    	</xsd:attribute>
+    	<xsd:attribute name="numCivico" type="xsd:string"
+    		use="required">
+    	</xsd:attribute>
+    	<xsd:attribute name="scala" type="xsd:string"></xsd:attribute>
+    	<xsd:attribute name="piano" type="anpu:PianoType"></xsd:attribute>
+    	<xsd:attribute name="cap" use="required" type="anpu:CapType"></xsd:attribute>
+    	<xsd:attribute name="localita" type="xsd:string"
+    		use="required">
+    	</xsd:attribute>
+    	<xsd:attribute name="superficieUtile"
+    		type="anpu:DecimalePositivoType" use="required">
+    	</xsd:attribute>
+    	<xsd:attribute name="flgBarriereArchitettoniche" use="required"
+    		type="anpu:FlagSiNoType">
+    	</xsd:attribute>
+    	<xsd:attribute name="flgAscensore" use="required"
+    		type="anpu:FlagSiNoType">
+    	</xsd:attribute>
+    	<xsd:attribute name="flgCantinaSolaio" use="required"
+    		type="anpu:FlagSiNoType">
+    	</xsd:attribute>
+    	<xsd:attribute name="flgBoxPostoAuto" use="required"
+    		type="anpu:FlagSiNoType">
+    	</xsd:attribute>
+    	<xsd:attribute name="destinazioneUso" use="required"
+    		type="anpu:DestinazioneUsoType">
+    	</xsd:attribute>
+    	<xsd:attribute name="flgAlloggioEscluso"
+    		type="anpu:FlagSiNoType">
+    	</xsd:attribute>
+    	<xsd:attribute name="statoUnita" use="required"
+    		type="anpu:StatoUnitaType">
+    	</xsd:attribute>
+    	<xsd:attribute name="flgAccorpato" type="anpu:FlagSiNoType"></xsd:attribute>
+    	<xsd:attribute name="flgFrazionato" type="anpu:FlagSiNoType"></xsd:attribute>
+    	<xsd:attribute name="flgDemolita" type="anpu:FlagSiNoType"></xsd:attribute>
+    	<xsd:attribute name="flgVenduto" type="anpu:FlagSiNoType"></xsd:attribute>
+    	<xsd:attribute name="flgPianoVendita" type="anpu:FlagSiNoType"
+    		use="required">
+    	</xsd:attribute>
+    	<xsd:attribute name="numeroAutorizzazioneVendita"
+    		type="xsd:string">
+    	</xsd:attribute>
+    	<xsd:attribute name="dataAutorizzazioneVendita"
+    		type="xsd:date">
+    	</xsd:attribute>
+    	<xsd:attribute name="flgPianoValorizzazione"
+    		type="anpu:FlagSiNoType" use="required">
+    	</xsd:attribute>
+    	<xsd:attribute name="numeroAutorizzazioneValorizzazione"
+    		type="xsd:string">
+    	</xsd:attribute>
+    	<xsd:attribute name="dataAutorizzazioneValorizzazione"
+    		type="xsd:date">
+    	</xsd:attribute>
+    </xsd:complexType>
+
+
+    <xsd:simpleType name="EnteGestoreType">
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="1"></xsd:enumeration>
+			<xsd:enumeration value="2"></xsd:enumeration>
+			<xsd:enumeration value="3"></xsd:enumeration>
+			<xsd:enumeration value="4"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="StatoUnitaType">
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="1"></xsd:enumeration>
+			<xsd:enumeration value="2"></xsd:enumeration>
+			<xsd:enumeration value="3"></xsd:enumeration>
+			<xsd:enumeration value="4"></xsd:enumeration>
+			<xsd:enumeration value="5"></xsd:enumeration>
+			<xsd:enumeration value="6"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="DestinazioneUsoType">
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="1"></xsd:enumeration>
+			<xsd:enumeration value="2"></xsd:enumeration>
+			<xsd:enumeration value="3"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="CategoriaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="A"></xsd:enumeration>
+			<xsd:enumeration value="B"></xsd:enumeration>
+			<xsd:enumeration value="C"></xsd:enumeration>
+			<xsd:enumeration value="D"></xsd:enumeration>
+			<xsd:enumeration value="E"></xsd:enumeration>
+			<xsd:enumeration value="F"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+    
+    <xsd:simpleType name="ClasseType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="A01"></xsd:enumeration>
+			<xsd:enumeration value="A02"></xsd:enumeration>
+			<xsd:enumeration value="A03"></xsd:enumeration>
+			<xsd:enumeration value="A04"></xsd:enumeration>
+			<xsd:enumeration value="A05"></xsd:enumeration>
+			<xsd:enumeration value="A06"></xsd:enumeration>
+			<xsd:enumeration value="A07"></xsd:enumeration>
+			<xsd:enumeration value="A08"></xsd:enumeration>
+			<xsd:enumeration value="A09"></xsd:enumeration>
+			<xsd:enumeration value="A10"></xsd:enumeration>
+			<xsd:enumeration value="A11"></xsd:enumeration>
+			<xsd:enumeration value="B01"></xsd:enumeration>
+			<xsd:enumeration value="B02"></xsd:enumeration>
+			<xsd:enumeration value="B03"></xsd:enumeration>
+			<xsd:enumeration value="B04"></xsd:enumeration>
+			<xsd:enumeration value="B05"></xsd:enumeration>
+			<xsd:enumeration value="B06"></xsd:enumeration>
+			<xsd:enumeration value="B07"></xsd:enumeration>
+			<xsd:enumeration value="B08"></xsd:enumeration>
+			<xsd:enumeration value="C01"></xsd:enumeration>
+			<xsd:enumeration value="C02"></xsd:enumeration>
+			<xsd:enumeration value="C03"></xsd:enumeration>
+			<xsd:enumeration value="C04"></xsd:enumeration>
+			<xsd:enumeration value="C05"></xsd:enumeration>
+			<xsd:enumeration value="C06"></xsd:enumeration>
+			<xsd:enumeration value="C07"></xsd:enumeration>
+			<xsd:enumeration value="D01"></xsd:enumeration>
+			<xsd:enumeration value="D02"></xsd:enumeration>
+			<xsd:enumeration value="D03"></xsd:enumeration>
+			<xsd:enumeration value="D04"></xsd:enumeration>
+			<xsd:enumeration value="D05"></xsd:enumeration>
+			<xsd:enumeration value="D06"></xsd:enumeration>
+			<xsd:enumeration value="D07"></xsd:enumeration>
+			<xsd:enumeration value="D08"></xsd:enumeration>
+			<xsd:enumeration value="D09"></xsd:enumeration>
+			<xsd:enumeration value="D10"></xsd:enumeration>
+			<xsd:enumeration value="E01"></xsd:enumeration>
+			<xsd:enumeration value="E02"></xsd:enumeration>
+			<xsd:enumeration value="E03"></xsd:enumeration>
+			<xsd:enumeration value="E04"></xsd:enumeration>
+			<xsd:enumeration value="E05"></xsd:enumeration>
+			<xsd:enumeration value="E06"></xsd:enumeration>
+			<xsd:enumeration value="E07"></xsd:enumeration>
+			<xsd:enumeration value="E08"></xsd:enumeration>
+			<xsd:enumeration value="E09"></xsd:enumeration>
+			<xsd:enumeration value="F01"></xsd:enumeration>
+			<xsd:enumeration value="F02"></xsd:enumeration>
+			<xsd:enumeration value="F03"></xsd:enumeration>
+			<xsd:enumeration value="F04"></xsd:enumeration>
+			<xsd:enumeration value="F05"></xsd:enumeration>
+			<xsd:enumeration value="F06"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="ClasseBisType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="U"></xsd:enumeration>
+			<xsd:enumeration value="1"></xsd:enumeration>
+			<xsd:enumeration value="2"></xsd:enumeration>
+			<xsd:enumeration value="3"></xsd:enumeration>
+			<xsd:enumeration value="4"></xsd:enumeration>
+			<xsd:enumeration value="5"></xsd:enumeration>
+			<xsd:enumeration value="6"></xsd:enumeration>
+			<xsd:enumeration value="7"></xsd:enumeration>
+			<xsd:enumeration value="8"></xsd:enumeration>
+			<xsd:enumeration value="9"></xsd:enumeration>
+			<xsd:enumeration value="10"></xsd:enumeration>
+			<xsd:enumeration value=">10"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+   	
+   	<xsd:simpleType name="PrefissoIndirizzoType">
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="1"></xsd:enumeration>
+			<xsd:enumeration value="2"></xsd:enumeration>
+			<xsd:enumeration value="3"></xsd:enumeration>
+			<xsd:enumeration value="4"></xsd:enumeration>
+			<xsd:enumeration value="5"></xsd:enumeration>
+			<xsd:enumeration value="6"></xsd:enumeration>
+			<xsd:enumeration value="7"></xsd:enumeration>
+			<xsd:enumeration value="8"></xsd:enumeration>
+			<xsd:enumeration value="9"></xsd:enumeration>
+			<xsd:enumeration value="10"></xsd:enumeration>
+			<xsd:enumeration value="11"></xsd:enumeration>
+			<xsd:enumeration value="12"></xsd:enumeration>
+			<xsd:enumeration value="13"></xsd:enumeration>
+			<xsd:enumeration value="14"></xsd:enumeration>
+			<xsd:enumeration value="15"></xsd:enumeration>
+			<xsd:enumeration value="16"></xsd:enumeration>
+			<xsd:enumeration value="17"></xsd:enumeration>
+			<xsd:enumeration value="18"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+    		
+    <xsd:simpleType name="FlagSiNoType">
+    	<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="1"></xsd:enumeration>
+			<xsd:enumeration value="0"></xsd:enumeration>
+		</xsd:restriction>
+    </xsd:simpleType>
+    
+    <xsd:simpleType name="PianoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="AA"></xsd:enumeration>
+			<xsd:enumeration value="SS"></xsd:enumeration>
+			<xsd:enumeration value="TT"></xsd:enumeration>
+			<xsd:enumeration value="1"></xsd:enumeration>
+			<xsd:enumeration value="2"></xsd:enumeration>
+			<xsd:enumeration value="3"></xsd:enumeration>
+			<xsd:enumeration value="4"></xsd:enumeration>
+			<xsd:enumeration value="5"></xsd:enumeration>
+			<xsd:enumeration value="6"></xsd:enumeration>
+			<xsd:enumeration value="7"></xsd:enumeration>
+			<xsd:enumeration value="8"></xsd:enumeration>
+			<xsd:enumeration value="9"></xsd:enumeration>
+			<xsd:enumeration value="10"></xsd:enumeration>
+			<xsd:enumeration value="11"></xsd:enumeration>
+			<xsd:enumeration value="12"></xsd:enumeration>
+			<xsd:enumeration value="13"></xsd:enumeration>
+			<xsd:enumeration value="14"></xsd:enumeration>
+			<xsd:enumeration value="15"></xsd:enumeration>
+			<xsd:enumeration value="16"></xsd:enumeration>
+			<xsd:enumeration value="17"></xsd:enumeration>
+			<xsd:enumeration value="18"></xsd:enumeration>
+			<xsd:enumeration value="19"></xsd:enumeration>
+			<xsd:enumeration value="20"></xsd:enumeration>
+			<xsd:enumeration value="21"></xsd:enumeration>
+			<xsd:enumeration value="22"></xsd:enumeration>
+			<xsd:enumeration value="23"></xsd:enumeration>
+			<xsd:enumeration value="24"></xsd:enumeration>
+			<xsd:enumeration value="25"></xsd:enumeration>
+			<xsd:enumeration value="26"></xsd:enumeration>
+			<xsd:enumeration value="27"></xsd:enumeration>
+			<xsd:enumeration value="28"></xsd:enumeration>
+			<xsd:enumeration value="29"></xsd:enumeration>
+			<xsd:enumeration value="30"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="CapType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\d{5}"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="DecimalePositivoType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"></xsd:minInclusive>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="ProprietaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="1"></xsd:enumeration>
+			<xsd:enumeration value="2"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="CodiceCatastaleType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\w{4}"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+    
+	<xsd:simpleType name="CodiceIstatType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\d{6}"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="AnnoType">
+		<xsd:restriction base="xsd:int">
+			<xsd:pattern value="\d{4}"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+    
+    <xsd:simpleType name="CodiceFiscaleEnteType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="16"></xsd:maxLength>
+			<xsd:minLength value="11"></xsd:minLength>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="ConsistenzaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="1"></xsd:enumeration>
+			<xsd:enumeration value="1,5"></xsd:enumeration>
+			<xsd:enumeration value="2"></xsd:enumeration>
+			<xsd:enumeration value="2,5"></xsd:enumeration>
+			<xsd:enumeration value="3"></xsd:enumeration>
+			<xsd:enumeration value="3,5"></xsd:enumeration>
+			<xsd:enumeration value="4"></xsd:enumeration>
+			<xsd:enumeration value="4,5"></xsd:enumeration>
+			<xsd:enumeration value="5"></xsd:enumeration>
+			<xsd:enumeration value="5,5"></xsd:enumeration>
+			<xsd:enumeration value="6"></xsd:enumeration>
+			<xsd:enumeration value="6,5"></xsd:enumeration>
+			<xsd:enumeration value="7"></xsd:enumeration>
+			<xsd:enumeration value="7,5"></xsd:enumeration>
+			<xsd:enumeration value="8"></xsd:enumeration>
+			<xsd:enumeration value="8,5"></xsd:enumeration>
+			<xsd:enumeration value="9"></xsd:enumeration>
+			<xsd:enumeration value="9,5"></xsd:enumeration>
+			<xsd:enumeration value="10"></xsd:enumeration>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	
+
+
+    
+	</xsd:schema>

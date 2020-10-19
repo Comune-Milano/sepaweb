@@ -1,0 +1,92 @@
+﻿body
+{
+    background-image: url(../../Immagini/SfondoContratto.png);
+    background-repeat: no-repeat;
+    font-family: Arial;
+    font-size: 9pt;
+    color: Black;
+    width: 780px;
+}
+table
+{
+    font-family: Arial;
+    font-size: 9pt;
+    color: Black;
+}
+textarea
+{
+    font-family: Arial;
+    font-size: 9pt;
+    color: Black;
+}
+input
+{
+    font-family: Arial;
+    font-size: 9pt;
+    color: Black;
+}
+#titolo
+{
+    font-size: 14pt;
+    color: Maroon;
+    font-weight: bold;
+    height: 45px;
+}
+#contenuto
+{
+    height: 445px;
+    overflow: auto;
+}
+#footer
+{
+    height: 45px;
+    text-align: center;
+}
+
+#TitoloPagina
+{
+    position: relative;
+    top: 10px;
+}
+.bottone
+{
+    background-color: transparent;
+    border-left: 8px solid #800000;
+    border-right: 0px solid #800000;
+    border-top: 0px solid #800000;
+    border-bottom: 0px solid #800000;
+    font-weight: bold;
+    font-size: 9pt;
+    height: 22px;
+    cursor: pointer;
+    font-family: Arial;
+    text-align: left;
+}
+.bottone2
+{
+    background-color: transparent;
+    border-left: 0px solid #800000;
+    border-right: 0px solid #800000;
+    border-top: 0px solid #800000;
+    border-bottom: 0px solid #800000;
+    font-weight: bold;
+    font-size: 12pt;
+    cursor: pointer;
+    font-family: Arial;
+}
+.bottone3
+{
+    background-color: transparent;
+    border-left: 4px solid #800000;
+    border-right: 0px solid #800000;
+    border-top: 0px solid #800000;
+    border-bottom: 0px solid #800000;
+    font-size: 8pt;
+    height: 22px;
+    cursor: pointer;
+    font-family: Arial;
+}
+.CssMaiuscolo
+{
+    text-transform: uppercase;
+}

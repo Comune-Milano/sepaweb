@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:anpu="http://osservatorio.lispa.it/anpu/schemas/messages"
+	targetNamespace="http://osservatorio.lispa.it/anpu/schemas/messages">
+
+	<xsd:element name="richiesta">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="intestazione" type="anpu:IntestazioneType" maxOccurs="1" minOccurs="1" />
+				<xsd:element name="occupazioni" type="anpu:OccupazioneType" maxOccurs="unbounded" minOccurs="1" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="IntestazioneType">
+		<xsd:attribute name="cfEnteProprietario" use="required" type="anpu:CodiceFiscaleEnteType" />
+		<xsd:attribute name="azione" use="required" type="anpu:AzioneType" />
+	</xsd:complexType>
+
+	<xsd:complexType name="OccupazioneType">
+	
+		<xsd:attribute name="flgCfConosciuto" use="required" type="anpu:FlagSiNoType" />
+		<xsd:attribute name="cf"  type="anpu:CodiceFiscaleEnteType" />
+		<xsd:attribute name="cdOccupazione"  use="required" type="anpu:String100Type" />
+		<xsd:attribute name="nome"  use="required" type="anpu:String100Type" />
+		<xsd:attribute name="cognome" use="required" type="anpu:String100Type" />
+		<xsd:attribute name="dtNascita" type="xsd:date" use="required"/>
+		<xsd:attribute name="flgSesso" type="anpu:SessoType" />
+		<xsd:attribute name="cdCatastaleNazioneNascita" type="anpu:CodiceCatastaleType" />
+		<xsd:attribute name="siglaProvinciaNascita" type="anpu:SiglaProvinciaType" />
+		<xsd:attribute name="cdCatastaleComuneNascita" type="anpu:CodiceCatastaleType" />
+		<xsd:attribute name="cdCittadinanza" type="anpu:CodiceCatastaleType" />
+		
+		<xsd:attribute name="cfEnteProprietario" type="anpu:CodiceFiscaleEnteType" use="required" />
+		<xsd:attribute name="cdAlloggio" type="anpu:String100Type" use="required"/>
+		<xsd:attribute name="siglaProvinciaAlloggio" type="xsd:string" use="required"/>
+		<xsd:attribute name="cdCatastaleAlloggio" type="anpu:CodiceCatastaleType" use="required"/>
+		<xsd:attribute name="prefissoIndirizzo" type="anpu:PrefissoIndirizzoType" use="required" />
+   		<xsd:attribute name="denominazioneIndirizzo" type="anpu:String100Type" use="required" />
+   		<xsd:attribute name="numCivico" type="anpu:String100Type" use="required" />
+		
+		<xsd:attribute name="dtInizioOccupazione" type="xsd:date" use="required"/>
+		<xsd:attribute name="idTipoOccupazione" type="anpu:TipoOccupazioneType" use="required"/>
+		<xsd:attribute name="tipoAttoRilevazione" type="anpu:String100Type" use="required" />
+		<xsd:attribute name="identificativoAttoRilevazione" type="anpu:String100Type" use="required" />
+		<xsd:attribute name="dtAttoRilevazione" type="xsd:date" use="required"/>
+		
+		<xsd:attribute name="idTipoAttoLegittimante" type="anpu:TipoAttoLegittimanteType" />
+		<xsd:attribute name="identificativoAttoLegittimante" type="anpu:String100Type"  />
+		<xsd:attribute name="dtAttoLegittimante" type="xsd:date" />
+		
+		<xsd:attribute name="identificativoAttoRilascio" type="anpu:String100Type"  />
+		<xsd:attribute name="protocolloAttoRilascio" type="anpu:String100Type" />
+		<xsd:attribute name="dtAttoRilascio" type="xsd:date" />
+		
+		<xsd:attribute name="idTipoPresenzaDebito" use="required" type="anpu:PresenzaDebitoType" />
+		
+		<!-- ANPU-1007 - Campo non piu' utilizzato, sostituito dai 4 campi FLAGTIPODEBITO... -->
+		<xsd:attribute name="flgTipoDebitoDanneggiamento" type="anpu:FlagSiNoType" />
+		<xsd:attribute name="flgTipoDebitoMancato" type="anpu:FlagSiNoType" />
+		<xsd:attribute name="flgTipoDebitoCosti" type="anpu:FlagSiNoType" />
+		<xsd:attribute name="flgTipoDebitoAltro" type="anpu:FlagSiNoType" />
+		
+		<xsd:attribute name="flgEstinzioneDebito" type="anpu:FlagSiNoType" />
+		<xsd:attribute name="dtEstinzioneDebito" type="xsd:date" />
+		
+		<xsd:attribute name="flgCessazioneOccupazione" use="required" type="anpu:FlagSiNoType" />
+		<xsd:attribute name="dtCessazioneOccupazione" type="xsd:date" />
+		<xsd:attribute name="identificativoProvvedimentoCessazione" type="anpu:String100Type"  />
+		<xsd:attribute name="protocolloProvvedimentoCessazione" type="anpu:String100Type" />
+		<xsd:attribute name="dtProvvedimentoCessazione" type="xsd:date" />
+		
+	</xsd:complexType>
+	
+	<xsd:simpleType name="AzioneType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="I" /> <!-- inserimento -->
+			<xsd:enumeration value="M" /> <!-- modifica -->
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="SiglaProvinciaType">
+		<xsd:restriction base="xsd:string">
+			<xsd:length value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="String100Type">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="100" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="CodiceFiscaleType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="16" />
+			<xsd:minLength value="11" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="CodiceFiscaleEnteType">
+		<xsd:restriction base="xsd:string">
+			<xsd:maxLength value="16" />
+			<xsd:minLength value="11" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="PresenzaDebitoType">
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="1" /><!--  si -->
+			<xsd:enumeration value="0" /><!--  no -->
+			<xsd:enumeration value="2" /><!--  in fase di verifica -->
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="FlagSiNoType">
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="1" /><!--  si -->
+			<xsd:enumeration value="0" /><!--  no -->
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="SessoType">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="M" />
+			<xsd:enumeration value="F" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="TipoDebitoType">
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="1" /><!--  Danneggiamento -->
+			<xsd:enumeration value="2" /><!--  Mancato pagamento indennità occupazione -->
+			<xsd:enumeration value="3" /><!--  Costi per lo sgombero -->
+			<xsd:enumeration value="99" /><!-- Altro -->
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="TipoAttoLegittimanteType">
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="1" /><!--  Decadenza -->
+			<xsd:enumeration value="2" /><!--  Annullamento -->
+			<xsd:enumeration value="3" /><!--  Decreto di rilascio -->
+			<xsd:enumeration value="4" /><!--  Querela -->
+			<xsd:enumeration value="99" /><!-- Altro -->
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="TipoOccupazioneType">
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="1" /><!--  Occupazione con violenza o effrazione -->
+			<xsd:enumeration value="2" /><!--  Permanenza dopo il termine stabilito in seguito di diniego al subentro -->
+			<xsd:enumeration value="3" /><!--  Permanenza dopo il termine stabilito per il rilascio a seguito di decadenza -->
+			<xsd:enumeration value="4" /><!--  Permanenza dopo il termine stabilito per il rilascio a seguito di annullamento -->
+			<xsd:enumeration value="99" /><!-- Altro -->
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CodiceCatastaleType">
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="\w{4}"></xsd:pattern>
+		</xsd:restriction>
+	</xsd:simpleType>
+    
+    <xsd:simpleType name="DecimalePositivoType">
+		<xsd:restriction base="xsd:decimal">
+			<xsd:minInclusive value="0"></xsd:minInclusive>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="PrefissoIndirizzoType">
+		<xsd:restriction base="xsd:int">
+			<xsd:enumeration value="1"></xsd:enumeration><!--  Via -->
+			<xsd:enumeration value="2"></xsd:enumeration><!--  Piazza -->
+			<xsd:enumeration value="3"></xsd:enumeration><!--  Vicolo -->
+			<xsd:enumeration value="4"></xsd:enumeration><!--  Largo -->
+			<xsd:enumeration value="5"></xsd:enumeration><!--  Corso -->
+			<xsd:enumeration value="6"></xsd:enumeration><!--  Stretto -->
+			<xsd:enumeration value="7"></xsd:enumeration><!--  Viale -->
+			<xsd:enumeration value="8"></xsd:enumeration><!--  Piazzale -->
+			<xsd:enumeration value="9"></xsd:enumeration><!--  Piazzetta -->
+			<xsd:enumeration value="10"></xsd:enumeration><!--  Corsetto -->
+			<xsd:enumeration value="11"></xsd:enumeration><!--  Traversa -->
+			<xsd:enumeration value="12"></xsd:enumeration><!--  Passaggio -->
+			<xsd:enumeration value="13"></xsd:enumeration><!--  Rampa -->
+			<xsd:enumeration value="14"></xsd:enumeration><!--  Strada -->
+			<xsd:enumeration value="15"></xsd:enumeration><!--  Contrada -->
+			<xsd:enumeration value="16"></xsd:enumeration><!--  Rua -->
+			<xsd:enumeration value="17"></xsd:enumeration><!--  Localita -->
+			<xsd:enumeration value="18"></xsd:enumeration><!--  Quartiere -->
+		</xsd:restriction>
+	</xsd:simpleType>
+    
+</xsd:schema>

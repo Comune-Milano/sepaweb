@@ -1,0 +1,815 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Autocertificazione</title>
+        <style type="text/css">
+        .CentratoGrande
+        {
+            text-align: center;
+            font-family: Arial;
+            font-size: 16pt;
+            font-weight: bold;
+        }
+        .LeftGrande
+        {
+            font-family: Arial;
+            font-size: 12pt;
+            text-align: left;
+        }
+        
+        .LeftNormale
+        {
+            font-family: Arial;
+            font-size: 10pt;
+            text-align: left;
+        }
+        
+        .RightNormale
+        {
+            text-align: right;
+            font-family: Arial;
+            font-size: 12pt;
+        }
+        
+        .CenterPiccolo
+        {
+            text-align: center;
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+            .style1
+            {
+                font-family: Arial;
+                font-size: 12pt;
+                text-align: left;
+                font-weight: bold;
+            }
+
+
+
+            .style2
+            {
+                font-family: Arial;
+                font-size: 10pt;
+                text-align: left;
+                font-weight: bold;
+            }
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <table width="100%">
+        <tr>
+            <td>
+                <table style="width:100%;">
+                    <tr class ="LeftGrande">
+                        <td >
+                            CODICE UTENTE</td>
+                        <td>
+                            <b>$codutente$</b></td>
+                        <td style="text-align: right" width="10%">
+                            PG DOM.:</td>
+                        <td>
+                            <b>$pgdom$</b> - PG DICH.:<b>$pgdich$</b></td>
+                        <td style="text-align: right">
+                            CODICE CONTRATTO</td>
+                        <td style="text-align: right">
+                            <b>$codcontratto$</b></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="CentratoGrande">
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr class="CentratoGrande">
+            <td>
+                DICHIARAZIONE A NORMA DEGLI ARTICOLI 46 E 47 DEL DPR N.445/2000</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="style1">
+                Anagrafica del Soggetto $soggetto$</td>
+        </tr>
+        <tr>
+            <td>
+                <table class ="LeftNormale" width="98%" 
+                    style="border-style: dashed; border-width: thin">
+                    <tr >
+                        <td >
+                            Cognome</td>
+                        <td >
+                            $cognome$</td>
+                        <td  >
+                            Nome</td>
+                        <td >
+                            $nome$</td>
+                        <td >
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Cod.Fiscale</td>
+                        <td >
+                            $cf$</td>
+                        <td >
+                            Data Nascita</td>
+                        <td >
+                            $datanascita$</td>
+                        <td>
+                            Sesso</td>
+                        <td >
+                            $sesso$</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Nazione nascita</td>
+                        <td >
+                            $naznascita$</td>
+                        <td >
+                            Provincia Nascita</td>
+                        <td >
+                            $provnascita$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Comune nascita</td>
+                        <td >
+                            $comunasc$</td>
+                        <td >
+                            </td>
+                        <td  >
+                            </td>
+                        <td >
+                            </td>
+                        <td >
+                            </td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Indirizzo di residenza</td>
+                        <td >
+                            $indresidenza$</td>
+                        <td >
+                            Comune</td>
+                        <td >
+                            $comune$</td>
+                        <td>
+                            Provincia</td>
+                        <td>
+                            $provincia$</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Invalidità</td>
+                        <td>
+                            $invalidita$</td>
+                        <td >
+                            Fiscalmente a carico</td>
+                        <td >
+                            $fiscalcarico$</td>
+                        <td>
+                            Stato civile</td>
+                        <td>
+                            $statocivile$</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Valenza Contrattuale</td>
+                        <td>
+                            $valenza$</td>
+                        <td >
+                            &nbsp;</td>
+                        <td >
+                            &nbsp;</td>
+                        <td>
+                            Ruolo Familiare</td>
+                        <td>
+                            $ruolfamil$</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Condizione Professionale</td>
+                        <td >
+                            $condizioneprof$</td>
+                        <td >
+                            &nbsp;</td>
+                        <td >
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Tipo Occupante</td>
+                        <td>
+                            $tipoccupante$</td>
+                        <td >
+                            Cittadinanza</td>
+                        <td >
+                            $cittadinanza$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Telefono</td>
+                        <td>
+                            $telefono$</td>
+                        <td >
+                            Fax</td>
+                        <td >
+                            $fax$</td>
+                        <td>
+                            Email</td>
+                        <td>
+                            $email$</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Data ingresso nucleo</td>
+                        <td>
+                            $dataingncleo$</td>
+                        <td >
+                            &nbsp;</td>
+                        <td >
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Data uscita nucleo</td>
+                        <td>
+                            $datauscita$</td>
+                        <td >
+                            Motivazione</td>
+                        <td>
+                            $motivazione$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            <b>Documenti d&#39;identità</b></td>
+                        <td>
+                            &nbsp;</td>
+                        <td >
+                            &nbsp;</td>
+                        <td >
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Tipo Documento</td>
+                        <td>
+                            $tipodoc$</td>
+                        <td >
+                            N. documento</td>
+                        <td >
+                            $numdoc$</td>
+                        <td>
+                            Data emissione</td>
+                        <td>
+                            $datadoc$</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Ente Emittente</td>
+                        <td>
+                            $enteidentita$</td>
+                        <td >
+                            &nbsp;</td>
+                        <td >
+                            &nbsp;</td>
+                        <td>
+                            Luogo rilascio</td>
+                        <td>
+                            $luogorilascio$</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            Permesso di Soggiorno</td>
+                        <td>
+                            $permsogg$</td>
+                        <td >
+                            &nbsp;</td>
+                        <td >
+                            &nbsp;</td>
+                        <td>
+                            Data rilascio</td>
+                        <td>
+                            $rilpermsog$</td>
+                    </tr>
+                    <tr >
+                        <td >
+                            In rinnovo permesso di soggiorno</td>
+                        <td>
+                            $rinnovopermsogg$</td>
+                        <td >
+                            &nbsp;</td>
+                        <td >
+                            &nbsp;</td>
+                        <td>
+                            Data scadenza</td>
+                        <td>
+                            $dcadrinps$</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td class="style2">
+                Redditi Anno $annoredditi$</td>
+        </tr>
+        <tr>
+            <td>
+                <table class ="LeftNormale" width="90%" cellpadding ="1" cellspacing ="1">
+                    <tr>
+                        <td>
+                            TUIR - Art. 10 bis</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $eurotuir$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Da lavoro dipendente</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $eurodipend$</td>
+                        <td>
+                            Giorni lavorati</td>
+                        <td>
+                            $gglavorodip$</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Assimilati a lavoro dipendente</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $euroassim$</td>
+                        <td>
+                            Giorni lavorati</td>
+                        <td>
+                            $ggassimilati$</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Giorni Disoccupazione</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            Giorni</td>
+                        <td>
+                            $ggdisocc$</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Da Pensione: $tipopensione$</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $europens$</td>
+                        <td>
+                            Giorni pensione</td>
+                        <td>
+                            $ggpensione$</td>
+                    </tr>
+                    <tr>
+                        <td colspan ="5">
+                Legenda tipo pensione: 1=vo;2=so; 3 = io; 4 = as/ps; 5 = iocom; 6 = estera; 7 = 
+                altro</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Pensione di invalidità civile</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $rpensinvciv$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Pensione di guerra</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $rpensguerra$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Da lavoro autonomo (con P.I.)</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $rlavautonomo$</td>
+                        <td>
+                            Giorni lavorati</td>
+                        <td>
+                            $ggautonomopi$</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Da lavoro autonomo saltuario (senza P.I.) / Da lavori occasionali (senza cert.fiscale)</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $rlavoccasionale$</td>
+                        <td>
+                            Giorni lavorati</td>
+                        <td>
+                            $ggautonomospi$</td>
+                    </tr>
+                    <!--<tr>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $rlavoccasionale$</td>
+                        <td>
+                            Giorni lavorati</td>
+                        <td>
+                            $ggoccasionali$</td>
+                    </tr>-->
+                    <tr>
+                        <td>
+                            Da rendita INIL</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $rrenditainail$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Da terreni</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $rterreni$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Da fabbricati</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $rfabbricati$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Da sussidi e/o assegni assistenziali</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $rsussidi$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Da indennità di accompagnamento</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $raccomp$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Assegno mantenimento dovuto per i figli</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $rassegnofigli$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Assegno mantenimento dovuto per il coniuge</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $rassegnocong$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Altro tipo di reddito</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $raltri$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Da proventi agrari</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $ragrari$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table width="95%">
+                    <tr class="LeftNormale">
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td style="text-align: right">
+                Firma del dichiarante</td>
+                    </tr>
+                    <tr class="LeftNormale">
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td style="text-align: right">
+                            __________________________________________________</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: left">
+                <table class =" LeftNormale ">
+                    <tr>
+                        <td style="text-align: left">
+                            <b>Patrimonio Mobiliare</b></td>
+                        <td>
+                            €.</td>
+                        <td>
+                            $eurpatrmob$</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: left">
+                            <b>Patrimonio Immobiliare</b></td>
+                        <td>
+                            €.</td>
+                        <td>
+                            $eurpatrimmob$</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr class ="LeftNormale">
+            <td>
+                <b>DETRAZIONI</b></td>
+        </tr>
+        <tr>
+            <td>
+                <table class ="LeftNormale" width="90%">
+                    <tr>
+                        <td>
+                            IRPEF dovuta</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $irpefdovuta$</td>
+                        <td>
+                            Addizionale Regionale</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $addregion$</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Addizionale Comunale</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $addcomun$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Oneri deducibili</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $onerided$</td>
+                        <td>
+                            Spese sanitarie</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $spesesanitarie$</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Spese ricovero</td>
+                        <td>
+                            €</td>
+                        <td>
+                            $spricovero$</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class ="style1">
+                $noreddito$Nessun reddito percepito</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr class ="style1">
+            <td>
+                Dichiarazioni Aggiuntive</td>
+        </tr>
+        <tr>
+            <td style="border-bottom-style: ridge; border-bottom-width: 1px; border-bottom-color: #000000">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="border-bottom-style: ridge; border-bottom-width: 1px; border-bottom-color: #000000">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="border-bottom-style: ridge; border-bottom-width: 1px; border-bottom-color: #000000">
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td class="LeftNormale">
+                Data $dataodierna$</td>
+        </tr>
+        <tr>
+            <td>
+                <table width="95%">
+                    <tr class="LeftNormale">
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td style="text-align: right">
+                Firma del dichiarante</td>
+                    </tr>
+                    <tr class="LeftNormale">
+                        <td>
+                            &nbsp;</td>
+                        <td>
+                            &nbsp;</td>
+                        <td style="text-align: right">
+                            __________________________________________________</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        </table>
+
+</body>
+</html>

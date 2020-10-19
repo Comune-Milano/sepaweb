@@ -1,0 +1,146 @@
+﻿body
+{
+}
+.sfondo
+{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e8e8e8+0,fefefe+100 */
+    background: rgb(232,232,232); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(232,232,232,1) 0%, rgba(254,254,254,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(232,232,232,1) 0%,rgba(254,254,254,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(232,232,232,1) 0%,rgba(254,254,254,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#fefefe',GradientType=0 ); /* IE6-9 */
+    background-size: 100% 1000px;
+}
+
+.contenuto
+{
+    position: relative;
+    left: -5px;
+}
+.menu
+{
+    position: relative;
+    left: -3px;
+    top: -px; /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e8e8e8+0,fefefe+100 */
+    background: rgb(232,232,232); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(232,232,232,1) 0%, rgba(254,254,254,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(232,232,232,1) 0%,rgba(254,254,254,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(232,232,232,1) 0%,rgba(254,254,254,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#fefefe',GradientType=0 ); /* IE6-9 */
+    background-size: 100% 30px;
+}
+.nmenu{
+    position: relative;
+    top: 2px; 
+}
+.TitoloModulo
+{
+    font-size: 15pt;
+    color: #1c2466;
+    font-family: Arial;
+    vertical-align: middle;
+    font-weight: bold;
+    text-align: center;
+}
+.TitoloH1
+{
+    font-size: 10pt;
+    color: #1c2466;
+    font-family: Arial;
+    vertical-align: middle;
+    font-weight: bold;
+    text-align: center;
+}
+.TitoloModuloMaster
+{
+    font-size: 25pt;
+    color: #1c2466;
+    font-family: Arial;
+    vertical-align: middle;
+    font-weight: bold;
+    text-align: center;
+}
+.TitoloOperatore
+{
+    font-size: 9pt;
+    color: #1c2466;
+    font-family: Arial;
+    vertical-align: middle;
+    font-weight: bold;
+    font-style: italic;
+}
+.TitoloNomeOperatore
+{
+    font-size: 9pt;
+    color: #1c2466;
+    font-family: Arial;
+    vertical-align: middle;
+    text-decoration: underline;
+}
+.ExportProgress
+{
+    width: 300px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    position: fixed;
+    z-index: 2;
+    margin-left: -200px;
+    margin-top: -75px;
+}
+.contenitoreExportProgress
+{
+    width: 100%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    position: fixed;
+    z-index: 2;
+}
+.txtMia
+{
+    background-color: transparent;
+    border-style: none;
+    font-weight: bold;
+    font-family: Arial;
+    font-size: 12pt;
+    width: 100%;
+    color: #1c2466;
+}
+
+/* ***** NEWS ***** */
+.tableTabStrip
+{
+    margin: 10px;
+}
+.tableTabFiltri
+{
+    margin: 5px;
+}
+.panelTabsStrip
+{
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: White;
+    border-bottom-color: #D4D4D4;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-left-color: #D4D4D4;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: #D4D4D4;
+}
+
+.tabStripStyle
+{
+    margin-top: -2px;
+    padding: 3px;
+}
+
+.rgAltRow, .rgRow
+{
+    cursor: pointer !important;
+}

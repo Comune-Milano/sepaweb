@@ -1,0 +1,198 @@
+﻿<%@ Master Language="VB" CodeFile="HomePage.master.vb" Inherits="GESTIONE_CONTATTI_HomePage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Agenda e Segnalazioni</title>
+    <link href="Style/Site.css" rel="stylesheet" type="text/css" />
+    <link href="Style/css/smoothness/jquery-ui-1.9.0.custom.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery/jquery-1.8.2.js" type="text/javascript"></script>
+    <script src="js/jquery/jquery.ui.datepicker-it.js" type="text/javascript"></script>
+    <script src="js/jquery/jquery-ui-1.9.0.custom.js" type="text/javascript"></script>
+    <script src="js/jsFunzioni.js" type="text/javascript"></script>
+    <script src="../StandardTelerik/Scripts/jsMessage.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+        function pageLoad(sender, args) {
+            if (args.get_isPartialLoad()) {
+                initialize();
+            };
+        };
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" onsubmit="loading(0);return true;">
+    <%--<form id="form1" runat="server">--%>
+    <%--<asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>--%>
+    <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
+    </telerik:RadScriptManager>
+    <div id="divGenerale">
+        <div id="divHeader" style="overflow: auto; height: 32px;">
+            <table style="width: 100%" cellpadding="0" cellspacing="0">
+                <tr>
+                    <td style="width: 90%;">
+                        <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="False"
+                            IncludeStyleBlock="false" Orientation="Horizontal" RenderingMode="List">
+                            <Items>
+                                <asp:MenuItem Text="Segnalazioni" Value="Segnalazioni" Selectable="False">
+                                    <asp:MenuItem Text="Nuova" Value="NuovaSegnalazione" ToolTip="Inserimento nuova segnalazione">
+                                </asp:MenuItem>
+                                    <asp:MenuItem Text="Ricerca" Value="RicercaSegnalazioni" ToolTip="Ricerca segnalazioni">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="Aggregazione" Value="RicercaSegnalazioniUnione" ToolTip="Aggregazione segnalazioni">
+                                    </asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Agenda" Value="Agenda" Selectable="True"></asp:MenuItem>
+                                <asp:MenuItem Text="Configurazione" Value="Configurazione" Selectable="False">
+                                <asp:MenuItem Text="Sportelli" Value="Sportelli" Selectable="False">
+                                    <%--<asp:MenuItem Text="Abilitazione sportelli" Value="AttivazioneSportelli" ToolTip="Abilitazione sportelli">
+                                    </asp:MenuItem>--%>
+                                        <asp:MenuItem Text="Operatività sportelli" Value="OperativitaSportelli" ToolTip="Operatività sportelli">
+                                </asp:MenuItem>
+                                        <asp:MenuItem Text="Apertura sportelli" ToolTip="Apertura sportelli" Value="AperturaSportelli">
+                                        </asp:MenuItem>
+                                    </asp:MenuItem>
+                                <asp:MenuItem Text="Numeri utili" ToolTip="Numeri utili" Value="Numeri" Selectable="false">
+                                        <asp:MenuItem Text="Ricerca" Value="RicercaNumeriUtili" ToolTip="Ricerca numeri utili">
+                                        </asp:MenuItem>
+                                        <asp:MenuItem Text="Gestione" Value="NumeriUtili" ToolTip="Gestione numeri utili">
+                                        </asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Semafori" ToolTip="Semafori" Value="SemaforiUfficio" Selectable="False">
+                                    <asp:MenuItem Text="Predefiniti" ToolTip="Semafori d'ufficio" Value="Semafori"></asp:MenuItem>
+                                        <asp:MenuItem Text="Parametri" ToolTip="Parametri semafori" Value="ParametriSemafori">
+                                        </asp:MenuItem>
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="Documentazione" ToolTip="Documentazione" Value="Documentazione">
+                                    </asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Report" Value="Report" Selectable="False">
+                                    <asp:MenuItem Text="Stato intervento" Value="StatoIntervento" ToolTip="Stato intervento">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="Situazione intervento" Value="SituazioneIntervento" ToolTip="Situazione intervento">
+                                    </asp:MenuItem>
+                                    <asp:MenuItem Text="Tempi" Value="Tempi" ToolTip="Tempi"></asp:MenuItem>
+                                </asp:MenuItem>
+                                <asp:MenuItem Text="Eventi" ToolTip="Eventi" Value="EventiGenerali"></asp:MenuItem>
+                                <%--<asp:MenuItem Text="Esci" Value="Esci" ToolTip="Esci dal modulo Agenda e Segnalazioni"></asp:MenuItem>--%>
+                                <asp:MenuItem Text="Home" Value="Home" ToolTip="Home Page"></asp:MenuItem>
+                            </Items>
+                        </asp:Menu>
+                    </td>
+                    <td>
+                        <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td>
+                                    <asp:Image ID="imgutente" runat="server" Height="14px" ImageUrl="../NuoveImm/Albero_1.gif" />
+                                </td>
+                                <td>
+                                    <asp:Label ID="lbltextute" runat="server" Font-Bold="False" Font-Names="arial" Font-Size="8pt"
+                                        ForeColor="#721C1F" Width="35px">Utente</asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Label ID="lblOperatore" runat="server" Font-Bold="True" Font-Size="X-Small"
+                                        Width="150px"></asp:Label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="divBody">
+            <div id="divTitolo">
+                <table id="tbTitolo">
+                    <tr>
+                        <td style="width: 5px;">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <asp:ContentPlaceHolder ID="CPTitolo" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="divMenu">
+                <table>
+                    <tr>
+                        <td style="width: 5px;">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <asp:ContentPlaceHolder ID="CPFooter" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="width: 100%; height: 100%; overflow: auto;">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 5px">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <asp:ContentPlaceHolder ID="CPContenuto" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="divFooter" class="footer" style="width: 100%">
+        </div>
+    </div>
+        <telerik:RadNotification ID="RadNotificationNotifiche" runat="server" Title="Sep@Com"
+            Width="350" Height="200" Animation="Fade" EnableRoundedCorners="true" EnableShadow="true"
+            AutoCloseDelay="0" Position="BottomRight" OffsetX="-30" OffsetY="-70" ShowCloseButton="true">
+            <ContentTemplate>
+                <div id="divNotifiche" style="width: 330px; height: 160px; overflow: auto;">
+                    <asp:Literal ID="lblNotifiche" runat="server" Text=""></asp:Literal>
+                </div>
+            </ContentTemplate>
+        </telerik:RadNotification>
+    <div>
+        <asp:HiddenField ID="tipoSubmit" runat="server" Value="0" />
+        <asp:HiddenField ID="noClose" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="noCloseRead" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="optMenu" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="operatoreCC" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="operatoreFiliale" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="operatoreFilialeTecnico" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="operatoreComune" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="FLGC" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="FLGC_SL" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="FL_GC_CALENDARIO" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="FL_GC_TABELLE_SUPP" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="supervisore" runat="server" Value="0" ClientIDMode="Static" />
+        <asp:HiddenField ID="HFBeforeLoading" runat="server" Value="0" ClientIDMode="Static" />
+    </div>
+    <div id="dialog" style="display: none;">
+    </div>
+    <div id="confirm" style="display: none;">
+    </div>
+    <div id="loading" style="display: none; text-align: center;">
+    </div>
+    <div id="divLoading" style="width: 0px; height: 0px; display: none;">
+        <img src="" id="imageLoading" alt="" />
+    </div>
+    <div id="divOscura" style="display: none; text-align: center; width: 100%; height: 100%;
+        position: absolute; top: 0px; left: 0px; background-color: #cccccc;">
+    </div>
+    <script src="js/gestioneDimensioniPagina.js" type="text/javascript"></script>
+    <%--<script src="js/jsfunzioniExit.js" type="text/javascript"></script>--%>
+    <script type="text/javascript">
+        initialize();
+        function initialize() {
+            document.getElementById('divHeader').style.overflow = '';
+            AfterSubmit();
+            window.focus();
+        };
+    </script>
+    </form>
+</body>
+</html>
+

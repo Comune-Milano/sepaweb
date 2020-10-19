@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://comune.milano.it/DB2WS/DB2Anagrafe/RicercaIndividui" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://comune.milano.it/DB2WS/DB2Anagrafe/RicercaIndividui" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://comune.milano.it/DB2WS/DB2Anagrafe/RicercaIndividui">
+            <s:element name="getIndividuibyCodiceFiscale">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="CodiceFiscale" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getIndividuibyCodiceFiscaleResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getIndividuibyCodiceFiscaleResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getIndividuibyDatiAnagrafici">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Cognome" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DataNascita" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Occorrenze" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getIndividuibyDatiAnagraficiResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getIndividuibyDatiAnagraficiResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getIndividuibyDatiAnagraficigetXML">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Cognome" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DataNascita" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Occorrenze" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getIndividuibyDatiAnagraficigetXMLResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getIndividuibyDatiAnagraficigetXMLResult">
+                            <s:complexType mixed="true">
+                                <s:sequence>
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getIndividuibyDatiFonetico">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="Cognome" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Nome" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="DataNascita" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Sesso" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="TipoRicerca" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Occorrenze" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getIndividuibyDatiFoneticoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getIndividuibyDatiFoneticoResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="getIndividuibyCodiceFiscaleSoapIn">
+        <wsdl:part name="parameters" element="tns:getIndividuibyCodiceFiscale" />
+    </wsdl:message>
+    <wsdl:message name="getIndividuibyCodiceFiscaleSoapOut">
+        <wsdl:part name="parameters" element="tns:getIndividuibyCodiceFiscaleResponse" />
+    </wsdl:message>
+    <wsdl:message name="getIndividuibyDatiAnagraficiSoapIn">
+        <wsdl:part name="parameters" element="tns:getIndividuibyDatiAnagrafici" />
+    </wsdl:message>
+    <wsdl:message name="getIndividuibyDatiAnagraficiSoapOut">
+        <wsdl:part name="parameters" element="tns:getIndividuibyDatiAnagraficiResponse" />
+    </wsdl:message>
+    <wsdl:message name="getIndividuibyDatiAnagraficigetXMLSoapIn">
+        <wsdl:part name="parameters" element="tns:getIndividuibyDatiAnagraficigetXML" />
+    </wsdl:message>
+    <wsdl:message name="getIndividuibyDatiAnagraficigetXMLSoapOut">
+        <wsdl:part name="parameters" element="tns:getIndividuibyDatiAnagraficigetXMLResponse" />
+    </wsdl:message>
+    <wsdl:message name="getIndividuibyDatiFoneticoSoapIn">
+        <wsdl:part name="parameters" element="tns:getIndividuibyDatiFonetico" />
+    </wsdl:message>
+    <wsdl:message name="getIndividuibyDatiFoneticoSoapOut">
+        <wsdl:part name="parameters" element="tns:getIndividuibyDatiFoneticoResponse" />
+    </wsdl:message>
+    <wsdl:portType name="WSDB2RicercaIndividuiSoap">
+        <wsdl:operation name="getIndividuibyCodiceFiscale">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca individui in anagrafe utilizzando il &lt;b&gt;Codice Fiscale&lt;/b&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getIndividuibyCodiceFiscaleSoapIn" />
+            <wsdl:output message="tns:getIndividuibyCodiceFiscaleSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getIndividuibyDatiAnagrafici">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca individui in anagrafe utilizzando i &lt;b&gt;Dati Anagrafici&lt;/b&gt;&lt;br&gt;Il campo Occorrenze (opzionale) consente di limitare il numero di record voluti</wsdl:documentation>
+            <wsdl:input message="tns:getIndividuibyDatiAnagraficiSoapIn" />
+            <wsdl:output message="tns:getIndividuibyDatiAnagraficiSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getIndividuibyDatiAnagraficigetXML">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca individui in anagrafe utilizzando i &lt;b&gt;Dati Anagrafici&lt;/b&gt;&lt;br&gt;Il campo Occorrenze (opzionale) consente di limitare il numero di record voluti</wsdl:documentation>
+            <wsdl:input message="tns:getIndividuibyDatiAnagraficigetXMLSoapIn" />
+            <wsdl:output message="tns:getIndividuibyDatiAnagraficigetXMLSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getIndividuibyDatiFonetico">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca individui in anagrafe utilizzando il &lt;b&gt;Codice Fonetico&lt;/b&gt;&lt;br&gt;Il campo TipoRicerca può contenere E (Ricerca Estesa)&lt;BR&gt;Il campo Occorrenze (opzionale) consente di limitare il numero di record restituiti</wsdl:documentation>
+            <wsdl:input message="tns:getIndividuibyDatiFoneticoSoapIn" />
+            <wsdl:output message="tns:getIndividuibyDatiFoneticoSoapOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="WSDB2RicercaIndividuiSoap" type="tns:WSDB2RicercaIndividuiSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getIndividuibyCodiceFiscale">
+            <soap:operation soapAction="http://comune.milano.it/DB2WS/DB2Anagrafe/RicercaIndividui/getIndividuibyCodiceFiscale" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getIndividuibyDatiAnagrafici">
+            <soap:operation soapAction="http://comune.milano.it/DB2WS/DB2Anagrafe/RicercaIndividui/getIndividuibyDatiAnagrafici" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getIndividuibyDatiAnagraficigetXML">
+            <soap:operation soapAction="http://comune.milano.it/DB2WS/DB2Anagrafe/RicercaIndividui/getIndividuibyDatiAnagraficigetXML" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getIndividuibyDatiFonetico">
+            <soap:operation soapAction="http://comune.milano.it/DB2WS/DB2Anagrafe/RicercaIndividui/getIndividuibyDatiFonetico" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WSDB2RicercaIndividuiSoap12" type="tns:WSDB2RicercaIndividuiSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getIndividuibyCodiceFiscale">
+            <soap12:operation soapAction="http://comune.milano.it/DB2WS/DB2Anagrafe/RicercaIndividui/getIndividuibyCodiceFiscale" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getIndividuibyDatiAnagrafici">
+            <soap12:operation soapAction="http://comune.milano.it/DB2WS/DB2Anagrafe/RicercaIndividui/getIndividuibyDatiAnagrafici" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getIndividuibyDatiAnagraficigetXML">
+            <soap12:operation soapAction="http://comune.milano.it/DB2WS/DB2Anagrafe/RicercaIndividui/getIndividuibyDatiAnagraficigetXML" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getIndividuibyDatiFonetico">
+            <soap12:operation soapAction="http://comune.milano.it/DB2WS/DB2Anagrafe/RicercaIndividui/getIndividuibyDatiFonetico" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="WSDB2RicercaIndividui">
+        <wsdl:port name="WSDB2RicercaIndividuiSoap" binding="tns:WSDB2RicercaIndividuiSoap">
+            <soap:address location="http://10.63.2.200:48140/DB2Anagrafe/Ricercaindividui.asmx" />
+        </wsdl:port>
+        <wsdl:port name="WSDB2RicercaIndividuiSoap12" binding="tns:WSDB2RicercaIndividuiSoap12">
+            <soap12:address location="http://10.63.2.200:48140/DB2Anagrafe/Ricercaindividui.asmx" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="caricaDati">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dataAggiornamento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="selectEsercizioContabile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="selectCompetenza" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="selectMacrocategoria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="selectCategoria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="selectVoci" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="selectTipologiaUI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneAggiornamento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneEmissioneDal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneEmissioneAl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneRiferimentoDal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneRiferimentoAl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneTipologiaBollettazione" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneListaVoci" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneCategoria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneMacrocategoria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneCapitoli" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneTipologiaUI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneCompetenza" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneTipologiaCondominio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneTipologiaContoCorrente" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneEsercizioContabile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupByEsercizioContabile" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupByCompetenza" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupByMacrocategoria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupByCategoria" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupByVoci" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupByTipologiaUI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vociSi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tipologiaUISi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="macrocategoriaSi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dettaglioSi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneListaVociRes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneDataPagamentoAl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneDataPagamentoDal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneDataContabileDal" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneDataAggiornamento" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneCompetenzaRes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneMacrocategoriaRes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneCategoriaRes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneCapitoliRes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="competenzaSi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="categoriaSi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="capitoliSi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneDataContabileAl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneTipologiaBollettazioneRes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="condizioneTipologiaUIRes" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tabella" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dettaglio" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dettaglioGroup" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="ordinamento" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="caricaDatiResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="caricaDatiSoapIn">
+    <wsdl:part name="parameters" element="tns:caricaDati" />
+  </wsdl:message>
+  <wsdl:message name="caricaDatiSoapOut">
+    <wsdl:part name="parameters" element="tns:caricaDatiResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CalcoloResiduiSoap">
+    <wsdl:operation name="caricaDati">
+      <wsdl:input message="tns:caricaDatiSoapIn" />
+      <wsdl:output message="tns:caricaDatiSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CalcoloResiduiSoap" type="tns:CalcoloResiduiSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="caricaDati">
+      <soap:operation soapAction="http://tempuri.org/caricaDati" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CalcoloResiduiSoap12" type="tns:CalcoloResiduiSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="caricaDati">
+      <soap12:operation soapAction="http://tempuri.org/caricaDati" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CalcoloResidui">
+    <wsdl:port name="CalcoloResiduiSoap" binding="tns:CalcoloResiduiSoap">
+      <soap:address location="http://sepaweb.comune.milano.it/CalcoloResidui.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CalcoloResiduiSoap12" binding="tns:CalcoloResiduiSoap12">
+      <soap12:address location="http://sepaweb.comune.milano.it/CalcoloResidui.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

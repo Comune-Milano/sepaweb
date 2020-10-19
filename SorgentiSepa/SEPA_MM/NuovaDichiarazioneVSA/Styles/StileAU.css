@@ -1,0 +1,66 @@
+﻿.ui-widget
+{
+    font-family: Georgia;
+    font-size: 10pt;
+}
+.ui-widget .ui-widget
+{
+    font-size: 0.8em;
+}
+/*.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Verdana,Arial,sans-serif; font-size: 1em; }*/
+.ui-widget-content
+{
+    border: 1px solid #aaaaaa;
+    background: #ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 10% 10% repeat-x;
+    color: #222222;
+}
+.ui-widget-content a
+{
+    color: #222222;
+}
+.ui-widget-header
+{
+    border: 1px solid #aaaaaa;
+    background: #cccccc url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
+    color: #222222;
+    font-weight: bold;
+}
+.ui-widget-header a
+{
+    color: #222222;
+}
+
+.bottone
+{
+    /*background-color: #507cd1;     border-style: none;     color: White;     font-weight: bold;     font-size: 8pt;     height: 25px;     cursor: pointer;     */
+    background-color: transparent;
+    border-left: 8px solid #800000;
+    border-right: 0px solid #800000;
+    border-top: 0px solid #800000;
+    border-bottom: 0px solid #800000;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 9pt;
+    height: 22px;
+    width: 50px;
+    cursor: pointer;
+}
+.bottoneDoc
+{
+    background-color: transparent;
+    border-left: 8px solid #800000;
+    border-right: 0px solid #800000;
+    border-top: 0px solid #800000;
+    border-bottom: 0px solid #800000;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 9pt;
+    height: 19px;
+    cursor: pointer;
+    padding-top: 3px;
+    width: 60px;
+}
+.bordoComboBox
+{
+    border: 2px solid #0078C2;
+}

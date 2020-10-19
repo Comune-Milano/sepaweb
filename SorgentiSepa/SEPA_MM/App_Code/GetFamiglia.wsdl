@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://comune.milano.it/DB2Anagrafe/WSDB2Anagrafe" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://comune.milano.it/DB2Anagrafe/WSDB2Anagrafe" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://comune.milano.it/DB2Anagrafe/WSDB2Anagrafe">
+            <s:element name="getFamiglia">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="NumeroFamiglia" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="idConvenzione" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ApplicazioneAccount" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getFamigliaResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getFamigliaResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getIndividuo">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="Matricola" type="s:int" />
+                        <s:element minOccurs="0" maxOccurs="1" name="idConvenzione" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="ApplicazioneAccount" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getIndividuoResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getIndividuoResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="getFamigliaSoapIn">
+        <wsdl:part name="parameters" element="tns:getFamiglia" />
+    </wsdl:message>
+    <wsdl:message name="getFamigliaSoapOut">
+        <wsdl:part name="parameters" element="tns:getFamigliaResponse" />
+    </wsdl:message>
+    <wsdl:message name="getIndividuoSoapIn">
+        <wsdl:part name="parameters" element="tns:getIndividuo" />
+    </wsdl:message>
+    <wsdl:message name="getIndividuoSoapOut">
+        <wsdl:part name="parameters" element="tns:getIndividuoResponse" />
+    </wsdl:message>
+    <wsdl:portType name="WSDB2AnagrafeSoap">
+        <wsdl:operation name="getFamiglia">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca famiglie in anagrafe utilizzando il &lt;b&gt;Numero di famiglia&lt;/b&gt; della persona ricercata</wsdl:documentation>
+            <wsdl:input message="tns:getFamigliaSoapIn" />
+            <wsdl:output message="tns:getFamigliaSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getIndividuo">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Ricerca individuo in anagrafe utilizzando la  &lt;b&gt;Matricola&lt;/b&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getIndividuoSoapIn" />
+            <wsdl:output message="tns:getIndividuoSoapOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="WSDB2AnagrafeSoap" type="tns:WSDB2AnagrafeSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getFamiglia">
+            <soap:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Anagrafe/getFamiglia" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getIndividuo">
+            <soap:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Anagrafe/getIndividuo" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="WSDB2AnagrafeSoap12" type="tns:WSDB2AnagrafeSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getFamiglia">
+            <soap12:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Anagrafe/getFamiglia" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getIndividuo">
+            <soap12:operation soapAction="http://comune.milano.it/DB2Anagrafe/WSDB2Anagrafe/getIndividuo" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="WSDB2Anagrafe">
+        <wsdl:port name="WSDB2AnagrafeSoap" binding="tns:WSDB2AnagrafeSoap">
+            <soap:address location="http://10.63.2.200:48140/DB2Anagrafe/DB2Anagrafe.asmx" />
+        </wsdl:port>
+        <wsdl:port name="WSDB2AnagrafeSoap12" binding="tns:WSDB2AnagrafeSoap12">
+            <soap12:address location="http://10.63.2.200:48140/DB2Anagrafe/DB2Anagrafe.asmx" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
