@@ -6,6 +6,13 @@ publiccodeYmlVersion: '0.2'
 categories:
   - erp
   - it-asset-management
+dependsOn:
+  proprietary:
+    - name: Oracle
+      optional: false
+      version: '11g'
+      versionMax: ''
+      versionMin: ''
 description:
   it:
     features:
