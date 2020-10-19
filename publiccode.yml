@@ -45,9 +45,9 @@ localisation:
   localisationReady: false
 maintenance:
   contacts:
-    - email: andrea.danese@comune.milano.it
-      name: Andrea Danese
-      phone: '+393479774029'
+    - email: santagostino@sistemiesoluzionisrl.it
+      name: Daniele Santagostino Ratti
+      phone: '+393738177666'
   type: internal
 name: Sepa@Web
 platforms:
