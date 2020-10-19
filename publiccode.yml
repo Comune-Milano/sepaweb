@@ -27,6 +27,8 @@ it:
     cie: false
     pagopa: false
     spid: false
+  riuso:
+    codiceIPA: c_f205
 legal:
   license: EUPL-1.2
   repoOwner: Comune di Milano
